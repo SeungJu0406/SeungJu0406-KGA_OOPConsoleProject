@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TextEternalReturn.Scenes
 {
-    public class Scene
+    public abstract class Scene
     {
+        public abstract void Render();
+        public abstract void Input();
+        public abstract void Update();
     }
 }

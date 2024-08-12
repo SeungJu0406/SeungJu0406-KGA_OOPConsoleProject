@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextEternalReturn.Monsters.Monsters
 {
-    internal class Bear : Monster
+    public class Bear : Monster
     {
     }
 }

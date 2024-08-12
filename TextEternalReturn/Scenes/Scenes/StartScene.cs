@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace TextEternalReturn.Scenes.Scenes
+﻿namespace TextEternalReturn.Scenes.Scenes
 {
     public class StartScene : Scene
     {
@@ -15,7 +13,9 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            PrintStart(error);            
+            Console.Clear();
+            if(!(error))PrintStart();
+            else PrintError();
         }
         public override void Input()
         {
@@ -39,23 +39,19 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             error = false;
         }
-        public override void Exit() 
+        public override void Exit()
         {
             curScene = null;
         }
-        private void PrintStart(bool error)
+        private void PrintStart()
         {
-            Console.Clear();
-            if (!(error))
-            {
-                Console.WriteLine("Text Eternal Return");
-                Console.WriteLine("엔터키를 눌러 지금 바로 시작");
-            }
-            else
-            {
-                Console.WriteLine("Text Eternal Return");
-                Console.WriteLine("제발 엔터키를 눌러 지금 바로 시작");
-            }
+            Console.WriteLine("Text Eternal Return");
+            Console.WriteLine("엔터키를 눌러 지금 바로 시작");
+        }
+        private void PrintError()
+        {
+            Console.WriteLine("Text Eternal Return");
+            Console.WriteLine("제발 엔터키를 눌러 지금 바로 시작");
         }
         private void UpdateKey(ConsoleKey consolekey)
         {
@@ -64,7 +60,7 @@ namespace TextEternalReturn.Scenes.Scenes
             else
                 error = true;
         }
-        
+
     }
 
 }

@@ -34,7 +34,7 @@ namespace TextEternalReturn
         private void Start()
         {
             isRunning = true;
-
+            Console.CursorVisible = false;
             sceneList[(int)SceneType.StartScene] = new StartScene(this);
             sceneList[(int)SceneType.MapScene] = new MapScene(this);
             sceneList[(int)SceneType.HotelScene] = new HotelScene(this);

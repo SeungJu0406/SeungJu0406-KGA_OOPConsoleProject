@@ -11,27 +11,40 @@ namespace TextEternalReturn.Players
     public class Inventory
     {
         // Food를 담을수있는 인벤토리 
-        Item[] inventory;
-        int Count;
-        int Capacitor;
+        List<Item> inventory;
         // 자동으로 음식먹어주는 우선순위 큐
         PriorityMinQueue autoEating;
         public Inventory()
         {
-            Count = 0;
-            Capacitor = 10;
-            inventory = new Item[Capacitor];          
-            autoEating = new PriorityMinQueue(inventory.Length);
+            inventory = new List<Item>(10);          
+            autoEating = new PriorityMinQueue(inventory.Capacity);
         }
         public void GetItem(Item item)
         {
-            if (Count == Capacitor)
+            if (inventory.Count == inventory.Capacity)
                 return;
-            inventory[Count] = item;
-            if (item as Food != null)
+            inventory.Add(item);
+            Food food = item as Food;
+            if ( food != null)
             {
-                //autoEating.Enqueue(item,);
+                autoEating.Enqueue(food, food.id);
             }
         }
+        // 아이템 사용하기
+        public void UseItem(int key)
+        {
+            //리스트에서 빼면서 아이템의 효과(메서드) 사용
+        }
+        // 아이템 버리기
+        public void ThrowItem(int key)
+        {
+            inventory.RemoveAt(key);
+            Food food = inventory[key - 1] as Food;
+            if (food != null) 
+            {
+                autoEating.Remove(food);
+            }
+        }
+        // 아이템 자동 사용하기
     }
 }

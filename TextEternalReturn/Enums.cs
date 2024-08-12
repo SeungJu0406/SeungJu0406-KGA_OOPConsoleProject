@@ -1,7 +1,6 @@
 ﻿namespace TextEternalReturn
 {
-    public static class Enum
-    {
+
         public enum Scene
         {
             StartScene, EndScene,
@@ -20,5 +19,5 @@
         {
             SalmonSteak, FishCuttlet, Steak, Salmon, CodFish, Meat
         }
-    }
+
 }

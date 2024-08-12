@@ -3,7 +3,6 @@
     public class StartScene : Scene
     {
         bool error;
-        Scene curScene;
         ConsoleKey consoleKey;
         public StartScene(Game game) : base(game)
         {
@@ -19,9 +18,9 @@
         {
             switch (Console.ReadKey(true).Key)
             {
-                case ConsoleKey.Enter:
+                case ConsoleKey.Z:
                     // 맵 화면으로 이동
-                    consoleKey = ConsoleKey.Enter;
+                    consoleKey = ConsoleKey.Z;
                     break;
                 default:
                     // 에러메세지
@@ -44,16 +43,16 @@
         private void PrintStart()
         {
             Console.WriteLine("Text Eternal Return");
-            Console.WriteLine("엔터키를 눌러 지금 바로 시작");
+            Console.WriteLine("Z를 눌러 지금 바로 시작");
         }
         private void PrintError()
         {
             Console.WriteLine("Text Eternal Return");
-            Console.WriteLine("제발 엔터키를 눌러 지금 바로 시작");
+            Console.WriteLine("제발 Z를 눌러 지금 바로 시작");
         }
         private void UpdateKey(ConsoleKey consolekey)
         {
-            if (consoleKey == ConsoleKey.Enter)
+            if (consoleKey == ConsoleKey.Z)
                 game.ChangeScene(SceneType.ChoiceScene);
             else
                 error = true;

@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class BonfireScene : Scene
     {
+        public BonfireScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

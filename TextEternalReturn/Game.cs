@@ -36,17 +36,17 @@ namespace TextEternalReturn
             isRunning = true;
 
             sceneList[(int)SceneType.StartScene] = new StartScene(this);
-            sceneList[(int)SceneType.MapScene] = new MapScene();
-            sceneList[(int)SceneType.HotelScene] = new HotelScene();
-            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene();
-            sceneList[(int)SceneType.HarborScene] = new HarborScene();
-            sceneList[(int)SceneType.HospitalScene] = new HospitalScene();
-            sceneList[(int)SceneType.BonFireScene] = new BonfireScene();
-            sceneList[(int)SceneType.StatusScene] = new StatusScene();
-            sceneList[(int)SceneType.InventoryScene] = new InventoryScene();
-            sceneList[(int)SceneType.BattleScene] = new BattleScene();
-            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene();
-            sceneList[(int)SceneType.EndScene] = new EndScene();
+            sceneList[(int)SceneType.MapScene] = new MapScene(this);
+            sceneList[(int)SceneType.HotelScene] = new HotelScene(this);
+            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(this);
+            sceneList[(int)SceneType.HarborScene] = new HarborScene(this);
+            sceneList[(int)SceneType.HospitalScene] = new HospitalScene(this);
+            sceneList[(int)SceneType.BonFireScene] = new BonfireScene(this);
+            sceneList[(int)SceneType.StatusScene] = new StatusScene(this);
+            sceneList[(int)SceneType.InventoryScene] = new InventoryScene(this);
+            sceneList[(int)SceneType.BattleScene] = new BattleScene(this);
+            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(this);
+            sceneList[(int)SceneType.EndScene] = new EndScene(this);
             
             curScene = sceneList[(int)SceneType.StartScene];
         }

@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class EndScene : Scene
     {
+        public EndScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

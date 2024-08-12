@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class MapScene : Scene
     {
+        public MapScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
             Console.WriteLine("임시 텍스트");

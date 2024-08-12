@@ -5,11 +5,9 @@
         bool error;
         Scene curScene;
         ConsoleKey consoleKey;
-        public StartScene(Game game)
+        public StartScene(Game game) : base(game)
         {
-            this.game = game;
             error = false;
-            curScene = game.curScene;
         }
         public override void Render()
         {

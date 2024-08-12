@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class StatusScene : Scene
     {
+        public StatusScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
             

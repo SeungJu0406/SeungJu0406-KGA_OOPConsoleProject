@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class PoliceOfficeScene : Scene
     {
+        public PoliceOfficeScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

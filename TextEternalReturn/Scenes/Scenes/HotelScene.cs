@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HotelScene : Scene
     {
+        public HotelScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

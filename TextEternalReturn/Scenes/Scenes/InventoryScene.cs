@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class InventoryScene : Scene
     {
+        public InventoryScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

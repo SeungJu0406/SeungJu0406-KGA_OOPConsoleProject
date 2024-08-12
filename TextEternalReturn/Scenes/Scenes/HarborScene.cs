@@ -8,6 +8,10 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HarborScene : Scene
     {
+        public HarborScene(Game game) : base(game)
+        {
+
+        }
         public override void Render()
         {
 

@@ -8,5 +8,17 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class StatusScene : Scene
     {
+        public override void Render()
+        {
+            
+        }
+        public override void Input()
+        {
+            
+        }
+        public override void Update()
+        {
+
+        }
     }
 }

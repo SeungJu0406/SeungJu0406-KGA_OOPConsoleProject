@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextEternalReturn.Scenes.Scenes
+﻿namespace TextEternalReturn.Scenes.Scenes
 {
     public class StartScene : Scene
     {
+        public StartScene()
+        {
+
+        }
+
+        public override void Render()
+        {
+
+        }
+        public override void Input()
+        {
+
+        }
+        public override void Update()
+        {
+
+        }
     }
+
+}
+}
 }

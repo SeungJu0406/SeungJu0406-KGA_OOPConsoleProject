@@ -8,5 +8,17 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HotelScene : Scene
     {
+        public override void Render()
+        {
+
+        }
+        public override void Input()
+        {
+
+        }
+        public override void Update()
+        {
+
+        }
     }
 }

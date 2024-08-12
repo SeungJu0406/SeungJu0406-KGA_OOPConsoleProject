@@ -2,9 +2,10 @@
 {
     public enum SceneType
     {
-        StartScene, EndScene,
+        StartScene, 
         MapScene, HotelScene, PoliceOfficeScene, HarborScene, HospitalScene, BonFireScene,
-        StatusScene, InventoryScene, BattleScene, SIZE
+        StatusScene, InventoryScene, BattleScene,
+        EndScene, SIZE
     }
     public enum PlaceType
     {

@@ -11,8 +11,8 @@ namespace TextEternalReturn
 {
     public class Game
     {
-        Scene[] sceneList = new Scene[11];
-        Scene curScene;
+        public Scene[] sceneList = new Scene[11];
+        public Scene curScene {  get; set; }
         bool isRunning;
         public void Run()
         {
@@ -25,12 +25,17 @@ namespace TextEternalReturn
             }
             End();
         }
-
+        public void ChangeScene(SceneType sceneType)
+        {
+            curScene.Exit();
+            curScene = sceneList[(int)sceneType];
+            curScene.Enter();
+        }
         private void Start()
         {
-            bool isRunning = true;
+            isRunning = true;
 
-            sceneList[(int)SceneType.StartScene] = new StartScene();
+            sceneList[(int)SceneType.StartScene] = new StartScene(this);
             sceneList[(int)SceneType.MapScene] = new MapScene();
             sceneList[(int)SceneType.HotelScene] = new HotelScene();
             sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene();

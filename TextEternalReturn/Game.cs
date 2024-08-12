@@ -4,12 +4,20 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextEternalReturn.Scenes;
 
 namespace TextEternalReturn
 {
     public class Game
     {
+        Scene[] sceneList;
+        Scene curScene;
         bool isRunning;
+        public Game() 
+        {
+            sceneList = new Scene[11];
+            //sceneList[SceneType.StartScene] = new StartScene(); 
+        }
         public void Run()
         {
             Start();

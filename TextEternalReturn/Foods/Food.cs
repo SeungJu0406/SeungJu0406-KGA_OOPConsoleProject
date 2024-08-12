@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Food
+namespace TextEternalReturn.Foods
 {
-    internal class Food
+    public class Food
     {
     }
 }

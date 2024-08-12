@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Monsters
+namespace TextEternalReturn.Monsters.Monsters
 {
-    internal class Chicken
+    internal class Chicken : Monster
     {
     }
 }

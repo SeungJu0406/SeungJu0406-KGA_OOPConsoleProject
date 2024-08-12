@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Food.Food
+namespace TextEternalReturn.Foods.Foods
 {
-    internal class CodFish
+    internal class CodFish :Food
     {
     }
 }

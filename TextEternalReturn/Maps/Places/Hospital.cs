@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Maps
+namespace TextEternalReturn.Maps.Places
 {
-    internal class Hospital
+    internal class Hospital :Place
     {
     }
 }

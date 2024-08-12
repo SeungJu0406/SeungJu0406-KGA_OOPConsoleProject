@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Map.Place
+namespace TextEternalReturn.Maps.Places
 {
-    internal class Bonfire
+    internal class Bonfire : Place
     {
     }
 }

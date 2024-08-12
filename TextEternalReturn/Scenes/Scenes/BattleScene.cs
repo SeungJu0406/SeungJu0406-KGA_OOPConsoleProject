@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Scene.Scene
+namespace TextEternalReturn.Scenes.Scenes
 {
-    internal class BattleScene
+    internal class BattleScene : Scene
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Monster
+namespace TextEternalReturn.Monsters
 {
     public class Monster
     {

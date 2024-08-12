@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Foods
+namespace TextEternalReturn.Foods.Foods
 {
-    internal class Steak
+    internal class Steak : Food
     {
     }
 }

@@ -11,7 +11,7 @@ namespace TextEternalReturn
 {
     public class Game
     {
-        public Scene[] sceneList = new Scene[11];
+        public Scene[] sceneList = new Scene[12];
         public Scene curScene {  get; set; }
         bool isRunning;
         public void Run()
@@ -45,6 +45,7 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.StatusScene] = new StatusScene();
             sceneList[(int)SceneType.InventoryScene] = new InventoryScene();
             sceneList[(int)SceneType.BattleScene] = new BattleScene();
+            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene();
             sceneList[(int)SceneType.EndScene] = new EndScene();
             
             curScene = sceneList[(int)SceneType.StartScene];

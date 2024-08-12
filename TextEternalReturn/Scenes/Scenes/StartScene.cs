@@ -60,7 +60,7 @@ namespace TextEternalReturn.Scenes.Scenes
         private void UpdateKey(ConsoleKey consolekey)
         {
             if (consoleKey == ConsoleKey.Enter)
-                game.ChangeScene(SceneType.MapScene);
+                game.ChangeScene(SceneType.ChoiceScene);
             else
                 error = true;
         }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TextEternalReturn.Foods.Foods
 {
-    internal class CodFish :Food
+    public class CodFish :Food
     {
+
     }
 }

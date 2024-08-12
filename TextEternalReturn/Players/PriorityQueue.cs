@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Foods.Foods
+namespace TextEternalReturn.Players
 {
-    internal class Salmon : Food
+    internal class PriorityQueue
     {
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEternalReturn.Foods.Foods
+namespace TextEternalReturn.Items
 {
-    internal class Steak : Food
+    public class Item
     {
+        public string name { get; set; }
     }
 }

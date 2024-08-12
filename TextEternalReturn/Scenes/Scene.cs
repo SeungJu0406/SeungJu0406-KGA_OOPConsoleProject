@@ -8,8 +8,11 @@ namespace TextEternalReturn.Scenes
 {
     public abstract class Scene
     {
+        protected Game game;
         public abstract void Render();
         public abstract void Input();
         public abstract void Update();
+        public abstract void Enter();
+        public abstract void Exit();
     }
 }

@@ -10,13 +10,21 @@ namespace TextEternalReturn.Scenes.Scenes
     {
         public override void Render()
         {
-
+            Console.WriteLine("임시 텍스트");
         }
         public override void Input()
         {
-
+            Console.ReadLine();
         }
         public override void Update()
+        {
+            
+        }
+        public override void Enter()
+        {
+
+        }
+        public override void Exit()
         {
 
         }

@@ -13,7 +13,7 @@
     }
     public enum MonsterType
     {
-        Hyunwoo, Chicken, WildBoar, Wolf, Bear, SIZE
+        Chicken, WildBoar, Wolf, Bear, Hyunwoo, SIZE
     }
     public enum FoodType
     {

@@ -17,6 +17,10 @@ namespace TextEternalReturn.Items.Foods
         public void Use(Player player)
         {
             player.curHp += recovery;
+            if(player.curHp > player.maxHp)
+            {
+                player.curHp = player.maxHp;
+            }
         }
     }
 }

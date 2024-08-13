@@ -21,7 +21,7 @@ namespace TextEternalReturn.Players
         {
             inventory = new Inventory(this);
             maxHp = 600;
-            curHp = 100;
+            curHp = 600;
             power = 70;
             exp = 0;
         }

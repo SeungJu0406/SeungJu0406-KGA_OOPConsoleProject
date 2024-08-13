@@ -11,11 +11,15 @@ namespace TextEternalReturn.Scenes.Scenes
             public int x, y;
             public Choice choice;
         }
-        Point mobStatusPoint;
+        Scene prevScene;
+
+        Point mobStatusPoint;       
         Monster monster;
         MonsterFactory mobFactory = new MonsterFactory();
+        
         Point[] points = new Point[3];
         Point curPoint;
+
         public BattleScene(Player player) : base(player)
         {
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
@@ -38,10 +42,15 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             UpdateKey();
         }
+        
         public override void Enter()
         {
-            monster = mobFactory.CreateRandom();
-            curPoint = points[(int)Choice.Attack];
+            if (!(game.prevScene is InventoryScene))
+            {
+                monster = mobFactory.CreateRandom();
+                curPoint = points[(int)Choice.Attack];
+                prevScene = game.prevScene;
+            }
         }
         public override void Exit()
         {
@@ -129,13 +138,11 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void UseItem()
         {
-            // 인벤토리 창으로 이동
-            // 이전에 잡고있던 몹은 저장하고있어야하는데
             game.ChangeScene(SceneType.InventoryScene);
         }
         private void Run()
         {
-            int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
+            int prevSceneIndex = Array.IndexOf(game.sceneList, prevScene);
             game.ChangeScene((SceneType)prevSceneIndex);
         }
         #region 커서 옮기기

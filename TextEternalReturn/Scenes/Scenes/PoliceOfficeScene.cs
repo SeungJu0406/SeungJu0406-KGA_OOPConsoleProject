@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class PoliceOfficeScene : Scene
     {
-        public PoliceOfficeScene(Game game, Player player) : base(game,player)
+        public PoliceOfficeScene(Player player) : base(player)
         {
 
         }

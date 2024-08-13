@@ -9,13 +9,13 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class BattleScene : Scene
     {
-        public BattleScene(Game game, Player player) : base(game, player)
+        public BattleScene(Player player) : base(player)
         {
 
         }
         public override void Render()
         {
-
+            throw new NotImplementedException();
         }
         public override void Input()
         {

@@ -12,7 +12,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         Point[] points = new Point[3];
         Point curPoint;    
-        public ChoiceScene(Game game, Player player) : base(game,player)
+        public ChoiceScene(Player player) : base(player)
         {
             points[(int)CursorPoint.AnimalHunt] = new Point() { x = 0, y = 3, scene = SceneType.BattleScene };
             points[(int)CursorPoint.MoveMap] = new Point() { x = 0, y = 4, scene = SceneType.MapScene };

@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HotelScene : Scene
     {
-        public HotelScene(Game game, Player player) : base(game, player)
+        public HotelScene(Player player) : base(player)
         {
 
         }

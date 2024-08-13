@@ -9,13 +9,13 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class MapScene : Scene
     {
-        public MapScene(Game game,Player player) : base(game,player)
+        public MapScene(Player player) : base(player)
         {
 
         }
         public override void Render()
         {
-            Console.WriteLine("임시 텍스트");
+            throw new NotImplementedException();
         }
         public override void Input()
         {

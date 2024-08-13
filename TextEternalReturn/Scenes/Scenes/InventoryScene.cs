@@ -8,7 +8,7 @@ namespace TextEternalReturn.Scenes.Scenes
         enum CursorPoint { FisrtItem, LastItem, Exit, SIZE }
         List<Item> inventory;
         int index = 0;      
-        public InventoryScene(Game game, Player player) : base(game, player)
+        public InventoryScene(Player player) : base(player)
         {
             this.inventory = player.inventory.inventory;
             points = new Point[3];

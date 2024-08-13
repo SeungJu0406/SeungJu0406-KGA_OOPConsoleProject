@@ -5,7 +5,7 @@ namespace TextEternalReturn.Scenes.Scenes
     {
         bool error;
         ConsoleKey consoleKey;
-        public StartScene(Game game, Player player) : base(game,player)
+        public StartScene(Player player) : base(player)
         {
             error = false;
         }

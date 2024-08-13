@@ -13,11 +13,15 @@ namespace TextEternalReturn
 {
     public class Game
     {
+        public static Game game = new Game();
         public Scene[] sceneList = new Scene[12];
         public Scene curScene {  get; set; }
         public Player player = new Player();
         bool isRunning;
-       
+        private Game()
+        {
+
+        }
         public void Run()
         {
             Start();
@@ -39,18 +43,18 @@ namespace TextEternalReturn
         {
             isRunning = true;
             Console.CursorVisible = false;
-            sceneList[(int)SceneType.StartScene] = new StartScene(this,player);
-            sceneList[(int)SceneType.MapScene] = new MapScene(this, player);
-            sceneList[(int)SceneType.HotelScene] = new HotelScene(this, player);
-            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(this, player);
-            sceneList[(int)SceneType.HarborScene] = new HarborScene(this, player);
-            sceneList[(int)SceneType.HospitalScene] = new HospitalScene(this, player);
-            sceneList[(int)SceneType.BonFireScene] = new BonfireScene(this, player);
-            sceneList[(int)SceneType.StatusScene] = new StatusScene(this, player);
-            sceneList[(int)SceneType.InventoryScene] = new InventoryScene(this, player);
-            sceneList[(int)SceneType.BattleScene] = new BattleScene(this, player);
-            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(this, player);
-            sceneList[(int)SceneType.EndScene] = new EndScene(this, player);
+            sceneList[(int)SceneType.StartScene] = new StartScene(player);
+            sceneList[(int)SceneType.MapScene] = new MapScene(player);
+            sceneList[(int)SceneType.HotelScene] = new HotelScene(player);
+            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(player);
+            sceneList[(int)SceneType.HarborScene] = new HarborScene(player);
+            sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
+            sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);
+            sceneList[(int)SceneType.StatusScene] = new StatusScene(player);
+            sceneList[(int)SceneType.InventoryScene] = new InventoryScene(player);
+            sceneList[(int)SceneType.BattleScene] = new BattleScene(player);
+            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(player);
+            sceneList[(int)SceneType.EndScene] = new EndScene(player);
             
             curScene = sceneList[(int)SceneType.StartScene];
         }
@@ -69,6 +73,10 @@ namespace TextEternalReturn
         private void End()
         {
             
+        }
+        public static Game getInstance()
+        {
+            return game;
         }
     }
 }

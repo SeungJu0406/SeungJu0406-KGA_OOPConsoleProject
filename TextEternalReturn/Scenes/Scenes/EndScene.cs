@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class EndScene : Scene
     {
-        public EndScene(Game game,Player player) : base(game,player)
+        public EndScene(Player player) : base(player)
         {
 
         }

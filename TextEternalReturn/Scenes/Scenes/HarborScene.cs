@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HarborScene : Scene
     {
-        public HarborScene(Game game, Player player) : base(game,player)
+        public HarborScene(Player player) : base(player)
         {
 
         }

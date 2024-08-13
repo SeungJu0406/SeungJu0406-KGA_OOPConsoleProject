@@ -14,9 +14,9 @@ namespace TextEternalReturn.Scenes
         }
         protected Point curPoint;
         protected Point[] points = new Point[3];
-        protected Scene(Game game, Player player)
+        protected Scene(Player player)
         {
-            this.game = game;
+            this.game = Game.getInstance();
             this.player = player;
             curScene = game.curScene;
         }

@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class BonfireScene : Scene
     {
-        public BonfireScene(Game game, Player player) : base(game, player)
+        public BonfireScene(Player player) : base(player)
         {
 
         }

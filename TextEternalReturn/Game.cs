@@ -67,7 +67,7 @@ namespace TextEternalReturn
         private void Update()
         {
             curScene.Update();
-            player.CheckLoseHp();
+            player.CheckLoseHp();// 적당한 위치를 찾아야하는데
         }
         private void End()
         {

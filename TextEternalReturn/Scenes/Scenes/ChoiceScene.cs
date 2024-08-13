@@ -18,12 +18,12 @@ namespace TextEternalReturn.Scenes.Scenes
             int X = points[(int)CursorPoint.AnimalHunt].x;
             int Y = points[(int)CursorPoint.AnimalHunt].y;
             points[(int)CursorPoint.MoveMap] = new Point() { x = X, y = Y+1, scene = SceneType.MapScene };
-            points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y+2, scene = SceneType.InventoryScene };
-            curPoint = points[(int)CursorPoint.AnimalHunt];
+            points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y+2, scene = SceneType.InventoryScene };           
         }
         public override void Enter()
         {
             Console.Clear();
+            curPoint = points[(int)CursorPoint.AnimalHunt];
         }
 
         public override void Exit()
@@ -31,7 +31,7 @@ namespace TextEternalReturn.Scenes.Scenes
             game.prevScene = this;
         }
         public override void Render()
-        {
+        {           
             PrintStatus();
             PrintChoice();
         }

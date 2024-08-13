@@ -29,15 +29,15 @@ namespace TextEternalReturn.Players
         {
             if (inventory.Count<inventory.Capacity)
             {
-                if (inventory.Count == inventory.Capacity)
-                    return;
-                inventory.Add(item);
                 Food food = item as Food;
-                if (food != null)
-                {
-                    autoQueue.Enqueue(food, food.priority);
-                }
+                inventory.Add(food);
+                autoQueue.Enqueue(food, food.priority);
                 OnGetItem?.Invoke();
+                //if (food != null)
+                //{
+
+                //}
+
             }
         }
         // 아이템 사용하기
@@ -71,9 +71,10 @@ namespace TextEternalReturn.Players
         {
             Food food = autoQueue.Dequeue();
             inventory.Remove(food);
-            if(food != null)
-                food.Use(player);
             OnRemoveItem?.Invoke();
+            if (food != null)
+                food.Use(player);
+            
         }      
     }
 }

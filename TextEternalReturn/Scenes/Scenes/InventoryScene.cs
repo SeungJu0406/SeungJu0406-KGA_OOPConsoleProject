@@ -32,7 +32,8 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)Pos.FisrtItem];            
+            curPoint = points[(int)Pos.FisrtItem];
+            points[(int)Pos.LastItem].y = inventory.Count + (Y - 1);
         }
         public override void Exit()
         {

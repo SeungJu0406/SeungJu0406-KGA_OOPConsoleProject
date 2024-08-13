@@ -8,13 +8,14 @@ using TextEternalReturn.Items;
 
 namespace TextEternalReturn.Players
 {
-    public class Player
+    public class Player : IAttack, IHit, IDie
     {
         public Inventory inventory;
         public int maxHp { get; set; }
         public int curHp { get; set; }
         public int power { get; set; }
         public int exp { get; set; }
+        public bool isDie { get; private set; }
         public Action OnLoseHp;
         public Player()
         {
@@ -23,6 +24,23 @@ namespace TextEternalReturn.Players
             curHp = 100;
             power = 70;
             exp = 0;
+        }
+        public void Attack(IHit Ihit)
+        {
+            Ihit.Hit(power);
+        }
+        public void Hit(int power)
+        {
+            curHp -= power;
+            if (curHp < 0)
+            {
+                curHp = 0;
+                Die();
+            }
+        }
+        public void Die()
+        {
+            isDie = true;
         }
         public void UseItem(int itemKey)
         {

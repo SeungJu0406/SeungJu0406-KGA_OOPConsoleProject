@@ -75,7 +75,8 @@ namespace TextEternalReturn.Players
         {
             Food food = autoQueue.Dequeue();
             inventory.Remove(food);
-            food.Use(player);
+            if(food != null)
+                food.Use(player);
         }
         
     }

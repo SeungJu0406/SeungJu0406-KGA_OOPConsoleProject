@@ -116,13 +116,22 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             // 플레이어가 몬스터를 공격
             // 플레이어 공격 후 몬스터도 공격
+            player.Attack(monster);
+            if (monster.isDie)
+            {
+                Run();
+            }
+            monster.Attack(player);
+            if (player.isDie)
+            {
+                //플레이어가 죽었을때 엔딩화면으로
+            }
         }
         private void UseItem()
         {
             // 인벤토리 창으로 이동
             // 이전에 잡고있던 몹은 저장하고있어야하는데
             game.ChangeScene(SceneType.InventoryScene);
-
         }
         private void Run()
         {

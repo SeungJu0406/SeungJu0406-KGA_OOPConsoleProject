@@ -6,12 +6,30 @@ using System.Threading.Tasks;
 
 namespace TextEternalReturn.Monsters
 {
-    public class Monster
+    public class Monster : IAttack, IHit, IDie
     {
         public string name { get; set; }
         public int maxHp { get; set; }
         public int curHp { get; set; }
         public int power { get; set; }
         public int exp { get; set; }
+        public bool isDie { get; private set; }
+        public void Attack(IHit Ihit)
+        {
+            Ihit.Hit(power);
+        }
+        public void Hit(int power)
+        {
+            curHp -= power;
+            if (curHp < 0) 
+            {
+                curHp = 0;
+                Die();
+            }
+        }
+        public void Die()
+        {
+            isDie = true;
+        }
     }
 }

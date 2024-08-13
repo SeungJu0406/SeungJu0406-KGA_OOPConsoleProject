@@ -27,6 +27,7 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new FishCutlet();
                 food.name = "생선까스";
                 food.recovery = 600;
+                food.id = (int)FoodType.FishCuttlet;
                 return food;
             }
             else if (foodType == FoodType.Steak)
@@ -34,6 +35,7 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new FishCutlet();
                 food.name = "스테이크";
                 food.recovery = 550;
+                food.id = (int)FoodType.Steak;
                 return food;
             }
             else if (foodType == FoodType.Salmon)
@@ -41,6 +43,7 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new Salmon();
                 food.name = "연어";
                 food.recovery = 300;
+                food.id = (int)FoodType.Salmon;
                 return food;
             }
             else if (foodType == FoodType.CodFish)
@@ -48,6 +51,7 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new CodFish();
                 food.name = "대구";
                 food.recovery = 300;
+                food.id = (int)FoodType.CodFish;
                 return food;
             }
             else if (foodType == FoodType.Meat)
@@ -55,6 +59,7 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new Meat();
                 food.name = "고기";
                 food.recovery = 300;
+                food.id = (int)FoodType.Meat;
                 return food;
             }
             return null;

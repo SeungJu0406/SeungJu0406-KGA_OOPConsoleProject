@@ -22,7 +22,30 @@ namespace TextEternalReturn.Scenes
             statusPoint = new Point() { x = 0, y = 0 };
         }
         public abstract void Render();
-        public abstract void Input();
+        public virtual void Input()
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.UpArrow:
+                    consoleKey = ConsoleKey.UpArrow;
+                    break;
+                case ConsoleKey.DownArrow:
+                    consoleKey = ConsoleKey.DownArrow;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    consoleKey = ConsoleKey.LeftArrow;
+                    break;
+                case ConsoleKey.RightArrow:
+                    consoleKey = ConsoleKey.RightArrow;
+                    break;
+                case ConsoleKey.Z:
+                    consoleKey = ConsoleKey.Z;
+                    break;
+                default:
+                    consoleKey = default;
+                    break;
+            }
+        }
         public abstract void Update();
         public abstract void Enter();
         public abstract void Exit();

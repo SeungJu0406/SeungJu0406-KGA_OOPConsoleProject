@@ -4,7 +4,6 @@ namespace TextEternalReturn.Scenes.Scenes
     public class StartScene : Scene
     {
         bool error;
-        ConsoleKey consoleKey;
         public StartScene(Player player) : base(player)
         {
             error = false;
@@ -14,20 +13,6 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.Clear();
             if(!(error))PrintStart();
             else PrintError();
-        }
-        public override void Input()
-        {
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.Z:
-                    // 맵 화면으로 이동
-                    consoleKey = ConsoleKey.Z;
-                    break;
-                default:
-                    // 에러메세지
-                    consoleKey = default;
-                    break;
-            }
         }
         public override void Update()
         {

@@ -35,30 +35,6 @@ namespace TextEternalReturn.Scenes.Scenes
             PrintStatus();
             PrintChoice();
         }
-        public override void Input()
-        {
-            switch (Console.ReadKey(true).Key)
-            {
-                case ConsoleKey.UpArrow:
-                    consoleKey = ConsoleKey.UpArrow;
-                    break;
-                case ConsoleKey.DownArrow:
-                    consoleKey = ConsoleKey.DownArrow;
-                    break;
-                case ConsoleKey.LeftArrow:
-                    consoleKey = ConsoleKey.LeftArrow;
-                    break;
-                case ConsoleKey.RightArrow:
-                    consoleKey = ConsoleKey.RightArrow;
-                    break;
-                case ConsoleKey.Z:
-                    consoleKey = ConsoleKey.Z;
-                    break;
-                default:
-                    consoleKey = default;
-                    break;
-            }
-        }
         public override void Update()
         {
             UpdateKey(consoleKey);

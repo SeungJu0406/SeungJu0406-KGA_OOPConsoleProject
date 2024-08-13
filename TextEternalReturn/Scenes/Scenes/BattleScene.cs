@@ -15,11 +15,8 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            throw new NotImplementedException();
-        }
-        public override void Input()
-        {
-
+            Console.Clear();
+            PrintStatus();
         }
         public override void Update()
         {
@@ -33,5 +30,6 @@ namespace TextEternalReturn.Scenes.Scenes
         {
 
         }
+        
     }
 }

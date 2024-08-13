@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Monsters.Monsters;
+﻿using TextEternalReturn.Monsters.Monsters;
 
 namespace TextEternalReturn.Monsters
 {
@@ -15,16 +10,18 @@ namespace TextEternalReturn.Monsters
             {
                 Monster monster = new Chicken();
                 monster.name = "닭";
-                monster.hp = 50;
+                monster.maxHp = 50;
+                monster.curHp = 50;
                 monster.power = 10;
                 monster.exp = 50;
                 return monster;
             }
-            else if (monsterType == MonsterType.WildBoar) 
+            else if (monsterType == MonsterType.WildBoar)
             {
                 Monster monster = new WildBoar();
                 monster.name = "멧돼지";
-                monster.hp = 200;
+                monster.maxHp = 200;
+                monster.curHp = 200;
                 monster.power = 30;
                 monster.exp = 150;
                 return monster;
@@ -33,7 +30,8 @@ namespace TextEternalReturn.Monsters
             {
                 Monster monster = new WildBoar();
                 monster.name = "늑대";
-                monster.hp = 150;
+                monster.maxHp = 150;
+                monster.curHp = 150;
                 monster.power = 20;
                 monster.exp = 125;
                 return monster;
@@ -42,12 +40,18 @@ namespace TextEternalReturn.Monsters
             {
                 Monster monster = new WildBoar();
                 monster.name = "곰";
-                monster.hp = 500;
+                monster.maxHp = 500;
+                monster.curHp = 500;
                 monster.power = 75;
                 monster.exp = 400;
                 return monster;
             }
             return null;
+        }
+        public Monster CreateRandom()
+        {
+            int random = Util.Random(0, 3);
+            return Create((MonsterType)random);
         }
     }
 }

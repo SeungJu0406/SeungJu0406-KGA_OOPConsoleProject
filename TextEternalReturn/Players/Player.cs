@@ -24,9 +24,9 @@ namespace TextEternalReturn.Players
             power = 70;
             exp = 0;
         }
-        public void UseItem(Item item)
+        public void UseItem(int itemKey)
         {
-            inventory.UseItem(item);
+            inventory.UseItem(itemKey);
         }
         #region 체력 40% 이하 감지
         /// <summary>

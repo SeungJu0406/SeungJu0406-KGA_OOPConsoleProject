@@ -59,6 +59,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PrintInventory()
         {
+            Console.Clear();
             SetCursor(points[(int)CursorPoint.FisrtItem]);
             foreach (Item item in inventory)
             {
@@ -88,9 +89,30 @@ namespace TextEternalReturn.Scenes.Scenes
                     MoveLeftCursor();
                     break;
                 case ConsoleKey.Z:
+                    PushKeyZ();
                     break;
                 default:
                     break;
+            }
+        }
+        private void PushKeyZ() 
+        {
+            if(curPoint.x == points[(int)CursorPoint.Exit].x && curPoint.y == points[(int)CursorPoint.Exit].y)
+            {
+                game.ChangeScene(SceneType.ChoiceScene);
+            }
+            else
+            {
+                if (inventory.Count>0) 
+                {
+                    int key = curPoint.y - points[(int)CursorPoint.FisrtItem].y;
+                    player.UseItem(key);
+                    MoveUpCursor();            
+                }
+                if (inventory.Count == 0)
+                {
+                    MoveRightCursor();
+                }
             }
         }
         #region 커서 움직임

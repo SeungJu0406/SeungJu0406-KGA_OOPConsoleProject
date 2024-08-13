@@ -28,11 +28,11 @@ namespace TextEternalReturn.Players
             player.OnLoseHp += UseAuto;
 
             //임시 테스트용
-            inventory.Add(foodFactory.Create(FoodType.SalmonSteak));
-            inventory.Add(foodFactory.Create(FoodType.Meat));
-            inventory.Add(foodFactory.Create(FoodType.Meat));
-            inventory.Add(foodFactory.Create(FoodType.Meat));
-            inventory.Add(foodFactory.Create(FoodType.Meat));
+            GetItem(foodFactory.Create(FoodType.SalmonSteak));
+            GetItem(foodFactory.Create(FoodType.Meat));
+            GetItem(foodFactory.Create(FoodType.Meat));
+            GetItem(foodFactory.Create(FoodType.Meat));
+            GetItem(foodFactory.Create(FoodType.Meat));
             //
         }
         public void GetItem(Item item)
@@ -47,12 +47,12 @@ namespace TextEternalReturn.Players
             }
         }
         // 아이템 사용하기
-        public void UseItem(Item item)
+        public void UseItem(int key)
         {
             //리스트에서 빼면서 아이템의 효과(메서드) 사용
-            if (item is Food)
+            if (inventory[key] is Food)
             {
-                Food food = item as Food;
+                Food food = inventory[key] as Food;
                 food.Use(player);
                 inventory.Remove(food);
                 autoQueue.Remove(food);

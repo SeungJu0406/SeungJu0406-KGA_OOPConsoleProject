@@ -57,7 +57,7 @@ namespace TextEternalReturn.Players
         public Food Dequeue()
         {
             if (Count <= 0)
-                throw new IndexOutOfRangeException();
+                return null;
             MinQueue result = queue[0];
             queue[0] = queue[Count - 1]; // 마지막과 교체
             queue[Count - 1] = default;

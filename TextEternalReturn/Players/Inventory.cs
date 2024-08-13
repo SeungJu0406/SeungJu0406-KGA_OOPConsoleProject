@@ -26,11 +26,10 @@ namespace TextEternalReturn.Players
             inventory = new List<Item>(10);          
             autoQueue = new PriorityMinQueue(inventory.Capacity);
             player.OnLoseHp += UseAuto;
-
-            //임시 테스트용
+            //임시 테스트용         
+            GetItem(foodFactory.Create(FoodType.Meat));
+            GetItem(foodFactory.Create(FoodType.Meat));
             GetItem(foodFactory.Create(FoodType.SalmonSteak));
-            GetItem(foodFactory.Create(FoodType.Meat));
-            GetItem(foodFactory.Create(FoodType.Meat));
             GetItem(foodFactory.Create(FoodType.Meat));
             GetItem(foodFactory.Create(FoodType.Meat));
             //
@@ -72,7 +71,7 @@ namespace TextEternalReturn.Players
             }
         }
         // 아이템 자동 사용하기
-        public void UseAuto()
+        private void UseAuto()
         {
             Food food = autoQueue.Dequeue();
             inventory.Remove(food);

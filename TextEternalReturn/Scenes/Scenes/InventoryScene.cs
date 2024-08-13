@@ -5,19 +5,19 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class InventoryScene : Scene
     {
-        enum Pos { FisrtItem, LastItem ,Exit, SIZE }
+        enum Pos { FisrtItem, LastItem, Exit, SIZE }
         List<Item> inventory;
         int index = 0;
         Point[] points = new Point[(int)Pos.SIZE];
         public InventoryScene(Player player) : base(player)
         {
-            this.inventory = player.inventory.inventory;           
+            this.inventory = player.inventory.inventory;
             points[(int)Pos.FisrtItem] = new Point() { x = X, y = Y };
-            points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
-            points[(int)Pos.Exit] = new Point() { x = X+20, y = Y };
+            points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y - 1) };
+            points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
             player.inventory.OnGetItem += CheckGetItem;
             player.inventory.OnRemoveItem += CheckRemoveItem;
-                       
+
         }
         public override void Render()
         {
@@ -32,7 +32,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)Pos.FisrtItem];
+            curPoint = inventory.Count > 0 ? points[(int)Pos.FisrtItem] : points[(int)Pos.Exit];
             points[(int)Pos.LastItem].y = inventory.Count + (Y - 1);
         }
         public override void Exit()
@@ -78,20 +78,20 @@ namespace TextEternalReturn.Scenes.Scenes
                     break;
             }
         }
-        private void PushKeyZ() 
+        private void PushKeyZ()
         {
-            if(curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
+            if (curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
             {
                 int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
-                game.ChangeScene((SceneType) prevSceneIndex);
+                game.ChangeScene((SceneType)prevSceneIndex);
             }
             else
             {
-                if (inventory.Count>0) 
+                if (inventory.Count > 0)
                 {
                     int key = curPoint.y - points[(int)Pos.FisrtItem].y;
-                    player.UseItem(key);               
-                    MoveUpCursor();            
+                    player.UseItem(key);
+                    MoveUpCursor();
                 }
                 if (inventory.Count == 0)
                 {
@@ -137,7 +137,8 @@ namespace TextEternalReturn.Scenes.Scenes
             if (curPoint.x == points[(int)Pos.Exit].x &&
                 curPoint.y == points[(int)Pos.Exit].y)
             {
-                curPoint = temp;
+                if (inventory.Count > 0)
+                    curPoint = temp;
             }
         }
         #endregion

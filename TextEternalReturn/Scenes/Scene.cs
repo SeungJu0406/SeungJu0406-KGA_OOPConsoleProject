@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes
 {
@@ -10,9 +12,12 @@ namespace TextEternalReturn.Scenes
     {
         protected Game game;
         protected Scene curScene;
-        protected Scene(Game game) 
+        protected ConsoleKey consoleKey;
+        protected Player player;
+        protected Scene(Game game, Player player) 
         {
             this.game = game;
+            this.player = player;
             curScene = game.curScene;
         }
         public abstract void Render();

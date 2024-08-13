@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
     internal class MapScene : Scene
     {
-        public MapScene(Game game) : base(game)
+        public MapScene(Game game,Player player) : base(game,player)
         {
 
         }

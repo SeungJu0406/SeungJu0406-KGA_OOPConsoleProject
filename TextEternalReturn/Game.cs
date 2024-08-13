@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Scenes;
 using TextEternalReturn.Scenes.Scenes;
+using TextEternalReturn.Players;
 
 namespace TextEternalReturn
 {
@@ -13,6 +14,7 @@ namespace TextEternalReturn
     {
         public Scene[] sceneList = new Scene[12];
         public Scene curScene {  get; set; }
+        public Player player = new Player();
         bool isRunning;
         public void Run()
         {
@@ -35,18 +37,18 @@ namespace TextEternalReturn
         {
             isRunning = true;
             Console.CursorVisible = false;
-            sceneList[(int)SceneType.StartScene] = new StartScene(this);
-            sceneList[(int)SceneType.MapScene] = new MapScene(this);
-            sceneList[(int)SceneType.HotelScene] = new HotelScene(this);
-            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(this);
-            sceneList[(int)SceneType.HarborScene] = new HarborScene(this);
-            sceneList[(int)SceneType.HospitalScene] = new HospitalScene(this);
-            sceneList[(int)SceneType.BonFireScene] = new BonfireScene(this);
-            sceneList[(int)SceneType.StatusScene] = new StatusScene(this);
-            sceneList[(int)SceneType.InventoryScene] = new InventoryScene(this);
-            sceneList[(int)SceneType.BattleScene] = new BattleScene(this);
-            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(this);
-            sceneList[(int)SceneType.EndScene] = new EndScene(this);
+            sceneList[(int)SceneType.StartScene] = new StartScene(this,player);
+            sceneList[(int)SceneType.MapScene] = new MapScene(this, player);
+            sceneList[(int)SceneType.HotelScene] = new HotelScene(this, player);
+            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(this, player);
+            sceneList[(int)SceneType.HarborScene] = new HarborScene(this, player);
+            sceneList[(int)SceneType.HospitalScene] = new HospitalScene(this, player);
+            sceneList[(int)SceneType.BonFireScene] = new BonfireScene(this, player);
+            sceneList[(int)SceneType.StatusScene] = new StatusScene(this, player);
+            sceneList[(int)SceneType.InventoryScene] = new InventoryScene(this, player);
+            sceneList[(int)SceneType.BattleScene] = new BattleScene(this, player);
+            sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(this, player);
+            sceneList[(int)SceneType.EndScene] = new EndScene(this, player);
             
             curScene = sceneList[(int)SceneType.StartScene];
         }

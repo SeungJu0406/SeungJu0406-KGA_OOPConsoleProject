@@ -1,10 +1,11 @@
-﻿namespace TextEternalReturn.Scenes.Scenes
+﻿using TextEternalReturn.Players;
+namespace TextEternalReturn.Scenes.Scenes
 {
     public class StartScene : Scene
     {
         bool error;
         ConsoleKey consoleKey;
-        public StartScene(Game game) : base(game)
+        public StartScene(Game game, Player player) : base(game,player)
         {
             error = false;
         }
@@ -34,6 +35,7 @@
         }
         public override void Enter()
         {
+            Console.Clear();
             error = false;
         }
         public override void Exit()
@@ -57,7 +59,7 @@
             else
                 error = true;
         }
-
+        
     }
 
 }

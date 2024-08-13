@@ -1,21 +1,22 @@
-﻿namespace TextEternalReturn.Scenes.Scenes
+﻿using TextEternalReturn.Players;
+
+namespace TextEternalReturn.Scenes.Scenes
 {
     public class ChoiceScene : Scene
     {
         enum CursorPoint { AnimalHunt, MoveMap, CheckInventory, SIZE }
         public struct Point()
         {
-            public int X, Y;
+            public int x, y;
             public SceneType scene;
         }
         Point[] points = new Point[3];
-        Point curPoint;
-        ConsoleKey consoleKey;
-        public ChoiceScene(Game game) : base(game)
+        Point curPoint;    
+        public ChoiceScene(Game game, Player player) : base(game,player)
         {
-            points[(int)CursorPoint.AnimalHunt] = new Point() { X = 0, Y = 3, scene = SceneType.BattleScene };
-            points[(int)CursorPoint.MoveMap] = new Point() { X = 0, Y = 4, scene = SceneType.MapScene };
-            points[(int)CursorPoint.CheckInventory] = new Point() { X = 0, Y = 5, scene = SceneType.InventoryScene };
+            points[(int)CursorPoint.AnimalHunt] = new Point() { x = 0, y = 3, scene = SceneType.BattleScene };
+            points[(int)CursorPoint.MoveMap] = new Point() { x = 0, y = 4, scene = SceneType.MapScene };
+            points[(int)CursorPoint.CheckInventory] = new Point() { x = 0, y = 5, scene = SceneType.InventoryScene };
             curPoint = points[(int)CursorPoint.AnimalHunt];
         }
         public override void Enter()
@@ -25,7 +26,7 @@
 
         public override void Exit()
         {
-
+            
         }
         public override void Render()
         {
@@ -89,7 +90,7 @@
         }
         private void SetCursor(Point cursorPoint)
         {
-            Console.SetCursorPosition(cursorPoint.X, cursorPoint.Y);
+            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
         }
         private void MoveUpCursor(Point curPoint)
         {

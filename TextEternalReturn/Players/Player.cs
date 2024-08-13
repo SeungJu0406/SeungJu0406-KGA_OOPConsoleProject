@@ -20,7 +20,7 @@ namespace TextEternalReturn.Players
         {
             inventory = new Inventory(this);
             maxHp = 600;
-            curHp = 600;
+            curHp = 100;
             power = 70;
             exp = 0;
         }
@@ -32,17 +32,19 @@ namespace TextEternalReturn.Players
         /// <summary>
         /// 체력 40% 이하 감지
         /// </summary>
-        private bool IsLoseHp()
-        {
-            return curHp < maxHp * 0.4;
-        }
-        private void CheckLoseHp()
+        /// 
+        public void CheckLoseHp()
         {
             if (IsLoseHp())
             {
                 OnLoseHp?.Invoke();
             }
         }
+        private bool IsLoseHp()
+        {
+            return curHp < maxHp * 0.4;
+        }
+
         #endregion
     }
 }

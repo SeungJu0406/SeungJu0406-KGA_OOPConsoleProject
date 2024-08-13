@@ -14,13 +14,14 @@ namespace TextEternalReturn.Scenes.Scenes
             Y4,
             Y5,
             Y6,
-            Player, SIZE
+            Player, Hyunwoo, SIZE
         }
         Point[] points = new Point[(int)MapPoint.SIZE];
         public MapScene(Player player) : base(player)
         {
             points[(int)MapPoint.Map] = new Point() { x = X, y = Y };
             points[(int)MapPoint.Player] = new Point() { x = X + 4, y = Y + 4 };
+            points[(int)MapPoint.Hyunwoo] = new Point() { x = X + 7, y = Y + 7 };
         }
         public override void Render()
         {
@@ -75,6 +76,10 @@ namespace TextEternalReturn.Scenes.Scenes
             SetCursor(points[(int)MapPoint.Player]);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("P");
+            Console.ResetColor();
+            SetCursor(points[(int)MapPoint.Hyunwoo]);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("H");
             Console.ResetColor();
         }
         private void SetCursor(Point cursorPoint)

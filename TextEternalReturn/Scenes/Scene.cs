@@ -52,13 +52,16 @@ namespace TextEternalReturn.Scenes
         protected void PrintStatus()
         {
             SetCursor(statusPoint);
-            Console.WriteLine($"경험치: {player.exp,+5}");        
+            Console.WriteLine($"레벨: {player.level,+5}");        
             statusPoint.y++;
             SetCursor(statusPoint);
             Console.WriteLine($"체력: {player.curHp,5}/{player.maxHp}");          
             statusPoint.y++;
             SetCursor(statusPoint);
             Console.WriteLine($"공격력: {player.power,5}");
+            statusPoint.y++;
+            SetCursor(statusPoint);
+            Console.WriteLine($"경험치: {player.curExp,3}/{player.maxExp}");
             statusPoint.y = 0;
         }
         private void SetCursor(Point cursorPoint)

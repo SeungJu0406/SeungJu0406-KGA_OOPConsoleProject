@@ -23,7 +23,7 @@ namespace TextEternalReturn.Monsters
         public void Hit(int power)
         {
             curHp -= power;
-            if (curHp < 0) 
+            if (curHp <= 0) 
             {
                 curHp = 0;
                 Die();

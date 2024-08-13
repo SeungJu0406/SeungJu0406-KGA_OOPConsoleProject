@@ -11,19 +11,23 @@ namespace TextEternalReturn.Players
     public class Player : IAttack, IHit, IDie
     {
         public Inventory inventory;
+        public int level {  get; set; }
         public int maxHp { get; set; }
         public int curHp { get; set; }
         public int power { get; set; }
-        public int exp { get; set; }
+        public int curExp { get; set; }
+        public int maxExp {  get; set; }
         public bool isDie { get; private set; }
         public Action OnLoseHp;
         public Player()
         {
             inventory = new Inventory(this);
+            level = 1;
             maxHp = 600;
             curHp = 600;
             power = 70;
-            exp = 0;
+            curExp = 0;
+            maxExp = 100;
         }
         public void Attack(IHit Ihit)
         {
@@ -32,7 +36,7 @@ namespace TextEternalReturn.Players
         public void Hit(int power)
         {
             curHp -= power;
-            if (curHp < 0)
+            if (curHp <= 0)
             {
                 curHp = 0;
                 Die();
@@ -41,6 +45,18 @@ namespace TextEternalReturn.Players
         public void Die()
         {
             isDie = true;
+        }
+        public void GetExp(int exp)
+        {
+            curExp += exp;
+            if (curExp>=maxExp)
+            {
+                level++;
+                maxHp += 50;
+                power += 10;
+                maxExp += 20;
+                curExp = 0;
+            }
         }
         public void GetItem(Item item)
         {

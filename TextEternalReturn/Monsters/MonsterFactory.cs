@@ -15,7 +15,7 @@ namespace TextEternalReturn.Monsters
                 monster.maxHp = 50;
                 monster.curHp = 50;
                 monster.power = 10;
-                monster.exp = 50;
+                monster.exp = 5;
                 monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
@@ -26,7 +26,7 @@ namespace TextEternalReturn.Monsters
                 monster.maxHp = 200;
                 monster.curHp = 200;
                 monster.power = 30;
-                monster.exp = 150;
+                monster.exp = 15;
                 monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
@@ -37,7 +37,7 @@ namespace TextEternalReturn.Monsters
                 monster.maxHp = 150;
                 monster.curHp = 150;
                 monster.power = 20;
-                monster.exp = 125;
+                monster.exp = 10;
                 monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
@@ -48,7 +48,7 @@ namespace TextEternalReturn.Monsters
                 monster.maxHp = 500;
                 monster.curHp = 500;
                 monster.power = 75;
-                monster.exp = 400;
+                monster.exp = 50;
                 monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }

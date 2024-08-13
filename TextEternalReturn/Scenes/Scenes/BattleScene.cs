@@ -23,7 +23,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public BattleScene(Player player) : base(player)
         {
             int X = statusPoint.x;
-            int Y = statusPoint.y + 4;
+            int Y = statusPoint.y + 5;
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
             points[(int)Choice.Attack] = new Point() { x = X, y = Y, choice = Choice.Attack };
             points[(int)Choice.UseItem] = new Point() { x = X + 20, y = Y, choice = Choice.UseItem };
@@ -121,11 +121,10 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void Attack()
         {
-            // 플레이어가 몬스터를 공격
-            // 플레이어 공격 후 몬스터도 공격
             player.Attack(monster);
             if (monster.isDie)
             {
+                player.GetExp(monster.exp);
                 player.GetItem(monster.reward);
                 Run();
                 return;

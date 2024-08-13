@@ -14,7 +14,7 @@ namespace TextEternalReturn.Scenes.Scenes
             this.inventory = player.inventory.inventory;
             points = new Point[3];
             int X = 0;
-            int Y = 4;
+            int Y = 5;
             points[(int)CursorPoint.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
             points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };

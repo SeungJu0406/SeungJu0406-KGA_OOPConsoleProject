@@ -18,10 +18,7 @@ namespace TextEternalReturn
         public Scene curScene {  get; set; }
         public Player player = new Player();
         bool isRunning;
-        private Game()
-        {
-
-        }
+        private Game(){}
         public void Run()
         {
             Start();

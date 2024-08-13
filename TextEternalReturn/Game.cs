@@ -67,6 +67,7 @@ namespace TextEternalReturn
         private void Update()
         {
             curScene.Update();
+            player.CheckLoseHp();
         }
         private void End()
         {

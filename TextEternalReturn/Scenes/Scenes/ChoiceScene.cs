@@ -71,7 +71,9 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.WriteLine("▷ 아이템 확인");
 
             SetCursor(curPoint);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("▶");
+            Console.ResetColor();
         }
         private void UpdateKey(ConsoleKey consolekey)
         {
@@ -88,10 +90,7 @@ namespace TextEternalReturn.Scenes.Scenes
                     break;
             }
         }
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
+        #region 커서 옮기기
         private void MoveUpCursor(Point curPoint)
         {
             int index = Array.IndexOf(points, curPoint);
@@ -107,6 +106,11 @@ namespace TextEternalReturn.Scenes.Scenes
             {
                 this.curPoint = points[index + 1];
             }
+        }
+        #endregion
+        private void SetCursor(Point cursorPoint)
+        {
+            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
         }
     }
 }

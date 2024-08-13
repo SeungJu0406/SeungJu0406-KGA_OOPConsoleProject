@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Players;
+﻿using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes
 {
@@ -14,7 +8,13 @@ namespace TextEternalReturn.Scenes
         protected Scene curScene;
         protected ConsoleKey consoleKey;
         protected Player player;
-        protected Scene(Game game, Player player) 
+        public struct Point()
+        {
+            public int x, y;
+        }
+        protected Point curPoint;
+        protected Point[] points = new Point[3];
+        protected Scene(Game game, Player player)
         {
             this.game = game;
             this.player = player;

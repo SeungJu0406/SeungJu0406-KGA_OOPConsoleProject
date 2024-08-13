@@ -30,6 +30,9 @@ namespace TextEternalReturn.Players
             //임시 테스트용
             inventory.Add(foodFactory.Create(FoodType.SalmonSteak));
             inventory.Add(foodFactory.Create(FoodType.Meat));
+            inventory.Add(foodFactory.Create(FoodType.Meat));
+            inventory.Add(foodFactory.Create(FoodType.Meat));
+            inventory.Add(foodFactory.Create(FoodType.Meat));
             //
         }
         public void GetItem(Item item)

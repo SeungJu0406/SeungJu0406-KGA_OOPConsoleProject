@@ -5,16 +5,16 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class InventoryScene : Scene
     {
-        enum CursorPoint { FisrtItem, LastItem ,Exit, SIZE }
+        enum Pos { FisrtItem, LastItem ,Exit, SIZE }
         List<Item> inventory;
         int index = 0;
-        Point[] points = new Point[(int)CursorPoint.SIZE];
+        Point[] points = new Point[(int)Pos.SIZE];
         public InventoryScene(Player player) : base(player)
         {
             this.inventory = player.inventory.inventory;           
-            points[(int)CursorPoint.FisrtItem] = new Point() { x = X, y = Y };
-            points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
-            points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };
+            points[(int)Pos.FisrtItem] = new Point() { x = X, y = Y };
+            points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
+            points[(int)Pos.Exit] = new Point() { x = X+20, y = Y };
             player.inventory.OnGetItem += CheckGetItem;
             player.inventory.OnRemoveItem += CheckRemoveItem;
                        
@@ -32,7 +32,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)CursorPoint.FisrtItem];            
+            curPoint = points[(int)Pos.FisrtItem];            
         }
         public override void Exit()
         {
@@ -40,14 +40,14 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PrintInventory()
         {
-            Point items = points[(int)CursorPoint.FisrtItem];
+            Point items = points[(int)Pos.FisrtItem];
             foreach (Item item in inventory)
             {
                 SetCursor(items);
                 Console.WriteLine($"▷ {item.name}");
                 items.y++;
             }
-            SetCursor(points[(int)CursorPoint.Exit]);
+            SetCursor(points[(int)Pos.Exit]);
             Console.WriteLine("▷ 나가기");
             SetCursor(curPoint);
             Console.ForegroundColor = ConsoleColor.Green;
@@ -79,7 +79,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PushKeyZ() 
         {
-            if(curPoint.x == points[(int)CursorPoint.Exit].x && curPoint.y == points[(int)CursorPoint.Exit].y)
+            if(curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
             {
                 int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
                 game.ChangeScene((SceneType) prevSceneIndex);
@@ -88,7 +88,7 @@ namespace TextEternalReturn.Scenes.Scenes
             {
                 if (inventory.Count>0) 
                 {
-                    int key = curPoint.y - points[(int)CursorPoint.FisrtItem].y;
+                    int key = curPoint.y - points[(int)Pos.FisrtItem].y;
                     player.UseItem(key);               
                     MoveUpCursor();            
                 }
@@ -100,23 +100,23 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void CheckGetItem()
         {
-            points[(int)CursorPoint.LastItem].y++;
+            points[(int)Pos.LastItem].y++;
         }
         private void CheckRemoveItem()
         {
-            points[(int)CursorPoint.LastItem].y--;
+            points[(int)Pos.LastItem].y--;
         }
         #region 커서 움직임
         private void MoveUpCursor()
         {
-            if (curPoint.y > points[(int)CursorPoint.FisrtItem].y)
+            if (curPoint.y > points[(int)Pos.FisrtItem].y)
             {
                 curPoint.y -= 1;
             }
         }
         private void MoveDownCursor()
         {
-            if (curPoint.y < points[(int)CursorPoint.LastItem].y)
+            if (curPoint.y < points[(int)Pos.LastItem].y)
             {
                 curPoint.y += 1;
             }
@@ -124,17 +124,17 @@ namespace TextEternalReturn.Scenes.Scenes
         Point temp;
         private void MoveRightCursor()
         {
-            if (curPoint.x != points[(int)CursorPoint.Exit].x ||
-               curPoint.y != points[(int)CursorPoint.Exit].y)
+            if (curPoint.x != points[(int)Pos.Exit].x ||
+               curPoint.y != points[(int)Pos.Exit].y)
             {
                 temp = curPoint;
-                curPoint = points[(int)CursorPoint.Exit];
+                curPoint = points[(int)Pos.Exit];
             }
         }
         private void MoveLeftCursor()
         {
-            if (curPoint.x == points[(int)CursorPoint.Exit].x &&
-                curPoint.y == points[(int)CursorPoint.Exit].y)
+            if (curPoint.x == points[(int)Pos.Exit].x &&
+                curPoint.y == points[(int)Pos.Exit].y)
             {
                 curPoint = temp;
             }

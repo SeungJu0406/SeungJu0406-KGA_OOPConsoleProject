@@ -5,11 +5,11 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     public class BattleScene : Scene
     {
-        public enum Choice { Attack, UseItem, Run, SIZE }
+        public enum Pos { Attack, UseItem, Run, SIZE }
         public struct Point
         {
             public int x, y;
-            public Choice choice;
+            public Pos choice;
         }
         Scene prevScene;
 
@@ -17,15 +17,15 @@ namespace TextEternalReturn.Scenes.Scenes
         Monster monster;
         MonsterFactory mobFactory = new MonsterFactory();
 
-        Point[] points = new Point[(int)Choice.SIZE];
+        Point[] points = new Point[(int)Pos.SIZE];
         Point curPoint;
 
         public BattleScene(Player player) : base(player)
         {
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
-            points[(int)Choice.Attack] = new Point() { x = X, y = Y, choice = Choice.Attack };
-            points[(int)Choice.UseItem] = new Point() { x = X + 20, y = Y, choice = Choice.UseItem };
-            points[(int)Choice.Run] = new Point() { x = X, y = Y + 1, choice = Choice.Run };
+            points[(int)Pos.Attack] = new Point() { x = X, y = Y, choice = Pos.Attack };
+            points[(int)Pos.UseItem] = new Point() { x = X + 20, y = Y, choice = Pos.UseItem };
+            points[(int)Pos.Run] = new Point() { x = X, y = Y + 1, choice = Pos.Run };
         }
         public override void Render()
         {
@@ -44,7 +44,7 @@ namespace TextEternalReturn.Scenes.Scenes
             if (!(game.prevScene is InventoryScene))
             {
                 monster = mobFactory.CreateRandom();
-                curPoint = points[(int)Choice.Attack];
+                curPoint = points[(int)Pos.Attack];
                 prevScene = game.prevScene;
             }
         }
@@ -66,11 +66,11 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PrintBattleChoice()
         {
-            SetCursor(points[(int)Choice.Attack]);
+            SetCursor(points[(int)Pos.Attack]);
             Console.WriteLine("▷ 공격하기");
-            SetCursor(points[(int)Choice.UseItem]);
+            SetCursor(points[(int)Pos.UseItem]);
             Console.WriteLine("▷ 아이템 사용");
-            SetCursor(points[(int)Choice.Run]);
+            SetCursor(points[(int)Pos.Run]);
             Console.WriteLine("▷ 도망가기");
             SetCursor(curPoint);
             Console.ForegroundColor = ConsoleColor.Green;
@@ -104,13 +104,13 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             switch (curPoint.choice)
             {
-                case Choice.Attack:
+                case Pos.Attack:
                     Attack();
                     break;
-                case Choice.UseItem:
+                case Pos.UseItem:
                     UseItem();
                     break;
-                case Choice.Run:
+                case Pos.Run:
                     Run();
                     break;
                 default:
@@ -153,7 +153,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void MoveDownCursor() // SIZE-2 이상은 위로 못감
         {
-            if ((int)curPoint.choice < (int)Choice.SIZE - 2)
+            if ((int)curPoint.choice < (int)Pos.SIZE - 2)
             {
                 curPoint = points[(int)curPoint.choice + 2];
             }
@@ -168,7 +168,7 @@ namespace TextEternalReturn.Scenes.Scenes
         private void MoveRightCursor()
         {
             if ((int)curPoint.choice % 2 == 0 &&
-                (int)curPoint.choice + 1 != (int)Choice.SIZE)
+                (int)curPoint.choice + 1 != (int)Pos.SIZE)
             {
                 curPoint = points[(int)curPoint.choice + 1];
             }

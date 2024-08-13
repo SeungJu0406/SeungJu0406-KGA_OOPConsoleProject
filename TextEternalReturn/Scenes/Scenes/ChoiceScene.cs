@@ -4,24 +4,24 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     public class ChoiceScene : Scene
     {
-        enum CursorPoint { AnimalHunt, MoveMap, CheckInventory, SIZE }
+        enum Pos { AnimalHunt, MoveMap, CheckInventory, SIZE }
         public struct Point()
         {
             public int x, y;
             public SceneType scene;
         }
-        Point[] points = new Point[(int)CursorPoint.SIZE];
+        Point[] points = new Point[(int)Pos.SIZE];
         Point curPoint;
         public ChoiceScene(Player player) : base(player)
         {
-            points[(int)CursorPoint.AnimalHunt] = new Point() { x = X, y = Y, scene = SceneType.BattleScene };
-            points[(int)CursorPoint.MoveMap] = new Point() { x = X, y = Y + 1, scene = SceneType.MapScene };
-            points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y + 2, scene = SceneType.InventoryScene };
+            points[(int)Pos.AnimalHunt] = new Point() { x = X, y = Y, scene = SceneType.BattleScene };
+            points[(int)Pos.MoveMap] = new Point() { x = X, y = Y + 1, scene = SceneType.MapScene };
+            points[(int)Pos.CheckInventory] = new Point() { x = X, y = Y + 2, scene = SceneType.InventoryScene };
         }
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)CursorPoint.AnimalHunt];
+            curPoint = points[(int)Pos.AnimalHunt];
         }
 
         public override void Exit()
@@ -40,11 +40,11 @@ namespace TextEternalReturn.Scenes.Scenes
 
         private void PrintChoice()
         {
-            SetCursor(points[(int)CursorPoint.AnimalHunt]);
+            SetCursor(points[(int)Pos.AnimalHunt]);
             Console.WriteLine("▷ 동물 잡기");
-            SetCursor(points[(int)CursorPoint.MoveMap]);
+            SetCursor(points[(int)Pos.MoveMap]);
             Console.WriteLine("▷ 이동 하기");
-            SetCursor(points[(int)CursorPoint.CheckInventory]);
+            SetCursor(points[(int)Pos.CheckInventory]);
             Console.WriteLine("▷ 아이템 확인");
 
             SetCursor(curPoint);
@@ -79,7 +79,7 @@ namespace TextEternalReturn.Scenes.Scenes
         private void MoveDownCursor(Point curPoint)
         {
             int index = Array.IndexOf(points, curPoint);
-            if (index + 1 < (int)CursorPoint.SIZE)
+            if (index + 1 < (int)Pos.SIZE)
             {
                 this.curPoint = points[index + 1];
             }

@@ -5,11 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Items
+namespace TextEternalReturn
 {
-    public class Item
-    {
-        public string name { get; set; }        
-        public int id { get; set; }
-    }
+
 }

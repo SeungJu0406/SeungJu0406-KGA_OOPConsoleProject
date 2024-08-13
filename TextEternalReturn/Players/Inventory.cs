@@ -13,11 +13,15 @@ namespace TextEternalReturn.Players
         // Food를 담을수있는 인벤토리 
         List<Item> inventory;
         // 자동으로 음식먹어주는 우선순위 큐
-        PriorityMinQueue autoEating;
-        public Inventory()
+        PriorityMinQueue autoQueue;
+        Player player;
+        public Inventory(Player player)
         {
+            this.player = player;
             inventory = new List<Item>(10);          
-            autoEating = new PriorityMinQueue(inventory.Capacity);
+            autoQueue = new PriorityMinQueue(inventory.Capacity);
+            player.OnLoseHp += UseAuto;
+
         }
         public void GetItem(Item item)
         {
@@ -27,24 +31,41 @@ namespace TextEternalReturn.Players
             Food food = item as Food;
             if ( food != null)
             {
-                autoEating.Enqueue(food, food.id);
+                autoQueue.Enqueue(food, food.id);
             }
         }
         // 아이템 사용하기
-        public void UseItem(int key)
+        public void UseItem(Item item)
         {
             //리스트에서 빼면서 아이템의 효과(메서드) 사용
+            if (item is Food)
+            {
+                Food food = item as Food;
+                food.Use(player);
+                inventory.Remove(food);
+                autoQueue.Remove(food);
+
+            }
+            else
+                return;
         }
         // 아이템 버리기
-        public void ThrowItem(int key)
+        public void ThrowItem(Item item)
         {
-            inventory.RemoveAt(key);
-            Food food = inventory[key - 1] as Food;
+            inventory.Remove(item);
+            Food food = item as Food;
             if (food != null) 
             {
-                autoEating.Remove(food);
+                autoQueue.Remove(food);
             }
         }
         // 아이템 자동 사용하기
+        public void UseAuto()
+        {
+            Food food = autoQueue.Dequeue();
+            inventory.Remove(food);
+            food.Use(player);
+        }
+        
     }
 }

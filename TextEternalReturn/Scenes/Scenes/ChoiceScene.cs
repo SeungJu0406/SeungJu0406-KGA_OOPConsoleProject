@@ -14,9 +14,9 @@ namespace TextEternalReturn.Scenes.Scenes
         Point curPoint;    
         public ChoiceScene(Player player) : base(player)
         {
-            points[(int)CursorPoint.AnimalHunt] = new Point() { x = 0, y = 4, scene = SceneType.BattleScene };
-            int X = points[(int)CursorPoint.AnimalHunt].x;
-            int Y = points[(int)CursorPoint.AnimalHunt].y;
+            int X = 0;
+            int Y = 4;
+            points[(int)CursorPoint.AnimalHunt] = new Point() { x = X, y = Y, scene = SceneType.BattleScene };
             points[(int)CursorPoint.MoveMap] = new Point() { x = X, y = Y+1, scene = SceneType.MapScene };
             points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y+2, scene = SceneType.InventoryScene };           
         }

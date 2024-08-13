@@ -13,27 +13,24 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         Scene prevScene;
 
-        Point mobStatusPoint;       
+        Point mobStatusPoint;
         Monster monster;
         MonsterFactory mobFactory = new MonsterFactory();
-        
+
         Point[] points = new Point[3];
         Point curPoint;
 
         public BattleScene(Player player) : base(player)
         {
+            int X = statusPoint.x;
+            int Y = statusPoint.y + 4;
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
-            points[(int)Choice.Attack] = new Point() { x = statusPoint.x, y = statusPoint.y + 4, choice = Choice.Attack };
-            #region x,y
-            int X = points[(int)Choice.Attack].x;
-            int Y = points[(int)Choice.Attack].y;
-            #endregion
+            points[(int)Choice.Attack] = new Point() { x = X, y = Y, choice = Choice.Attack };
             points[(int)Choice.UseItem] = new Point() { x = X + 20, y = Y, choice = Choice.UseItem };
-            points[(int)Choice.Run] = new Point() { x = X, y = Y + 1, choice = Choice.Run };           
+            points[(int)Choice.Run] = new Point() { x = X, y = Y + 1, choice = Choice.Run };
         }
         public override void Render()
         {
-            Console.Clear();
             PrintStatus();
             PrintMobStatus();
             PrintBattleChoice();
@@ -42,9 +39,10 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             UpdateKey();
         }
-        
+
         public override void Enter()
         {
+            Console.Clear();
             if (!(game.prevScene is InventoryScene))
             {
                 monster = mobFactory.CreateRandom();

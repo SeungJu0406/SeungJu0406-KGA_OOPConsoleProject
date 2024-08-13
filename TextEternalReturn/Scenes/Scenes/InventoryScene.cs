@@ -13,9 +13,9 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             this.inventory = player.inventory.inventory;
             points = new Point[3];
-            points[(int)CursorPoint.FisrtItem] = new Point() { x = 0, y = 4 };
-            int X = points[(int)CursorPoint.FisrtItem].x;
-            int Y = points[(int)CursorPoint.FisrtItem].y;
+            int X = 0;
+            int Y = 4;
+            points[(int)CursorPoint.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
             points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };
             
@@ -89,7 +89,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 if (inventory.Count>0) 
                 {
                     int key = curPoint.y - points[(int)CursorPoint.FisrtItem].y;
-                    player.UseItem(key);
+                    player.UseItem(key);               
                     MoveUpCursor();            
                 }
                 if (inventory.Count == 0)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
@@ -31,7 +32,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Exit()
         {
-
+            game.prevScene = this;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace TextEternalReturn
     {
         public static Game game = new Game();
         public Scene[] sceneList = new Scene[12];
+        public Scene prevScene;
         public Scene curScene {  get; set; }
         public Player player = new Player();
         bool isRunning;

@@ -31,7 +31,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Exit()
         {
-
+            game.prevScene = this;
         }
     }
 }

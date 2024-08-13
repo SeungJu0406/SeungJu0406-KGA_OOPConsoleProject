@@ -8,7 +8,7 @@ namespace TextEternalReturn.Scenes.Scenes
         enum CursorPoint { FisrtItem, LastItem ,Exit, SIZE }
         List<Item> inventory;
         int index = 0;
-        Point[] points;
+        Point[] points;      
         public InventoryScene(Player player) : base(player)
         {
             this.inventory = player.inventory.inventory;
@@ -37,7 +37,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Exit()
         {
-
+            game.prevScene = this;
         }
         private void PrintInventory()
         {           
@@ -80,7 +80,8 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if(curPoint.x == points[(int)CursorPoint.Exit].x && curPoint.y == points[(int)CursorPoint.Exit].y)
             {
-                game.ChangeScene(SceneType.ChoiceScene);
+                int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
+                game.ChangeScene((SceneType) prevSceneIndex);
             }
             else
             {

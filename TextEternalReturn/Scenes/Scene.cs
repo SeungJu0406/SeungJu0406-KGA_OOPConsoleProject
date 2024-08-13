@@ -11,16 +11,14 @@ namespace TextEternalReturn.Scenes
         protected Game game;
         protected Player player;
         protected ConsoleKey consoleKey;
-
+        protected Scene prevScene;
         protected Scene curScene;
         protected Point curPoint;
-
         protected Point statusPoint;
         protected Scene(Player player)
         {
             this.game = Game.getInstance();
             this.player = player;
-            curScene = game.curScene;
             statusPoint = new Point() { x = 0, y = 0 };
         }
         public abstract void Render();

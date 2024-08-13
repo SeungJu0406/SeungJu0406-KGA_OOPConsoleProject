@@ -25,7 +25,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Exit()
         {
-            curScene = null;
+            game.prevScene = this;
         }
         private void PrintStart()
         {

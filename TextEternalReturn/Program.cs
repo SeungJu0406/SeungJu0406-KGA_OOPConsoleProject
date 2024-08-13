@@ -5,8 +5,7 @@
         
         static void Main(string[] args)
         {
-            Game.getInstance().Run();
-            
+            Game.getInstance().Run();          
         }
     }
 }

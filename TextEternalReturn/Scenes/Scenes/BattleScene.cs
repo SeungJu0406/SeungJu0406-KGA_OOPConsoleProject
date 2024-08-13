@@ -17,13 +17,11 @@ namespace TextEternalReturn.Scenes.Scenes
         Monster monster;
         MonsterFactory mobFactory = new MonsterFactory();
 
-        Point[] points = new Point[3];
+        Point[] points = new Point[(int)Choice.SIZE];
         Point curPoint;
 
         public BattleScene(Player player) : base(player)
         {
-            int X = statusPoint.x;
-            int Y = statusPoint.y + 5;
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
             points[(int)Choice.Attack] = new Point() { x = X, y = Y, choice = Choice.Attack };
             points[(int)Choice.UseItem] = new Point() { x = X + 20, y = Y, choice = Choice.UseItem };

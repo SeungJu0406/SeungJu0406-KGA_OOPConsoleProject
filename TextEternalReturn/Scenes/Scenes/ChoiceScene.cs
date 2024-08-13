@@ -10,12 +10,10 @@ namespace TextEternalReturn.Scenes.Scenes
             public int x, y;
             public SceneType scene;
         }
-        Point[] points = new Point[3];
+        Point[] points = new Point[(int)CursorPoint.SIZE];
         Point curPoint;
         public ChoiceScene(Player player) : base(player)
         {
-            int X = statusPoint.x;
-            int Y = statusPoint.y + 5;
             points[(int)CursorPoint.AnimalHunt] = new Point() { x = X, y = Y, scene = SceneType.BattleScene };
             points[(int)CursorPoint.MoveMap] = new Point() { x = X, y = Y + 1, scene = SceneType.MapScene };
             points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y + 2, scene = SceneType.InventoryScene };

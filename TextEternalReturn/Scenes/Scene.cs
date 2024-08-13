@@ -13,12 +13,15 @@ namespace TextEternalReturn.Scenes
         protected ConsoleKey consoleKey;
         protected Scene curScene;
         protected Point curPoint;
-        protected Point statusPoint;
-        private int x, y;
+        protected Point statusPoint;       
+        protected int X, Y; // 스텟창 밑 기준점
+        private int x, y; // 게임 기준점
         protected Scene(Player player)
         {
-            x = 20;
+            x = 25; 
             y = 5;
+
+            X = x; Y = y + 5;
             this.game = Game.getInstance();
             this.player = player;
             statusPoint = new Point() { x = x, y = y };

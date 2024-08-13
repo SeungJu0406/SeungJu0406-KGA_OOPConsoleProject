@@ -32,7 +32,7 @@ namespace TextEternalReturn.Players
             Food food = item as Food;
             if ( food != null)
             {
-                autoQueue.Enqueue(food, food.id);
+                autoQueue.Enqueue(food, food.priority);
             }
         }
         // 아이템 사용하기

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Items;
-using TextEternalReturn.Items.Foods;
+﻿using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn.Players
 {
@@ -13,6 +7,7 @@ namespace TextEternalReturn.Players
         public struct MinQueue
         {
             public Food food;
+            public string name;
             public int priority;
         }
         public MinQueue[] queue { get; private set; }
@@ -31,12 +26,12 @@ namespace TextEternalReturn.Players
             queue = new MinQueue[capacity];
         }
 
-        public void Enqueue(Food food,int priority)
+        public void Enqueue(Food food, int priority)
         {
             if (Count >= Capacity)
                 Extend();
             //삽입하고 부모 노드와 비교해서 더 작으면 교환
-            queue[Count] = new MinQueue() { food = food, priority=priority };
+            queue[Count] = new MinQueue() { food = food, name = food.name, priority = priority };
             Count++;
 
             int now = Count - 1; // 교체 진행 할 원소 저장
@@ -87,9 +82,9 @@ namespace TextEternalReturn.Players
         {
             if (Count <= 0)
                 throw new IndexOutOfRangeException();
-            MinQueue findfood = new MinQueue() { food = food , priority = food.priority};
+            MinQueue findfood = new MinQueue() { food = food, name = food.name, priority = food.priority };
             int index = queue.Select((b, i) => new { b, i })
-                 .FirstOrDefault(x => x.b.food == findfood.food)?.i ?? -1;
+                 .FirstOrDefault(x => x.b.name   == findfood.name)?.i ?? -1;
             queue[index] = queue[Count - 1]; // 해당 부분과 교체
             queue[Count - 1] = default;
             Count--;

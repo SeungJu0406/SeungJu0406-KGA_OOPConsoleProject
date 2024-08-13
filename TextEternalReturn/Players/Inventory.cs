@@ -17,22 +17,12 @@ namespace TextEternalReturn.Players
         PriorityMinQueue autoQueue;
         Player player;
 
-        //임시 테스트용
-        FoodFactory foodFactory = new FoodFactory();
-        //
         public Inventory(Player player)
         {
             this.player = player;
             inventory = new List<Item>(10);          
             autoQueue = new PriorityMinQueue(inventory.Capacity);
             player.OnLoseHp += UseAuto;
-            //임시 테스트용         
-            GetItem(foodFactory.Create(FoodType.Meat));
-            GetItem(foodFactory.Create(FoodType.Meat));
-            GetItem(foodFactory.Create(FoodType.SalmonSteak));
-            GetItem(foodFactory.Create(FoodType.Meat));
-            GetItem(foodFactory.Create(FoodType.Meat));
-            //
         }
         public void GetItem(Item item)
         {

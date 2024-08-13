@@ -1,9 +1,11 @@
-﻿using TextEternalReturn.Monsters.Monsters;
+﻿using TextEternalReturn.Items.Foods;
+using TextEternalReturn.Monsters.Monsters;
 
 namespace TextEternalReturn.Monsters
 {
     public class MonsterFactory
     {
+        FoodFactory foodFactory = new FoodFactory(); 
         public Monster Create(MonsterType monsterType)
         {
             if (monsterType == MonsterType.Chicken)
@@ -14,6 +16,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 50;
                 monster.power = 10;
                 monster.exp = 50;
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.WildBoar)
@@ -24,6 +27,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 200;
                 monster.power = 30;
                 monster.exp = 150;
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.Wolf)
@@ -34,6 +38,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 150;
                 monster.power = 20;
                 monster.exp = 125;
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.Bear)
@@ -44,6 +49,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 500;
                 monster.power = 75;
                 monster.exp = 400;
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             return null;

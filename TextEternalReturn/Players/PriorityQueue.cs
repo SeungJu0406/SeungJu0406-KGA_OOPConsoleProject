@@ -89,7 +89,7 @@ namespace TextEternalReturn.Players
                 throw new IndexOutOfRangeException();
             MinQueue findfood = new MinQueue() { food = food , priority = food.id};
             int index = Array.IndexOf(queue, findfood);
-            queue[index] = queue[Count - 1]; // 마지막과 교체
+            queue[index] = queue[Count - 1]; // 해당 부분과 교체
             queue[Count - 1] = default;
             Count--;
             int now = 0; // 현재 인덱스

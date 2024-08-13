@@ -128,6 +128,7 @@ namespace TextEternalReturn.Scenes.Scenes
             player.Attack(monster);
             if (monster.isDie)
             {
+                player.GetItem(monster.reward);
                 Run();
             }
             monster.Attack(player);

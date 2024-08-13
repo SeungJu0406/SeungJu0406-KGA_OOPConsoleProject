@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextEternalReturn.Items;
 
 namespace TextEternalReturn.Monsters
 {
@@ -12,6 +13,7 @@ namespace TextEternalReturn.Monsters
         public int maxHp { get; set; }
         public int curHp { get; set; }
         public int power { get; set; }
+        public Item reward { get; set; }
         public int exp { get; set; }
         public bool isDie { get; private set; }
         public void Attack(IHit Ihit)

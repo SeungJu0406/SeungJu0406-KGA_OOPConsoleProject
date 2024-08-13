@@ -42,6 +42,10 @@ namespace TextEternalReturn.Players
         {
             isDie = true;
         }
+        public void GetItem(Item item)
+        {
+            inventory.GetItem(item);
+        }
         public void UseItem(int itemKey)
         {
             inventory.UseItem(itemKey);

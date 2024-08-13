@@ -14,11 +14,14 @@ namespace TextEternalReturn.Scenes
         protected Scene curScene;
         protected Point curPoint;
         protected Point statusPoint;
+        private int x, y;
         protected Scene(Player player)
         {
+            x = 20;
+            y = 5;
             this.game = Game.getInstance();
             this.player = player;
-            statusPoint = new Point() { x = 0, y = 0 };
+            statusPoint = new Point() { x = x, y = y };
         }
         public abstract void Render();
         public virtual void Input()
@@ -52,7 +55,7 @@ namespace TextEternalReturn.Scenes
         protected void PrintStatus()
         {
             SetCursor(statusPoint);
-            Console.WriteLine($"레벨: {player.level,+5}");        
+            Console.WriteLine($"레벨: {player.level,6}");        
             statusPoint.y++;
             SetCursor(statusPoint);
             Console.WriteLine($"체력: {player.curHp,5}/{player.maxHp}");          
@@ -62,7 +65,7 @@ namespace TextEternalReturn.Scenes
             statusPoint.y++;
             SetCursor(statusPoint);
             Console.WriteLine($"경험치: {player.curExp,3}/{player.maxExp}");
-            statusPoint.y = 0;
+            statusPoint.y = y;
         }
         private void SetCursor(Point cursorPoint)
         {

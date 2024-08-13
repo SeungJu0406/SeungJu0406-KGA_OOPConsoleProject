@@ -13,8 +13,8 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             this.inventory = player.inventory.inventory;
             points = new Point[3];
-            int X = 0;
-            int Y = 5;
+            int X = statusPoint.x;
+            int Y = statusPoint.y + 5;
             points[(int)CursorPoint.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
             points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };

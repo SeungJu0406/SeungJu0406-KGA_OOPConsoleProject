@@ -44,6 +44,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
+            PrintStatus();
             PrintMap();
         }
         public override void Update()
@@ -122,7 +123,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PushKeyZ()
         {
-
+            game.ChangeScene(SceneType.ChoiceScene);
         }
         #region 커서 이동
         public void MoveUpCursor()

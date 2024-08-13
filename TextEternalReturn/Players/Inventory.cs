@@ -16,7 +16,8 @@ namespace TextEternalReturn.Players
         // 자동으로 음식먹어주는 우선순위 큐
         PriorityMinQueue autoQueue;
         Player player;
-
+        public Action OnGetItem;
+        public Action OnRemoveItem;
         public Inventory(Player player)
         {
             this.player = player;
@@ -26,13 +27,17 @@ namespace TextEternalReturn.Players
         }
         public void GetItem(Item item)
         {
-            if (inventory.Count == inventory.Capacity)
-                return;
-            inventory.Add(item);
-            Food food = item as Food;
-            if ( food != null)
+            if (inventory.Count<inventory.Capacity)
             {
-                autoQueue.Enqueue(food, food.priority);
+                if (inventory.Count == inventory.Capacity)
+                    return;
+                inventory.Add(item);
+                Food food = item as Food;
+                if (food != null)
+                {
+                    autoQueue.Enqueue(food, food.priority);
+                }
+                OnGetItem?.Invoke();
             }
         }
         // 아이템 사용하기
@@ -45,7 +50,7 @@ namespace TextEternalReturn.Players
                 food.Use(player);
                 inventory.Remove(food);
                 autoQueue.Remove(food);
-
+                OnRemoveItem?.Invoke();
             }
             else
                 return;
@@ -59,6 +64,7 @@ namespace TextEternalReturn.Players
             {
                 autoQueue.Remove(food);
             }
+            OnRemoveItem?.Invoke();
         }
         // 아이템 자동 사용하기
         private void UseAuto()
@@ -67,7 +73,7 @@ namespace TextEternalReturn.Players
             inventory.Remove(food);
             if(food != null)
                 food.Use(player);
-        }
-        
+            OnRemoveItem?.Invoke();
+        }      
     }
 }

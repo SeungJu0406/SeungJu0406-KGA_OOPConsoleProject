@@ -8,7 +8,7 @@ namespace TextEternalReturn.Scenes.Scenes
         enum CursorPoint { FisrtItem, LastItem ,Exit, SIZE }
         List<Item> inventory;
         int index = 0;
-        Point[] points;      
+        Point[] points;       
         public InventoryScene(Player player) : base(player)
         {
             this.inventory = player.inventory.inventory;
@@ -18,8 +18,9 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)CursorPoint.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
             points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };
-            
-            
+            player.inventory.OnGetItem += CheckGetItem;
+            player.inventory.OnRemoveItem += CheckRemoveItem;
+                       
         }
         public override void Render()
         {
@@ -34,7 +35,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)CursorPoint.FisrtItem];
+            curPoint = points[(int)CursorPoint.FisrtItem];            
         }
         public override void Exit()
         {
@@ -97,6 +98,14 @@ namespace TextEternalReturn.Scenes.Scenes
                     MoveRightCursor();
                 }
             }
+        }
+        private void CheckGetItem()
+        {
+            points[(int)CursorPoint.LastItem].y++;
+        }
+        private void CheckRemoveItem()
+        {
+            points[(int)CursorPoint.LastItem].y--;
         }
         #region 커서 움직임
         private void MoveUpCursor()

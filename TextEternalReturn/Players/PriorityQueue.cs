@@ -88,7 +88,8 @@ namespace TextEternalReturn.Players
             if (Count <= 0)
                 throw new IndexOutOfRangeException();
             MinQueue findfood = new MinQueue() { food = food , priority = food.priority};
-            int index = Array.IndexOf(queue, findfood);
+            int index = queue.Select((b, i) => new { b, i })
+                 .FirstOrDefault(x => x.b.food == findfood.food)?.i ?? -1;
             queue[index] = queue[Count - 1]; // 해당 부분과 교체
             queue[Count - 1] = default;
             Count--;

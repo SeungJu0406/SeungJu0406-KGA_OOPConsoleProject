@@ -14,9 +14,11 @@ namespace TextEternalReturn.Scenes.Scenes
         Point curPoint;    
         public ChoiceScene(Player player) : base(player)
         {
-            points[(int)CursorPoint.AnimalHunt] = new Point() { x = 0, y = 3, scene = SceneType.BattleScene };
-            points[(int)CursorPoint.MoveMap] = new Point() { x = 0, y = 4, scene = SceneType.MapScene };
-            points[(int)CursorPoint.CheckInventory] = new Point() { x = 0, y = 5, scene = SceneType.InventoryScene };
+            points[(int)CursorPoint.AnimalHunt] = new Point() { x = 0, y = 4, scene = SceneType.BattleScene };
+            int X = points[(int)CursorPoint.AnimalHunt].x;
+            int Y = points[(int)CursorPoint.AnimalHunt].y;
+            points[(int)CursorPoint.MoveMap] = new Point() { x = X, y = Y+1, scene = SceneType.MapScene };
+            points[(int)CursorPoint.CheckInventory] = new Point() { x = X, y = Y+2, scene = SceneType.InventoryScene };
             curPoint = points[(int)CursorPoint.AnimalHunt];
         }
         public override void Enter()
@@ -30,6 +32,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
+            PrintStatus();
             PrintChoice();
         }
         public override void Input()

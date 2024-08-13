@@ -5,20 +5,24 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class InventoryScene : Scene
     {
-        enum CursorPoint { FisrtItem, LastItem, Exit, SIZE }
+        enum CursorPoint { FisrtItem, LastItem ,Exit, SIZE }
         List<Item> inventory;
-        int index = 0;      
+        int index = 0;
+        Point[] points;
         public InventoryScene(Player player) : base(player)
         {
             this.inventory = player.inventory.inventory;
             points = new Point[3];
-            points[(int)CursorPoint.FisrtItem] = new Point() { x = 0, y = 3 };
+            points[(int)CursorPoint.FisrtItem] = new Point() { x = 0, y = 4 };
             points[(int)CursorPoint.LastItem] = new Point() { x = 0, y = inventory.Count + 2 };
-            points[(int)CursorPoint.Exit] = new Point() { x = 20, y = 3 };
+            points[(int)CursorPoint.Exit] = new Point() { x = 20, y = points[(int)CursorPoint.FisrtItem].y };
+            
             curPoint = points[(int)CursorPoint.FisrtItem];
         }
         public override void Render()
         {
+            Console.Clear();
+            PrintStatus();
             PrintInventory();
         }
         public override void Input()
@@ -58,8 +62,7 @@ namespace TextEternalReturn.Scenes.Scenes
 
         }
         private void PrintInventory()
-        {
-            Console.Clear();
+        {           
             SetCursor(points[(int)CursorPoint.FisrtItem]);
             foreach (Item item in inventory)
             {

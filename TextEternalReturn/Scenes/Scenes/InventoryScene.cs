@@ -39,11 +39,13 @@ namespace TextEternalReturn.Scenes.Scenes
             game.prevScene = this;
         }
         private void PrintInventory()
-        {           
-            SetCursor(points[(int)CursorPoint.FisrtItem]);
+        {
+            Point items = points[(int)CursorPoint.FisrtItem];
             foreach (Item item in inventory)
             {
+                SetCursor(items);
                 Console.WriteLine($"▷ {item.name}");
+                items.y++;
             }
             SetCursor(points[(int)CursorPoint.Exit]);
             Console.WriteLine("▷ 나가기");

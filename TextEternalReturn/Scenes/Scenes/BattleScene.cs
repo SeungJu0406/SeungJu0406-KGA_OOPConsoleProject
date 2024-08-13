@@ -134,7 +134,7 @@ namespace TextEternalReturn.Scenes.Scenes
             monster.Attack(player);
             if (player.isDie)
             {
-                //플레이어가 죽었을때 엔딩화면으로
+                game.ChangeScene(SceneType.EndScene);
             }
         }
         private void UseItem()

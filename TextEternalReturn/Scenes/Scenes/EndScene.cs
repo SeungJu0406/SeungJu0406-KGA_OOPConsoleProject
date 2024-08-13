@@ -15,7 +15,8 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-
+            Console.Clear();
+            Console.WriteLine("졌어요 ㅠㅠ");
         }
         public override void Input()
         {
@@ -23,11 +24,10 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-
+            game.GameOver();
         }
         public override void Enter()
-        {
-
+        {          
         }
         public override void Exit()
         {

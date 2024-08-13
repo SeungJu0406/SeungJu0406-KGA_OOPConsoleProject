@@ -16,10 +16,10 @@ namespace TextEternalReturn
         public static Game game = new Game();
         public Scene[] sceneList = new Scene[12];
         public Scene prevScene;
-        public Scene curScene {  get; set; }
+        public Scene curScene { get; set; }
         public Player player = new Player();
         bool isRunning;
-        private Game(){}
+        private Game() { }
         public void Run()
         {
             Start();
@@ -36,6 +36,10 @@ namespace TextEternalReturn
             curScene.Exit();
             curScene = sceneList[(int)sceneType];
             curScene.Enter();
+        }
+        public void GameOver()
+        {
+            isRunning = false;
         }
         private void Start()
         {

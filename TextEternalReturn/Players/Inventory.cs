@@ -5,16 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Items;
 using TextEternalReturn.Items.Foods;
+using TextEternalReturn.Items.Foods.Foods;
 
 namespace TextEternalReturn.Players
 {
     public class Inventory
     {
         // Food를 담을수있는 인벤토리 
-        List<Item> inventory;
+        public List<Item> inventory {  get; private set; }
         // 자동으로 음식먹어주는 우선순위 큐
         PriorityMinQueue autoQueue;
         Player player;
+
+        //임시 테스트용
+        FoodFactory foodFactory = new FoodFactory();
+        //
         public Inventory(Player player)
         {
             this.player = player;
@@ -22,6 +27,10 @@ namespace TextEternalReturn.Players
             autoQueue = new PriorityMinQueue(inventory.Capacity);
             player.OnLoseHp += UseAuto;
 
+            //임시 테스트용
+            inventory.Add(foodFactory.Create(FoodType.SalmonSteak));
+            inventory.Add(foodFactory.Create(FoodType.Meat));
+            //
         }
         public void GetItem(Item item)
         {

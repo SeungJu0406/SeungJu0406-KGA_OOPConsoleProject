@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TextEternalReturn.Scenes;
 using TextEternalReturn.Scenes.Scenes;
 using TextEternalReturn.Players;
+using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn
 {
@@ -16,6 +17,7 @@ namespace TextEternalReturn
         public Scene curScene {  get; set; }
         public Player player = new Player();
         bool isRunning;
+       
         public void Run()
         {
             Start();

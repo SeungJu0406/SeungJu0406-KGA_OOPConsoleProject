@@ -136,6 +136,7 @@ namespace TextEternalReturn.Scenes.Scenes
             if (player.isDie)
             {
                 game.ChangeScene(SceneType.EndScene);
+                return;
             }
         }
         private void UseItem()

@@ -16,10 +16,10 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)CursorPoint.FisrtItem] = new Point() { x = 0, y = 4 };
             int X = points[(int)CursorPoint.FisrtItem].x;
             int Y = points[(int)CursorPoint.FisrtItem].y;
-            points[(int)CursorPoint.LastItem] = new Point() { x = 0, y = inventory.Count + (Y-1) };
-            points[(int)CursorPoint.Exit] = new Point() { x = 20, y = Y };
+            points[(int)CursorPoint.LastItem] = new Point() { x = X, y = inventory.Count + (Y-1) };
+            points[(int)CursorPoint.Exit] = new Point() { x = X+20, y = Y };
             
-            curPoint = points[(int)CursorPoint.FisrtItem];
+            
         }
         public override void Render()
         {
@@ -34,6 +34,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
+            curPoint = points[(int)CursorPoint.FisrtItem];
         }
         public override void Exit()
         {

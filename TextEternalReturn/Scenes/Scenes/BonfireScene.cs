@@ -14,23 +14,49 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-
-        }
-        public override void Input()
-        {
-
+            PrintStatus();
         }
         public override void Update()
         {
-
+            UpdateKey();
         }
         public override void Enter()
         {
-
+            Console.Clear();
         }
         public override void Exit()
         {
             game.prevScene = this;
+        }
+        private void PrintHotel()
+        {
+
+        }
+        protected override void PushKeyZ()
+        {
+            base.PushKeyZ();
+        }
+        #region 커서 이동
+        protected override void MoveUpCursor()
+        {
+            base.MoveUpCursor();
+        }
+        protected override void MoveDownCursor()
+        {
+            base.MoveDownCursor();
+        }
+        protected override void MoveLeftCursor()
+        {
+            base.MoveLeftCursor();
+        }
+        protected override void MoveRightCursor()
+        {
+            base.MoveRightCursor();
+        }
+        #endregion
+        private void SetCursor(Point cursorPoint)
+        {
+            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
         }
     }
 }

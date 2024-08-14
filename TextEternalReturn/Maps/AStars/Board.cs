@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace AstarNote
+namespace TextEternalReturn.Maps.AStars
 {
     public class Board
     {
@@ -97,17 +97,17 @@ namespace AstarNote
                 Block Block = board.board[current.x+1, current.y + 1];
                     around.Add(Block);
             }
-            for (int i = around.Count - 1; i >= 0; i--)
-            {
-                Block block = around[i];
-                bool isDiagonalBlock = block.x - current.x != 0 && block.y - current.y != 0;
-                if (isDiagonalBlock)
-                {
-                    if (around.Find(b => b.x == block.x && b.y == current.y).wall ||
-                       around.Find(b => b.x == current.x && b.y == block.y).wall)
-                        around.Remove(block);
-                }
-            }
+            //for (int i = around.Count - 1; i >= 0; i--)
+            //{
+            //    Block block = around[i];
+            //    bool isDiagonalBlock = block.x - current.x != 0 && block.y - current.y != 0;
+            //    if (isDiagonalBlock)
+            //    {
+            //        if (around.Find(b => b.x == block.x && b.y == current.y).wall ||
+            //           around.Find(b => b.x == current.x && b.y == block.y).wall)
+            //            around.Remove(block);
+            //    }
+            //}
             around.RemoveAll(b => b.wall);
             return around;
         }

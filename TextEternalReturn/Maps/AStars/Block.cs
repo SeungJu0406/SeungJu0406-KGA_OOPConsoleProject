@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AstarNote
+namespace TextEternalReturn.Maps.AStars
 {
     public class Block
     {

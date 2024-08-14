@@ -1,4 +1,4 @@
-﻿using AstarNote;
+﻿using TextEternalReturn.Maps.AStars;
 
 namespace TextEternalReturn.Maps
 {

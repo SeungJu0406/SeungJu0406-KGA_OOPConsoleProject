@@ -1,4 +1,4 @@
-﻿namespace AstarNote
+﻿namespace TextEternalReturn.Maps.AStars
 {
     public class AStar
     {
@@ -89,8 +89,8 @@
         {
             aroundG = around.G;
             aroundH = around.H;
-            bool isDiagonalBlock = around.x - current.x != 0 && around.y - current.y != 0;
-            aroundG = current.G + (isDiagonalBlock ? 14 : 10);
+            //bool isDiagonalBlock = around.x - current.x != 0 && around.y - current.y != 0;
+            aroundG = current.G + (/*isDiagonalBlock ? 14 :*/ 10);
             aroundH = (Math.Abs(finish.x - around.x) + Math.Abs(finish.y - around.y)) * 10;
         }
     }

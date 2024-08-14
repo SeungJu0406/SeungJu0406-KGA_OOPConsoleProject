@@ -1,4 +1,5 @@
 ﻿using TextEternalReturn.Maps;
+using TextEternalReturn.Maps.AStars;
 using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
@@ -67,6 +68,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Update()
         {
             UpdateKey();
+            MoveHyun();
         }
         public override void Enter()
         {
@@ -139,18 +141,18 @@ namespace TextEternalReturn.Scenes.Scenes
             game.ChangeScene(SceneType.ChoiceScene);
         }
         #region 커서 이동
-        public void MoveUpCursor()
+        private void MoveUpCursor()
         {
-            if (points[(int)Pos.Player].y > points[(int)Pos.Y0].y)
+            if (points[(int)Pos.Player].y > points[(int)Pos.Y0].y) // 맵 바깥으로 안나가는가
             {
-                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY - 1].wall;
+                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY - 1].wall; // 움직이려는 위치에 벽이 있는가
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].y -= 1;
                 }
             }
         }
-        public void MoveDownCursor()
+        private void MoveDownCursor()
         {
             if (points[(int)Pos.Player].y < points[(int)Pos.Y6].y)
             {
@@ -161,7 +163,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
             }
         }
-        public void MoveLeftCursor()
+        private void MoveLeftCursor()
         {
             if (points[(int)Pos.Player].x > points[(int)Pos.X0].x)
             {
@@ -172,7 +174,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
             }
         }
-        public void MoveRightCursor()
+        private void MoveRightCursor()
         {
             if (points[(int)Pos.Player].x < points[(int)Pos.X6].x)
             {
@@ -184,6 +186,28 @@ namespace TextEternalReturn.Scenes.Scenes
             }
         }
         #endregion
+        private void MoveHyun()
+        {
+            int HyunX = points[(int)Pos.Hyunwoo].x - mapX;
+            int HyunY = points[(int)Pos.Hyunwoo].y - mapY;
+            Block start = map.board.board[HyunY, HyunX];
+            int playerX = points[(int)Pos.Player].x - mapX;
+            int playerY = points[(int)Pos.Player].y - mapY;
+            Block finish = map.board.board[playerY, playerX];
+            start = AStar.GetAStarFinding(map.board, start, finish);
+            if (start.next != null)
+            {
+                points[(int)Pos.Hyunwoo].x = start.next.y + mapX;
+                points[(int)Pos.Hyunwoo].y = start.next.x + mapY;
+                if (points[(int)Pos.Hyunwoo].x == points[(int)Pos.Player].x &&
+                   points[(int)Pos.Hyunwoo].y == points[(int)Pos.Player].y)
+                {
+                    points[(int)Pos.Hyunwoo].x = points[(int)Pos.X0].x;
+                    points[(int)Pos.Hyunwoo].y = points[(int)Pos.Y0].y;
+                }
+            }
+          
+        }
         private void SetCursor(Point cursorPoint)
         {
             Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);

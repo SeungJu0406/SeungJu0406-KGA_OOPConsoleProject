@@ -1,27 +1,23 @@
 ﻿using TextEternalReturn.Players;
+using TextEternalReturn.Scenes;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
     public class ChoiceScene : Scene
     {
-        enum Pos { AnimalHunt, MoveMap, CheckInventory, SIZE }
-        public struct Point()
-        {
-            public int x, y;
-            public SceneType scene;
-        }
+        enum Pos { Battle, Map, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         Point curPoint;
         public ChoiceScene(Player player) : base(player)
         {
-            points[(int)Pos.AnimalHunt] = new Point() { x = X, y = Y, scene = SceneType.BattleScene };
-            points[(int)Pos.MoveMap] = new Point() { x = X, y = Y + 1, scene = SceneType.MapScene };
-            points[(int)Pos.CheckInventory] = new Point() { x = X, y = Y + 2, scene = SceneType.InventoryScene };
+            points[(int)Pos.Battle] = new Point() { x = X, y = Y };
+            points[(int)Pos.Map] = new Point() { x = X, y = Y + 1 };
+            points[(int)Pos.Inventory] = new Point() { x = X, y = Y + 2 };
         }
         public override void Enter()
         {
             Console.Clear();
-            curPoint = points[(int)Pos.AnimalHunt];
+            curPoint = points[(int)Pos.Battle];
         }
 
         public override void Exit()
@@ -35,16 +31,16 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            UpdateKey(consoleKey);
+            UpdateKey();
         }
 
         private void PrintChoice()
         {
-            SetCursor(points[(int)Pos.AnimalHunt]);
+            SetCursor(points[(int)Pos.Battle]);
             Console.WriteLine("▷ 동물 잡기");
-            SetCursor(points[(int)Pos.MoveMap]);
+            SetCursor(points[(int)Pos.Map]);
             Console.WriteLine("▷ 이동 하기");
-            SetCursor(points[(int)Pos.CheckInventory]);
+            SetCursor(points[(int)Pos.Inventory]);
             Console.WriteLine("▷ 아이템 확인");
 
             SetCursor(curPoint);
@@ -52,36 +48,34 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.WriteLine("▶");
             Console.ResetColor();
         }
-        private void UpdateKey(ConsoleKey consolekey)
+        protected override void PushKeyZ()
         {
-            switch (consoleKey)
+            if (curPoint.y == points[(int)Pos.Battle].y)
             {
-                case ConsoleKey.UpArrow:
-                    MoveUpCursor(curPoint);
-                    break;
-                case ConsoleKey.DownArrow:
-                    MoveDownCursor(curPoint);
-                    break;
-                case ConsoleKey.Z:
-                    game.ChangeScene(curPoint.scene);
-                    break;
+                game.ChangeScene(SceneType.BattleScene);
+            }
+            else if(curPoint.y == points[(int)Pos.Map].y)
+            {
+                game.ChangeScene(SceneType.MapScene);
+            }
+            else if (curPoint.y == points[(int)Pos.Inventory].y)
+            {
+                game.ChangeScene(SceneType.InventoryScene);
             }
         }
         #region 커서 옮기기
-        private void MoveUpCursor(Point curPoint)
+        protected override void MoveUpCursor()
         {
-            int index = Array.IndexOf(points, curPoint);
-            if (index - 1 >= 0)
+            if(curPoint.y > points[(int)Pos.Battle].y)
             {
-                this.curPoint = points[index - 1];
+                curPoint.y -= 1;
             }
         }
-        private void MoveDownCursor(Point curPoint)
+        protected override void MoveDownCursor()
         {
-            int index = Array.IndexOf(points, curPoint);
-            if (index + 1 < (int)Pos.SIZE)
+            if (curPoint.y < points[(int)Pos.Inventory].y)
             {
-                this.curPoint = points[index + 1];
+                curPoint.y += 1;
             }
         }
         #endregion

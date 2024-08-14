@@ -15,11 +15,11 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            Console.WriteLine("호텔");
+            PrintStatus();
         }
         public override void Update()
         {
-
+            
         }
         public override void Enter()
         {

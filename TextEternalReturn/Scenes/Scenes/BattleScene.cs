@@ -86,30 +86,7 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.WriteLine("▶");
             Console.ResetColor();
         }
-        private void UpdateKey()
-        {
-            switch (consoleKey)
-            {
-                case ConsoleKey.UpArrow:
-                    MoveUpCursor();
-                    break;
-                case ConsoleKey.DownArrow:
-                    MoveDownCursor();
-                    break;
-                case ConsoleKey.LeftArrow:
-                    MoveLeftCursor();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveRightCursor();
-                    break;
-                case ConsoleKey.Z:
-                    PushKeyZ();
-                    break;
-                default:
-                    break;
-            }
-        }
-        private void PushKeyZ()
+        protected override void PushKeyZ()
         {
             player.CheckLoseHp();
             switch (curPoint.choice)
@@ -165,28 +142,28 @@ namespace TextEternalReturn.Scenes.Scenes
             game.ChangeScene((SceneType)prevSceneIndex);
         }
         #region 커서 옮기기
-        private void MoveUpCursor() // 1이하는 위쪽으로 못감
+        protected override void MoveUpCursor() // 1이하는 위쪽으로 못감
         {
             if ((int)curPoint.choice > 1)
             {
                 curPoint = points[(int)curPoint.choice - 2];
             }
         }
-        private void MoveDownCursor() // SIZE-2 이상은 위로 못감
+        protected override void MoveDownCursor() // SIZE-2 이상은 위로 못감
         {
             if ((int)curPoint.choice < (int)Pos.SIZE - 2)
             {
                 curPoint = points[(int)curPoint.choice + 2];
             }
         }
-        private void MoveLeftCursor() // 짝수라면 왼쪽못감
+        protected override void MoveLeftCursor() // 짝수라면 왼쪽못감
         {
             if ((int)curPoint.choice % 2 != 0)
             {
                 curPoint = points[(int)curPoint.choice - 1];
             }
         }
-        private void MoveRightCursor()
+        protected override void MoveRightCursor()
         {
             if ((int)curPoint.choice % 2 == 0 &&
                 (int)curPoint.choice + 1 != (int)Pos.SIZE)

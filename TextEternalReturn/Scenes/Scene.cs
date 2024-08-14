@@ -15,7 +15,7 @@ namespace TextEternalReturn.Scenes
         protected Point curPoint;
         protected Point statusPoint;       
         protected int X, Y; // 스텟창 밑 기준점
-        private int x, y; // 게임 기준점
+        protected int x, y; // 게임 기준점
         protected Scene(Player player)
         {
             x = 25; 
@@ -56,6 +56,36 @@ namespace TextEternalReturn.Scenes
         public abstract void Enter();
 
         public abstract void Exit();
+
+        protected virtual void UpdateKey()
+        {
+            switch (consoleKey)
+            {
+                case ConsoleKey.UpArrow:
+                    MoveUpCursor();
+                    break;
+                case ConsoleKey.DownArrow:
+                    MoveDownCursor();
+                    break;
+                case ConsoleKey.LeftArrow:
+                    MoveLeftCursor();
+                    break;
+                case ConsoleKey.RightArrow:
+                    MoveRightCursor();
+                    break;
+                case ConsoleKey.Z:
+                    PushKeyZ();
+                    break;
+                default:
+                    break;
+            }
+        }
+        protected virtual void MoveUpCursor() { }
+        protected virtual void MoveDownCursor() { }
+        protected virtual void MoveLeftCursor() { }
+        protected virtual void MoveRightCursor() { }
+        protected virtual void PushKeyZ() { }
+
         #region 스테이터스 화면
         protected void PrintStatus()
         {

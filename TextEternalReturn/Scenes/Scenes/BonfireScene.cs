@@ -7,8 +7,7 @@ using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
-    internal class BonfireScene : Scene
-    {
+    internal class BonfireScene : Scene { 
         public BonfireScene(Player player) : base(player)
         {
 

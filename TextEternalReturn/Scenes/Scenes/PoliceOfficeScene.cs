@@ -7,7 +7,7 @@ using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
-    internal class PoliceOfficeScene : Scene
+    internal class PoliceOfficeScene :Scene
     {
         public PoliceOfficeScene(Player player) : base(player)
         {

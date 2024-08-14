@@ -1,80 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Items;
+﻿using TextEternalReturn.Items;
 using TextEternalReturn.Items.Foods;
-using TextEternalReturn.Items.Foods.Foods;
 
 namespace TextEternalReturn.Players
 {
     public class Inventory
     {
         // Food를 담을수있는 인벤토리 
-        public List<Item> inventory {  get; private set; }
+        public List<Food> inventory { get; private set; }
         // 자동으로 음식먹어주는 우선순위 큐
-        PriorityMinQueue autoQueue;
         Player player;
         public Action OnGetItem;
         public Action OnRemoveItem;
         public Inventory(Player player)
         {
             this.player = player;
-            inventory = new List<Item>(10);          
-            autoQueue = new PriorityMinQueue(inventory.Capacity);
+            inventory = new List<Food>(10);
             player.OnLoseHp += UseAuto;
         }
         public void GetItem(Item item)
         {
-            if (inventory.Count<inventory.Capacity)
+            if (inventory.Count < inventory.Capacity)
             {
                 Food food = item as Food;
                 inventory.Add(food);
-                autoQueue.Enqueue(food, food.priority);
                 OnGetItem?.Invoke();
-                //if (food != null)
-                //{
-
-                //}
 
             }
         }
         // 아이템 사용하기
         public void UseItem(int key)
         {
-            //리스트에서 빼면서 아이템의 효과(메서드) 사용
-            if (inventory[key] is Food)
-            {
-                Food food = inventory[key] as Food;
-                food.Use(player);
-                inventory.Remove(food);
-                autoQueue.Remove(food);
-                OnRemoveItem?.Invoke();
-            }
-            else
-                return;
+            Food food = inventory[key];
+            food.Use(player);
+            inventory.Remove(food);
+            OnRemoveItem?.Invoke();
         }
         // 아이템 버리기
-        public void ThrowItem(Item item)
+        public void ThrowItem(Food food)
         {
-            inventory.Remove(item);
-            Food food = item as Food;
-            if (food != null) 
-            {
-                autoQueue.Remove(food);
-            }
+            inventory.Remove(food);
             OnRemoveItem?.Invoke();
         }
         // 아이템 자동 사용하기
         private void UseAuto()
         {
-            Food food = autoQueue.Dequeue();
-            inventory.Remove(food);
-            OnRemoveItem?.Invoke();
-            if (food != null)
+            if (inventory.Count > 0)
+            {
+                Food food = inventory[0];
+                inventory.RemoveAt(0);
+                OnRemoveItem?.Invoke();
                 food.Use(player);
-            
-        }      
+            }
+        }
     }
 }

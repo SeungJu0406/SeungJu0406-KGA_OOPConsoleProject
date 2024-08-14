@@ -1,12 +1,13 @@
 ﻿using TextEternalReturn.Items;
 using TextEternalReturn.Players;
+using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
     internal class InventoryScene : Scene
     {
         enum Pos { FisrtItem, LastItem, Exit, SIZE }
-        List<Item> inventory;
+        List<Food> inventory;
         int index = 0;
         Point[] points = new Point[(int)Pos.SIZE];
         public InventoryScene(Player player) : base(player)

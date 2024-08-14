@@ -7,6 +7,7 @@ namespace AstarNote
         public Block[,] board { get; private set; }
         public int sizeX { get; private set; }
         public int sizeY { get; private set; }
+        public int wallCount {  get; private set; }
         public void SetBoard(int[,] maps)
         {
             int sizeX = maps.GetLength(1);
@@ -17,12 +18,19 @@ namespace AstarNote
                 for (int x = 0; x < sizeX; x++)
                 {
                     board[y, x] = new Block(x, y);
-                    if (maps[y, x] == 1)
+                    if (maps[y, x] == 1){
                         board[y, x].wall = true;
+                        wallCount++;
+                    }
+                   
                 }
             }
             this.sizeX = sizeX;
             this.sizeY = sizeY;
+        }
+        public int CountWall()
+        {
+            return wallCount;
         }
         public void Clear()
         {

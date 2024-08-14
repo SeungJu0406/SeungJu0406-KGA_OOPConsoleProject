@@ -52,7 +52,9 @@ namespace TextEternalReturn.Scenes
             }
         }
         public abstract void Update();
+
         public abstract void Enter();
+
         public abstract void Exit();
         #region 스테이터스 화면
         protected void PrintStatus()

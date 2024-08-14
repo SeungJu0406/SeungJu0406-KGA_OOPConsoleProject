@@ -1,4 +1,5 @@
-﻿using TextEternalReturn.Players;
+﻿using TextEternalReturn.Maps;
+using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
@@ -17,12 +18,17 @@ namespace TextEternalReturn.Scenes.Scenes
             Player, Hyunwoo, SIZE
         }
         Point[] points = new Point[(int)Pos.SIZE];
+        List<Point> walls;
+
+        Map map = new Map();
+        int mapX;
+        int mapY;
         public MapScene(Player player) : base(player)
         {
             points[(int)Pos.Map] = new Point() { x = X, y = Y };
             #region 맵 좌표
-            int mapX = X + 1;
-            int mapY = Y + 1;
+            mapX = X + 1;
+            mapY = Y + 1;
             points[(int)Pos.X0] = new Point() { x = mapX + 0, y = Y };
             points[(int)Pos.X1] = new Point() { x = mapX + 1, y = Y };
             points[(int)Pos.X2] = new Point() { x = mapX + 2, y = Y };
@@ -41,6 +47,17 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)Pos.Player] = new Point() { x = points[(int)Pos.X3].x, y = points[(int)Pos.Y3].y };
             points[(int)Pos.Hyunwoo] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y6].y };
 
+            walls = new List<Point>(map.board.CountWall());
+            #region 벽 좌표
+            for (int y = 0; y < map.sizeY; y++)
+            {
+                for (int x = 0; x < map.sizeX; x++)
+                {
+                    if (map.blocks[y, x].wall)
+                        walls.Add(new Point() { x = points[(int)Pos.X0].x + x, y = points[(int)Pos.Y0].y + y });
+                }
+            }
+            #endregion 
         }
         public override void Render()
         {
@@ -61,33 +78,29 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PrintMap()
         {
-            Point map = points[(int)Pos.Map];
-            SetCursor(map);
-            map.y++;
+            Point mapPoint = points[(int)Pos.Map];
+            SetCursor(mapPoint);
+            mapPoint.y++;
             Console.WriteLine("#########");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
-            Console.WriteLine("#       #");
-            SetCursor(map);
-            map.y++;
+            for (int y = 0; y < map.sizeY; y++)
+            {
+                SetCursor(mapPoint);
+                mapPoint.y++;
+                Console.Write("#");
+                for (int x = 0; x < map.sizeX; x++)
+                {
+
+                    if (map.blocks[y, x].wall)
+                        Console.Write("O");
+                    else
+                        Console.Write(" ");
+
+                }
+                Console.Write("#");
+                Console.WriteLine();
+            }
+            SetCursor(mapPoint);
+            mapPoint.y++;
             Console.WriteLine("#########");
             SetCursor(points[(int)Pos.Player]);
             Console.ForegroundColor = ConsoleColor.Green;
@@ -130,28 +143,44 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (points[(int)Pos.Player].y > points[(int)Pos.Y0].y)
             {
-                points[(int)Pos.Player].y--;
+                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY - 1].wall;
+                if (!(isWall))
+                {
+                    points[(int)Pos.Player].y -= 1;
+                }
             }
         }
         public void MoveDownCursor()
         {
             if (points[(int)Pos.Player].y < points[(int)Pos.Y6].y)
             {
-                points[(int)Pos.Player].y++;
+                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY + 1].wall;
+                if (!(isWall))
+                {
+                    points[(int)Pos.Player].y += 1;
+                }
             }
         }
         public void MoveLeftCursor()
         {
             if (points[(int)Pos.Player].x > points[(int)Pos.X0].x)
             {
-                points[(int)Pos.Player].x--;
+                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX - 1, points[(int)Pos.Player].y - mapY].wall;
+                if (!(isWall))
+                {
+                    points[(int)Pos.Player].x -= 1;
+                }
             }
         }
         public void MoveRightCursor()
         {
             if (points[(int)Pos.Player].x < points[(int)Pos.X6].x)
             {
-                points[(int)Pos.Player].x++;
+                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX + 1, points[(int)Pos.Player].y - mapY].wall;
+                if (!(isWall))
+                {
+                    points[(int)Pos.Player].x += 1;
+                }
             }
         }
         #endregion

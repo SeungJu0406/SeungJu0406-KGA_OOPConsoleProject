@@ -1,21 +1,30 @@
 ﻿using AstarNote;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TextEternalReturn.Maps
 {
     public class Map
     {
-        int[,] maps;
-        Board board;
+        public int[,] maps { get; private set; }
+        public Board board { get; private set; }
+        public Block[,] blocks { get; private set; }
+        public int sizeX { get; private set; }
+        public int sizeY {  get; private set; }
         public Map()
         {
-            maps = new int[7,7];
-            board = new Board();
+            maps = new int[7, 7]{
+                { 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 1, 1, 0, 1, 1, 0 },
+                { 0, 1, 0, 0, 0, 1, 0 },
+                { 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 1, 0, 0, 0, 1, 0 },
+                { 0, 1, 1, 0, 1, 1, 0 },
+                { 0, 0, 0, 0, 0, 0, 0 },
+            };
+            sizeX = maps.GetLength(1);
+            sizeY = maps.GetLength(0);
+            board = new Board();         
             board.SetBoard(maps);
+            blocks = board.board;
         }
     }
 }

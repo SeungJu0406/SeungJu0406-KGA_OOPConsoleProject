@@ -5,7 +5,8 @@ namespace TextEternalReturn.Monsters
 {
     public class MonsterFactory
     {
-        FoodFactory foodFactory = new FoodFactory(); 
+        FoodFactory foodFactory = new FoodFactory();
+        Hyunwoo hyunwoo;
         public Monster Create(MonsterType monsterType)
         {
             if (monsterType == MonsterType.Chicken)
@@ -51,6 +52,10 @@ namespace TextEternalReturn.Monsters
                 monster.exp = 50;
                 monster.reward = foodFactory.Create(FoodType.Steak);
                 return monster;
+            }
+            else if(monsterType == MonsterType.Hyunwoo)
+            {
+                Monster monster = hyunwoo.GetHyunwoo();
             }
             return null;
         }

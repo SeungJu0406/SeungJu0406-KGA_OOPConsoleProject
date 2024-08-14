@@ -67,7 +67,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            MoveHyun();          
+            MoveHyun();
             UpdateKey();
             CheckMeetPlayer();
         }
@@ -146,7 +146,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (points[(int)Pos.Player].y > points[(int)Pos.Y0].y) // 맵 바깥으로 안나가는가
             {
-                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY - 1].wall; // 움직이려는 위치에 벽이 있는가
+                bool isWall = map.blocks[points[(int)Pos.Player].y - mapY - 1, points[(int)Pos.Player].x - mapX].wall; // 움직이려는 위치에 벽이 있는가
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].y -= 1;
@@ -157,7 +157,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (points[(int)Pos.Player].y < points[(int)Pos.Y6].y)
             {
-                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX, points[(int)Pos.Player].y - mapY + 1].wall;
+                bool isWall = map.blocks[points[(int)Pos.Player].y - mapY + 1, points[(int)Pos.Player].x - mapX].wall;
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].y += 1;
@@ -168,7 +168,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (points[(int)Pos.Player].x > points[(int)Pos.X0].x)
             {
-                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX - 1, points[(int)Pos.Player].y - mapY].wall;
+                bool isWall = map.blocks[points[(int)Pos.Player].y - mapY, points[(int)Pos.Player].x - mapX - 1].wall;
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].x -= 1;
@@ -179,7 +179,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (points[(int)Pos.Player].x < points[(int)Pos.X6].x)
             {
-                bool isWall = map.blocks[points[(int)Pos.Player].x - mapX + 1, points[(int)Pos.Player].y - mapY].wall;
+                bool isWall = map.blocks[points[(int)Pos.Player].y - mapY, points[(int)Pos.Player].x - mapX + 1].wall;
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].x += 1;
@@ -198,9 +198,9 @@ namespace TextEternalReturn.Scenes.Scenes
             start = AStar.GetAStarFinding(map.board, start, finish);
             if (start != null && start.next != null)
             {
-                points[(int)Pos.Hyunwoo].x = start.next.y + mapX;
-                points[(int)Pos.Hyunwoo].y = start.next.x + mapY;
-            }      
+                points[(int)Pos.Hyunwoo].x = start.next.x + mapX; 
+                points[(int)Pos.Hyunwoo].y = start.next.y + mapY;
+            }
         }
         private void CheckMeetPlayer()
         {

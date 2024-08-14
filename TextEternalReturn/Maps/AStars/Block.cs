@@ -20,7 +20,7 @@ namespace TextEternalReturn.Maps.AStars
         public Block(int x, int y)
         {
             this.x = x;
-            this.y = y;
+            this.y = y;           
         }
         public void SetPrice(int G, int H)
         {

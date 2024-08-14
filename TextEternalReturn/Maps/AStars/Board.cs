@@ -17,7 +17,7 @@ namespace TextEternalReturn.Maps.AStars
             {
                 for (int x = 0; x < sizeX; x++)
                 {
-                    board[y, x] = new Block(y, x);
+                    board[y, x] = new Block(x, y);
                     if (maps[y, x] == 1){
                         board[y, x].wall = true;
                         wallCount++;
@@ -56,24 +56,24 @@ namespace TextEternalReturn.Maps.AStars
         public List<Block> GetArroundBlock(Board board, Block current)
         {
             List<Block> around = new List<Block>();
-            if (Exist(current.x, current.y - 1))// 상단
+            if (Exist(current.y - 1, current.x))// 상단
             {
-                Block Block = board.board[current.x, current.y - 1];
+                Block Block = board.board[current.y - 1, current.x];
                     around.Add(Block);
             }
-            if (Exist(current.x - 1, current.y))// 좌측
+            if (Exist(current.y, current.x - 1))// 좌측
             {
-                Block Block = board.board[current.x - 1, current.y];
+                Block Block = board.board[current.y, current.x - 1];
                     around.Add(Block);
             }
-            if (Exist(current.x + 1, current.y))// 우측
+            if (Exist(current.y, current.x + 1))// 우측
             {
-                Block Block = board.board[current.x + 1, current.y];
+                Block Block = board.board[current.y, current.x + 1];
                     around.Add(Block);
             }
-            if (Exist(current.x, current.y + 1))// 하단
+            if (Exist(current.y + 1, current.x))// 하단
             {
-                Block Block = board.board[current.x, current.y + 1];
+                Block Block = board.board[current.y + 1, current.x];
                     around.Add(Block);
                 }
             around.RemoveAll(b => b.wall);

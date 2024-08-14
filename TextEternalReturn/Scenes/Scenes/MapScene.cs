@@ -69,8 +69,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {         
-            UpdateKey();
-            CheckMeetPlayer();
+            UpdateKey();        
             MoveHyun();
             CheckMeetPlayer();
         }
@@ -87,27 +86,21 @@ namespace TextEternalReturn.Scenes.Scenes
             Point mapPoint = points[(int)Pos.Map];
             SetCursor(mapPoint);
             mapPoint.y++;
-            Console.WriteLine("#########");
+            Console.WriteLine("OOOOOOOOO");
             for (int y = 0; y < map.sizeY; y++)
             {
                 SetCursor(mapPoint);
                 mapPoint.y++;
-                Console.Write("#");
-                for (int x = 0; x < map.sizeX; x++)
-                {
-
-                    if (map.blocks[y, x].wall)
-                        Console.Write("O");
-                    else
-                        Console.Write(" ");
-
-                }
-                Console.Write("#");
-                Console.WriteLine();
+                Console.Write("O       O");
+            }
+            for(int i = 0; i <walls.Count; i++)
+            {
+                SetCursor(walls[i]);
+                Console.WriteLine("O");
             }
             SetCursor(mapPoint);
             mapPoint.y++;
-            Console.WriteLine("#########");
+            Console.WriteLine("OOOOOOOOO");
             SetCursor(points[(int)Pos.Player]);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("P");

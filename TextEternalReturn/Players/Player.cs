@@ -46,6 +46,12 @@ namespace TextEternalReturn.Players
         {
             isDie = true;
         }
+        public void Rest()
+        {
+            curHp += (maxHp / 2);
+            if (curHp > maxHp)
+                curHp = maxHp;
+        }
         public void GetExp(int exp)
         {
             curExp += exp;

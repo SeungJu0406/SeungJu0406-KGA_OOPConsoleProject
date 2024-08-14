@@ -36,6 +36,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Update()
         {
             UpdateKey();
+            player.CheckLoseHp();
         }
 
         public override void Enter()
@@ -145,7 +146,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void DieMonster(Monster monster)
         {
-            if(monster is Hyunwoo)
+            if (monster is Hyunwoo)
             {
                 game.isWin = true;
                 game.ChangeScene(SceneType.EndScene);
@@ -153,7 +154,7 @@ namespace TextEternalReturn.Scenes.Scenes
             }
             player.GetExp(monster.exp);
             player.GetItem(monster.reward);
-            Run();                         
+            Run();
         }
         private void UseItem()
         {

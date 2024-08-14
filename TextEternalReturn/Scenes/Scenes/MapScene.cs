@@ -24,6 +24,8 @@ namespace TextEternalReturn.Scenes.Scenes
         Map map = new Map();
         int mapX;
         int mapY;
+
+        int moveCount = 0;
         public MapScene(Player player) : base(player)
         {
             points[(int)Pos.Map] = new Point() { x = X, y = Y };
@@ -66,9 +68,10 @@ namespace TextEternalReturn.Scenes.Scenes
             PrintMap();
         }
         public override void Update()
-        {
-            MoveHyun();
+        {         
             UpdateKey();
+            CheckMeetPlayer();
+            MoveHyun();
             CheckMeetPlayer();
         }
         public override void Enter()
@@ -150,6 +153,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].y -= 1;
+                    moveCount++;
                 }
             }
         }
@@ -161,6 +165,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].y += 1;
+                    moveCount++;
                 }
             }
         }
@@ -172,6 +177,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].x -= 1;
+                    moveCount++;
                 }
             }
         }
@@ -183,23 +189,28 @@ namespace TextEternalReturn.Scenes.Scenes
                 if (!(isWall))
                 {
                     points[(int)Pos.Player].x += 1;
+                    moveCount++;
                 }
             }
         }
         #endregion
         private void MoveHyun()
         {
-            int HyunX = points[(int)Pos.Hyunwoo].x - mapX;
-            int HyunY = points[(int)Pos.Hyunwoo].y - mapY;
-            Block start = map.board.board[HyunY, HyunX];
-            int playerX = points[(int)Pos.Player].x - mapX;
-            int playerY = points[(int)Pos.Player].y - mapY;
-            Block finish = map.board.board[playerY, playerX];
-            start = AStar.GetAStarFinding(map.board, start, finish);
-            if (start != null && start.next != null)
+            if (moveCount >= 2 ) 
             {
-                points[(int)Pos.Hyunwoo].x = start.next.x + mapX; 
-                points[(int)Pos.Hyunwoo].y = start.next.y + mapY;
+                moveCount = 0;
+                int HyunX = points[(int)Pos.Hyunwoo].x - mapX;
+                int HyunY = points[(int)Pos.Hyunwoo].y - mapY;
+                Block start = map.board.board[HyunY, HyunX];
+                int playerX = points[(int)Pos.Player].x - mapX;
+                int playerY = points[(int)Pos.Player].y - mapY;
+                Block finish = map.board.board[playerY, playerX];
+                start = AStar.GetAStarFinding(map.board, start, finish);
+                if (start != null && start.next != null)
+                {
+                    points[(int)Pos.Hyunwoo].x = start.next.x + mapX;
+                    points[(int)Pos.Hyunwoo].y = start.next.y + mapY;
+                }
             }
         }
         private void CheckMeetPlayer()

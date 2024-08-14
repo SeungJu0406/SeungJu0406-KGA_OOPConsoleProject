@@ -3,67 +3,24 @@
     public class AStar
     {
         public static Block GetAStarFinding(Board board, Block start, Block finish)
-        {
-            if (board.Exist(start) && board.Exist(finish))
+        {       
+            if(board.Exist(start) && board.Exist(finish))
             {
-                board.Clear(); 
-                //List<Block> OpenList = new List<Block>();
-                //List<Block> CheckList = new List<Block>();
-                start.H = (Math.Abs(finish.x - start.x) + Math.Abs(finish.y - start.y)) * 10; 
+                // 맵 클리어
+                board.Clear();
+                // 해당 점을 현재위치로 정함
                 Block current = start;
-                //while (current != null) // 반복 없어도 될지도
-                //{
-                List<Block> arround = board.GetArroundBlock(board, current); 
-                List<Block> OpenAround = new List<Block>(); 
-                foreach (Block block in arround)
-                {
-                    FuncHeuristics(block, current, finish, out int aroundG, out int aroundH); 
-                    //if(aroundG + aroundH <= current.F) // 해당 블럭의 F값이 더 작을 경우 OpenList에서 제거
-                    //{
-                    //    OpenList.Remove(block);
-                    //    block.isOpen = false;
-                    //}
-                    if (!block.isOpen && !block.isCheck)
-                    {
-                        block.G = aroundG;
-                        block.H = aroundH;
-                        block.prev = current;
-                        //block.isOpen = true;
-                        //OpenList.Add(block); 
-                        OpenAround.Add(block);
-                    }
-                }
-                //current.isCheck = true;
-                //if (OpenList.Remove(current))
-                    //CheckList.Add(current);
-                if (OpenAround.Count > 0)
-                {
-                    current = GetNextBlock(OpenAround, current); // F값이 가장 낮은값 선정
-                }
-                else
-                {
-                    current = null;
-                }
-                //if (current == finish)
-                //    break;
-                //if (current == null)
-                //{
-                //    current = GetNextBlock(OpenList); // 만약 주변이 막힌길이라면 갈수있던곳중 가장 F가 낮았던 블럭으로 이동
-                //}
-                //}
-                //if (current != finish)
-                //    return null;
-                //while (current != start)
-                //{
-                if (current != null)
-                {
-                    current.prev.next = current;
-                    current = current.prev;
-                }
-                //}
-                return start;
+                // 주변 4방향의 갈수있는가? 를 구함
+                List<Block> around=board.GetArroundBlock(board, current);
+                // 갈수있는곳의 F값을 구함
+                FuncHeuristics(around, current, finish);
+                // F값이 가장 작은곳을 다음 블럭으로 정함
+                current = GetNextBlock(around);
+                // 다음 블럭의 이전을 시작 블럭으로 바꾸고
+                // 시작 블럭의 다음을 다음블럭으로 정함
+                current.prev.next = current;
             }
-            return null;
+            return start;
         }
         private static Block GetNextBlock(List<Block> OpenArround)
         {
@@ -83,18 +40,17 @@
                 if (result == null || result.F > OpenArround[i].F)
                     result = OpenArround[i];
             }
-            if (result.F > current.F)
-                result = null;
             return result;
         }
-        // 새로구한 F값이 더 높으면 다시 그값으로 F값을 넣게 바꿔야함
-        private static void FuncHeuristics(Block around, Block current, Block finish, out int aroundG, out int aroundH)
+        private static void FuncHeuristics(List<Block> around, Block current, Block finish)
         {
-            aroundG = around.G;
-            aroundH = around.H;
-            //bool isDiagonalBlock = around.x - current.x != 0 && around.y - current.y != 0;
-            aroundG = current.G + (/*isDiagonalBlock ? 14 :*/ 10);
-            aroundH = (Math.Abs(finish.x - around.x) + Math.Abs(finish.y - around.y)) * 10;
+            for(int i = 0; i < around.Count; i++)
+            {
+                Block block = around[i];
+                block.G = 10;
+                block.H = (Math.Abs(finish.x - around[i].x) + Math.Abs(finish.y - around[i].y)) * 10;
+                block.prev = current;
+            }
         }
     }
 }

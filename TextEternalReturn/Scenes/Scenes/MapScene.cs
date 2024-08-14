@@ -67,8 +67,8 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
+            MoveHyun();          
             UpdateKey();
-            MoveHyun();
             CheckMeetPlayer();
         }
         public override void Enter()

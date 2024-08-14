@@ -17,7 +17,7 @@ namespace TextEternalReturn.Maps.AStars
             {
                 for (int x = 0; x < sizeX; x++)
                 {
-                    board[y, x] = new Block(x, y);
+                    board[y, x] = new Block(y, x);
                     if (maps[y, x] == 1){
                         board[y, x].wall = true;
                         wallCount++;
@@ -76,38 +76,6 @@ namespace TextEternalReturn.Maps.AStars
                 Block Block = board.board[current.x, current.y + 1];
                     around.Add(Block);
                 }
-            //if (Exist(current.x-1, current.y - 1))// ↖
-            //{
-            //    Block Block = board.board[current.x-1, current.y - 1];
-            //        around.Add(Block);
-            //}
-            //if (Exist(current.x+1, current.y -1 ))// ↗
-            //{
-            //    Block Block = board.board[current.x+1, current.y - 1];
-
-            //        around.Add(Block);
-            //}
-            //if (Exist(current.x-1, current.y + 1))// ↙
-            //{
-            //    Block Block = board.board[current.x-1, current.y + 1];
-            //        around.Add(Block);
-            //}
-            //if (Exist(current.x+1, current.y + 1))// ↘
-            //{
-            //    Block Block = board.board[current.x+1, current.y + 1];
-            //        around.Add(Block);
-            //}
-            //for (int i = around.Count - 1; i >= 0; i--)
-            //{
-            //    Block block = around[i];
-            //    bool isDiagonalBlock = block.x - current.x != 0 && block.y - current.y != 0;
-            //    if (isDiagonalBlock)
-            //    {
-            //        if (around.Find(b => b.x == block.x && b.y == current.y).wall ||
-            //           around.Find(b => b.x == current.x && b.y == block.y).wall)
-            //            around.Remove(block);
-            //    }
-            //}
             around.RemoveAll(b => b.wall);
             return around;
         }

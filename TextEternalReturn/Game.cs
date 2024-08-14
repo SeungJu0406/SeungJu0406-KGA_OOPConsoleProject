@@ -21,7 +21,7 @@ namespace TextEternalReturn
  
         public Player player = new Player();
         public bool battleHyun;
-
+        public bool isWin;
         bool isRunning;
         private Game() { }
         public void Run()

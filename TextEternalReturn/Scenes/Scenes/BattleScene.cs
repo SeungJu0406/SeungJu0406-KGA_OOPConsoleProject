@@ -132,17 +132,28 @@ namespace TextEternalReturn.Scenes.Scenes
             player.Attack(monster);
             if (monster.isDie)
             {
-                player.GetExp(monster.exp);
-                player.GetItem(monster.reward);
-                Run();
+                DieMonster(monster);
                 return;
             }
             monster.Attack(player);
             if (player.isDie)
             {
+                game.isWin = false;
                 game.ChangeScene(SceneType.EndScene);
                 return;
             }
+        }
+        private void DieMonster(Monster monster)
+        {
+            if(monster is Hyunwoo)
+            {
+                game.isWin = true;
+                game.ChangeScene(SceneType.EndScene);
+                return;
+            }
+            player.GetExp(monster.exp);
+            player.GetItem(monster.reward);
+            Run();                         
         }
         private void UseItem()
         {

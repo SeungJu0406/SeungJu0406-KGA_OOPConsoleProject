@@ -15,8 +15,14 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            Console.Clear();
-            Console.WriteLine("졌어요 ㅠㅠ");
+            if (game.isWin)
+            {
+                Console.WriteLine("이겼어요!");
+            }
+            else
+            {
+                Console.WriteLine("졌어요 ㅠㅠ");
+            }
         }
         public override void Input()
         {
@@ -27,7 +33,8 @@ namespace TextEternalReturn.Scenes.Scenes
             game.GameOver();
         }
         public override void Enter()
-        {          
+        {
+            Console.Clear();
         }
         public override void Exit()
         {

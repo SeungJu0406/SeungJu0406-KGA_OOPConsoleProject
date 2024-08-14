@@ -29,7 +29,7 @@ namespace TextEternalReturn.Monsters
                 Die();
             }
         }
-        public void Die()
+        public virtual void Die()
         {
             isDie = true;
         }

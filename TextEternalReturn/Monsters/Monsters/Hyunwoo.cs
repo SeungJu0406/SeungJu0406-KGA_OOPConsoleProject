@@ -9,6 +9,7 @@ namespace TextEternalReturn.Monsters.Monsters
 {
     public class Hyunwoo : Monster
     {
+
         public Hyunwoo()
         {
             name = "현우";
@@ -20,5 +21,6 @@ namespace TextEternalReturn.Monsters.Monsters
         {
             return this;
         }
+
     }
 }

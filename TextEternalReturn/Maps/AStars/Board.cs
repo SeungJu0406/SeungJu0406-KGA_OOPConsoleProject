@@ -12,13 +12,13 @@ namespace AstarNote
             int sizeX = maps.GetLength(1);
             int sizeY = maps.GetLength(0);
             board = new Block[sizeX, sizeY];
-            for (int x = 0; x < sizeX; x++)
+            for (int y = 0; y < sizeY; y++)
             {
-                for (int y = 0; y < sizeY; y++)
+                for (int x = 0; x < sizeX; x++)
                 {
-                    board[x, y] = new Block(x, y);
-                    //if (maps[x, y] == 1)
-                    //    board[x, y].wall = true;
+                    board[y, x] = new Block(x, y);
+                    if (maps[y, x] == 1)
+                        board[y, x].wall = true;
                 }
             }
             this.sizeX = sizeX;
@@ -89,18 +89,18 @@ namespace AstarNote
                 Block Block = board.board[current.x+1, current.y + 1];
                     around.Add(Block);
             }
-            //for(int i = around.Count-1; i>= 0; i--)
-            //{
-            //    Block block = around[i];
-            //    bool isDiagonalBlock = block.x - current.x != 0 && block.y - current.y != 0;
-            //    if (isDiagonalBlock)
-            //    {
-            //        if(around.Find(b=>b.x==block.x && b.y == current.y).wall ||
-            //           around.Find(b => b.x == current.x && b.y == block.y).wall)
-            //            around.Remove(block);
-            //    }
-            //}
-            //around.RemoveAll(b => b.wall);
+            for (int i = around.Count - 1; i >= 0; i--)
+            {
+                Block block = around[i];
+                bool isDiagonalBlock = block.x - current.x != 0 && block.y - current.y != 0;
+                if (isDiagonalBlock)
+                {
+                    if (around.Find(b => b.x == block.x && b.y == current.y).wall ||
+                       around.Find(b => b.x == current.x && b.y == block.y).wall)
+                        around.Remove(block);
+                }
+            }
+            around.RemoveAll(b => b.wall);
             return around;
         }
 

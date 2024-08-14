@@ -16,7 +16,9 @@ namespace TextEternalReturn.Scenes.Scenes
             Y4,
             Y5,
             Y6,
-            Player, Hyunwoo, SIZE
+            Player, Hyunwoo, 
+            Hotel, PoliceOffice, Harbor, Hospital,
+            SIZE
         }
         Point[] points = new Point[(int)Pos.SIZE];
         List<Point> walls;
@@ -49,7 +51,10 @@ namespace TextEternalReturn.Scenes.Scenes
             #endregion  
             points[(int)Pos.Player] = new Point() { x = points[(int)Pos.X3].x, y = points[(int)Pos.Y3].y };
             points[(int)Pos.Hyunwoo] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y6].y };
-
+            points[(int)Pos.Hotel] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y0].y };
+            points[(int)Pos.PoliceOffice] = new Point() { x = points[(int)Pos.X6].x, y = points[(int)Pos.Y0].y };
+            points[(int)Pos.Harbor] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y6].y };
+            points[(int)Pos.Hospital] = new Point() { x = points[(int)Pos.X6].x, y = points[(int)Pos.Y6].y };
             walls = new List<Point>(map.board.CountWall());
             #region 벽 좌표
             for (int y = 0; y < map.sizeY; y++)
@@ -101,6 +106,13 @@ namespace TextEternalReturn.Scenes.Scenes
             SetCursor(mapPoint);
             mapPoint.y++;
             Console.WriteLine("OOOOOOOOO");
+            for (int i = (int)Pos.Hotel; i <= (int)Pos.Hospital; i++)
+            {
+                SetCursor(points[i]);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("$");
+                Console.ResetColor();
+            }
             SetCursor(points[(int)Pos.Player]);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("P");
@@ -135,7 +147,22 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PushKeyZ()
         {
-            game.ChangeScene(SceneType.ChoiceScene);
+            if (points[(int)Pos.Player].x == points[(int)Pos.X0].x)
+            {
+                if (points[(int)Pos.Player].y == points[(int)Pos.Y0].y)
+                    game.ChangeScene(SceneType.HotelScene);
+                else if (points[(int)Pos.Player].y == points[(int)Pos.Y6].y)
+                    game.ChangeScene(SceneType.HarborScene);
+            }
+            else if (points[(int)Pos.Player].x == points[(int)Pos.X6].x)
+            {
+                if (points[(int)Pos.Player].y == points[(int)Pos.Y0].y)
+                    game.ChangeScene(SceneType.PoliceOfficeScene);
+                else if (points[(int)Pos.Player].y == points[(int)Pos.Y6].y)
+                    game.ChangeScene(SceneType.HospitalScene);
+            }
+            else 
+                game.ChangeScene(SceneType.ChoiceScene);
         }
         #region 커서 이동
         private void MoveUpCursor()

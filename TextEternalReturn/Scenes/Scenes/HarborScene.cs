@@ -15,11 +15,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-
-        }
-        public override void Input()
-        {
-
+            Console.WriteLine("항구");
         }
         public override void Update()
         {
@@ -27,7 +23,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Enter()
         {
-
+            Console.Clear();
         }
         public override void Exit()
         {

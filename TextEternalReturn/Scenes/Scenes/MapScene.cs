@@ -69,6 +69,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             UpdateKey();
             MoveHyun();
+            CheckMeetPlayer();
         }
         public override void Enter()
         {
@@ -195,18 +196,20 @@ namespace TextEternalReturn.Scenes.Scenes
             int playerY = points[(int)Pos.Player].y - mapY;
             Block finish = map.board.board[playerY, playerX];
             start = AStar.GetAStarFinding(map.board, start, finish);
-            if (start.next != null)
+            if (start != null && start.next != null)
             {
                 points[(int)Pos.Hyunwoo].x = start.next.y + mapX;
                 points[(int)Pos.Hyunwoo].y = start.next.x + mapY;
-                if (points[(int)Pos.Hyunwoo].x == points[(int)Pos.Player].x &&
-                   points[(int)Pos.Hyunwoo].y == points[(int)Pos.Player].y)
-                {
-                    points[(int)Pos.Hyunwoo].x = points[(int)Pos.X0].x;
-                    points[(int)Pos.Hyunwoo].y = points[(int)Pos.Y0].y;
-                }
+            }      
+        }
+        private void CheckMeetPlayer()
+        {
+            if (points[(int)Pos.Hyunwoo].x == points[(int)Pos.Player].x &&
+                points[(int)Pos.Hyunwoo].y == points[(int)Pos.Player].y)
+            {
+                points[(int)Pos.Hyunwoo].x = points[(int)Pos.X0].x;
+                points[(int)Pos.Hyunwoo].y = points[(int)Pos.Y0].y;
             }
-          
         }
         private void SetCursor(Point cursorPoint)
         {

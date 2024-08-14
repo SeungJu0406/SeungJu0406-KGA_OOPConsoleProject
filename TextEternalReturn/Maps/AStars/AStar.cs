@@ -6,58 +6,61 @@
         {
             if (board.Exist(start) && board.Exist(finish))
             {
-                board.Clear();
-                List<Block> OpenList = new List<Block>();
-                List<Block> CheckList = new List<Block>();
-                start.H = (Math.Abs(finish.x - start.x) + Math.Abs(finish.y - start.y)) * 10;
+                board.Clear(); 
+                //List<Block> OpenList = new List<Block>();
+                //List<Block> CheckList = new List<Block>();
+                start.H = (Math.Abs(finish.x - start.x) + Math.Abs(finish.y - start.y)) * 10; 
                 Block current = start;
-                while (current != null)
+                //while (current != null) // 반복 없어도 될지도
+                //{
+                List<Block> arround = board.GetArroundBlock(board, current); 
+                List<Block> OpenAround = new List<Block>(); 
+                foreach (Block block in arround)
                 {
-                    List<Block> arround = board.GetArroundBlock(board, current);
-                    List<Block> OpenAround = new List<Block>();
-                    foreach (Block block in arround)
+                    FuncHeuristics(block, current, finish, out int aroundG, out int aroundH); 
+                    //if(aroundG + aroundH <= current.F) // 해당 블럭의 F값이 더 작을 경우 OpenList에서 제거
+                    //{
+                    //    OpenList.Remove(block);
+                    //    block.isOpen = false;
+                    //}
+                    if (!block.isOpen && !block.isCheck)
                     {
-                        FuncHeuristics(block, current, finish, out int aroundG, out int aroundH);
-                        if(aroundG + aroundH <= current.F) // 해당 블럭의 F값이 더 작을 경우 OpenList에서 제거
-                        {
-                            OpenList.Remove(block);
-                            block.isOpen = false;
-                        }
-                        if (!block.isOpen && !block.isCheck)
-                        {
-                            block.G = aroundG;
-                            block.H = aroundH;
-                            block.prev = current;
-                            block.isOpen = true;
-                            OpenList.Add(block);
-                            OpenAround.Add(block);
-                        }
-                    }
-                    current.isCheck = true;
-                    if (OpenList.Remove(current))
-                        CheckList.Add(current);
-                    if (OpenAround.Count > 0)
-                    {
-                        current = GetNextBlock(OpenAround, current); // F값이 가장 낮은값 선정
-                    }
-                    else
-                    {
-                        current = null;
-                    }
-                    if (current == finish)
-                        break;
-                    if (current == null)
-                    {
-                        current = GetNextBlock(OpenList); // 만약 주변이 막힌길이라면 갈수있던곳중 가장 F가 낮았던 블럭으로 이동
+                        block.G = aroundG;
+                        block.H = aroundH;
+                        block.prev = current;
+                        //block.isOpen = true;
+                        //OpenList.Add(block); 
+                        OpenAround.Add(block);
                     }
                 }
-                if (current != finish)
-                    return null;
-                while (current != start)
+                //current.isCheck = true;
+                //if (OpenList.Remove(current))
+                    //CheckList.Add(current);
+                if (OpenAround.Count > 0)
+                {
+                    current = GetNextBlock(OpenAround, current); // F값이 가장 낮은값 선정
+                }
+                else
+                {
+                    current = null;
+                }
+                //if (current == finish)
+                //    break;
+                //if (current == null)
+                //{
+                //    current = GetNextBlock(OpenList); // 만약 주변이 막힌길이라면 갈수있던곳중 가장 F가 낮았던 블럭으로 이동
+                //}
+                //}
+                //if (current != finish)
+                //    return null;
+                //while (current != start)
+                //{
+                if (current != null)
                 {
                     current.prev.next = current;
                     current = current.prev;
                 }
+                //}
                 return start;
             }
             return null;

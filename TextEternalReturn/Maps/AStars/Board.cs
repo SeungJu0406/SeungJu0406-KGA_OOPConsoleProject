@@ -76,27 +76,27 @@ namespace TextEternalReturn.Maps.AStars
                 Block Block = board.board[current.x, current.y + 1];
                     around.Add(Block);
                 }
-            if (Exist(current.x-1, current.y - 1))// ↖
-            {
-                Block Block = board.board[current.x-1, current.y - 1];
-                    around.Add(Block);
-            }
-            if (Exist(current.x+1, current.y -1 ))// ↗
-            {
-                Block Block = board.board[current.x+1, current.y - 1];
+            //if (Exist(current.x-1, current.y - 1))// ↖
+            //{
+            //    Block Block = board.board[current.x-1, current.y - 1];
+            //        around.Add(Block);
+            //}
+            //if (Exist(current.x+1, current.y -1 ))// ↗
+            //{
+            //    Block Block = board.board[current.x+1, current.y - 1];
 
-                    around.Add(Block);
-            }
-            if (Exist(current.x-1, current.y + 1))// ↙
-            {
-                Block Block = board.board[current.x-1, current.y + 1];
-                    around.Add(Block);
-            }
-            if (Exist(current.x+1, current.y + 1))// ↘
-            {
-                Block Block = board.board[current.x+1, current.y + 1];
-                    around.Add(Block);
-            }
+            //        around.Add(Block);
+            //}
+            //if (Exist(current.x-1, current.y + 1))// ↙
+            //{
+            //    Block Block = board.board[current.x-1, current.y + 1];
+            //        around.Add(Block);
+            //}
+            //if (Exist(current.x+1, current.y + 1))// ↘
+            //{
+            //    Block Block = board.board[current.x+1, current.y + 1];
+            //        around.Add(Block);
+            //}
             //for (int i = around.Count - 1; i >= 0; i--)
             //{
             //    Block block = around[i];

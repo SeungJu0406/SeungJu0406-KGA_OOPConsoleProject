@@ -15,7 +15,7 @@ namespace TextEternalReturn
     {
         public static Game game = new Game();
 
-        public Scene[] sceneList = new Scene[12];
+        public Scene[] sceneList = new Scene[(int)SceneType.SIZE];
         public Scene prevScene;
         public Scene curScene { get; set; }
  
@@ -56,10 +56,11 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.HarborScene] = new HarborScene(player);
             sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
             sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);
-            sceneList[(int)SceneType.StatusScene] = new StatusScene(player);
+            sceneList[(int)SceneType.ChestScene] = new ChestScene(player);
             sceneList[(int)SceneType.InventoryScene] = new InventoryScene(player);
             sceneList[(int)SceneType.BattleScene] = new BattleScene(player);
             sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(player);
+            sceneList[(int)SceneType.FishingScene] = new FishingScene(player);
             sceneList[(int)SceneType.EndScene] = new EndScene(player);
             
             curScene = sceneList[(int)SceneType.StartScene];

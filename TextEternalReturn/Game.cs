@@ -18,8 +18,9 @@ namespace TextEternalReturn
         public Scene[] sceneList = new Scene[12];
         public Scene prevScene;
         public Scene curScene { get; set; }
-
+ 
         public Player player = new Player();
+        public bool battleHyun;
 
         bool isRunning;
         private Game() { }

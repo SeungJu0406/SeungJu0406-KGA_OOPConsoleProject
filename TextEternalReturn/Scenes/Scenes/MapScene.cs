@@ -207,8 +207,8 @@ namespace TextEternalReturn.Scenes.Scenes
             if (points[(int)Pos.Hyunwoo].x == points[(int)Pos.Player].x &&
                 points[(int)Pos.Hyunwoo].y == points[(int)Pos.Player].y)
             {
-                points[(int)Pos.Hyunwoo].x = points[(int)Pos.X0].x;
-                points[(int)Pos.Hyunwoo].y = points[(int)Pos.Y0].y;
+                game.battleHyun = true;
+                game.ChangeScene(SceneType.BattleScene);
             }
         }
         private void SetCursor(Point cursorPoint)

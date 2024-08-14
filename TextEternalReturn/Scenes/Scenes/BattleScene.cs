@@ -1,4 +1,5 @@
 ﻿using TextEternalReturn.Monsters;
+using TextEternalReturn.Monsters.Monsters;
 using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
@@ -12,7 +13,6 @@ namespace TextEternalReturn.Scenes.Scenes
             public Pos choice;
         }
         Scene prevScene;
-
         Point mobStatusPoint;
         Monster monster;
         MonsterFactory mobFactory = new MonsterFactory();
@@ -41,12 +41,22 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
+            if (game.battleHyun)
+            {
+                monster = mobFactory.Create(MonsterType.Hyunwoo);
+                curPoint = points[(int)Pos.Attack];
+                prevScene = game.prevScene;
+                game.battleHyun = false;
+                return;
+            }
             if (!(game.prevScene is InventoryScene))
             {
                 monster = mobFactory.CreateRandom();
                 curPoint = points[(int)Pos.Attack];
                 prevScene = game.prevScene;
+                return;
             }
+
         }
         public override void Exit()
         {

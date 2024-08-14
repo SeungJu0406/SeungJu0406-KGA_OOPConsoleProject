@@ -35,8 +35,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            UpdateKey();
-            player.CheckLoseHp();
+            UpdateKey();           
         }
 
         public override void Enter()
@@ -57,7 +56,6 @@ namespace TextEternalReturn.Scenes.Scenes
                 prevScene = game.prevScene;
                 return;
             }
-
         }
         public override void Exit()
         {
@@ -113,6 +111,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PushKeyZ()
         {
+            player.CheckLoseHp();
             switch (curPoint.choice)
             {
                 case Pos.Attack:

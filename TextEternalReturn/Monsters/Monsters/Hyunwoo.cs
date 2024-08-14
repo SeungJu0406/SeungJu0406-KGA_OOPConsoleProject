@@ -14,9 +14,9 @@ namespace TextEternalReturn.Monsters.Monsters
         public Hyunwoo()
         {
             name = "현우";
-            maxHp = 1000;
-            curHp = 1000;
-            power = 100;
+            maxHp = 5000;
+            curHp = 5000;
+            power = 500;
         }
         public Hyunwoo GetHyunwoo()
         {

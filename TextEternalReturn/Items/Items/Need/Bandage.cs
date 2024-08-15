@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.Need
     {
         public Bandage()
         {
-            name = "붕대";
+
         }
     }
 }

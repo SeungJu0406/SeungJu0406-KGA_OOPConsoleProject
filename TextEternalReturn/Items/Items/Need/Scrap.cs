@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.Need
     {
         public Scrap()
         {
-            name = "고철";
+
         }
     }
 }

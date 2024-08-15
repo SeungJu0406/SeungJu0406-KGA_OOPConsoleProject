@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
     {
         public Rubber()
         {
-            name = "고무";
+
         }
     }
 }

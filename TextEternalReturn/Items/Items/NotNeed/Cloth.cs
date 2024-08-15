@@ -11,6 +11,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
         public Cloth() 
         {
             name = "옷감";
+            id = (int)ItemType.Cloth;
         }
     }
 }

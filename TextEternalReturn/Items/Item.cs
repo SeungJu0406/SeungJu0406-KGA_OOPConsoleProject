@@ -9,6 +9,7 @@ namespace TextEternalReturn.Items
 {
     public class Item
     {
-        public string name { get; set; }              
+        public string name { get; set; }
+        public int id;
     }
 }

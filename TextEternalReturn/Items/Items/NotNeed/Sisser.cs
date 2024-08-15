@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
     {
         public Sisser()
         {
-            name = "가위";
+
         }
     }
 }

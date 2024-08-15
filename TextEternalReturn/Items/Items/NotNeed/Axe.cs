@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
     {
         public Axe() 
         {
-            name = "도끼";
+
         }
     }
 }

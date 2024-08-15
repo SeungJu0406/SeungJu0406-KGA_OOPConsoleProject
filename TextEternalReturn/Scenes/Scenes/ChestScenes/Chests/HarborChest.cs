@@ -11,7 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
     {
         public HarborChest(Player player) : base(player) 
         {
-            items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemName.Scrap));
+            items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemType.Scrap));
         }
     }
 }

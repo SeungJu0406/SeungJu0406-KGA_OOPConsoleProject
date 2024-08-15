@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.Need
     {
         public ShortRod() 
         {
-            name = "단봉";
+
         }
     }
 }

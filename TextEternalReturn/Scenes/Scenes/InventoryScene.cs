@@ -12,12 +12,12 @@ namespace TextEternalReturn.Scenes.Scenes
         Point[] points = new Point[(int)Pos.SIZE];
         public InventoryScene(Player player) : base(player)
         {
-            this.inventory = player.inventory.inventory;
+            this.inventory = player.foodInventory.inventory;
             points[(int)Pos.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y - 1) };
             points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
-            player.inventory.OnGetItem += CheckGetItem;
-            player.inventory.OnRemoveItem += CheckRemoveItem;
+            player.foodInventory.OnGetItem += CheckGetItem;
+            player.foodInventory.OnRemoveItem += CheckRemoveItem;
 
         }
         public override void Render()

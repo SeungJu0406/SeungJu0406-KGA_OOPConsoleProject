@@ -10,7 +10,8 @@ namespace TextEternalReturn.Players
 {
     public class Player : IAttack, IHit, IDie
     {
-        public FoodInventory inventory;
+        public FoodInventory foodInventory;
+        public CraftInventory craftInventory;
         public int level {  get; set; }
         public int maxHp { get; set; }
         public int curHp { get; set; }
@@ -21,7 +22,8 @@ namespace TextEternalReturn.Players
         public Action OnLoseHp;
         public Player()
         {
-            inventory = new FoodInventory(this);
+            foodInventory = new FoodInventory(this);
+            craftInventory = new CraftInventory(this);
             level = 1;
             maxHp = 600;
             curHp = 600;
@@ -66,11 +68,11 @@ namespace TextEternalReturn.Players
         }
         public void GetItem(Food food)
         {
-            inventory.GetItem(food);
+            foodInventory.GetItem(food);
         }
         public void UseItem(int itemKey)
         {
-            inventory.UseItem(itemKey);
+            foodInventory.UseItem(itemKey);
         }
         #region 체력 40% 이하 감지
         /// <summary>

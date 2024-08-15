@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
     {
         public Chain() 
         {
-            name = "사슬";
+
         }
     }
 }

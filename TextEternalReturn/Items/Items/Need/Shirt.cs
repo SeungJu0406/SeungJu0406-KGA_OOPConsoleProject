@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.Need
     {
         public Shirt()
         {
-            name = "셔츠";
+
         }
     }
 }

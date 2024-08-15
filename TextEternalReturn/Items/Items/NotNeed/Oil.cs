@@ -10,7 +10,7 @@ namespace TextEternalReturn.Items.Items.NotNeed
     {
         public Oil() 
         {
-            name = "오일";
+
         }
     }
 }

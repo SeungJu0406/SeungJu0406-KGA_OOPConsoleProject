@@ -4,7 +4,7 @@
     {
         public Paper() 
         {
-            name = "종이";
+
         }
     }
 }

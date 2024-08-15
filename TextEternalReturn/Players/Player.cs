@@ -66,7 +66,7 @@ namespace TextEternalReturn.Players
                 curExp = 0;
             }
         }
-        public void GetItem(Food food)
+        public void GetFood(Food food)
         {
             foodInventory.GetItem(food);
         }

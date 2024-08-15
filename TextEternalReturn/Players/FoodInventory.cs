@@ -24,7 +24,6 @@ namespace TextEternalReturn.Players
                 Food food = item as Food;
                 inventory.Add(food);
                 OnGetItem?.Invoke();
-
             }
         }
         // 아이템 사용하기

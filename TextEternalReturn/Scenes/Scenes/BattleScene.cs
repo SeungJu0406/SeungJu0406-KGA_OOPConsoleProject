@@ -129,7 +129,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 return;
             }
             player.GetExp(monster.exp);
-            player.GetItem(monster.reward);
+            player.GetFood(monster.reward);
             Run();
         }
         private void UseItem()

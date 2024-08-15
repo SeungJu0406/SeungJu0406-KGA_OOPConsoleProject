@@ -12,7 +12,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
     {
         enum Pos { Inventory, Cooking, CookingCount, Exit, SIZE }
         int cookingCount;
-        int maxcookingCount;
+        int maxCookingCount;
         Point[] points;
         FoodFactory foodFactory = new FoodFactory();
         Food[] dishs;
@@ -20,10 +20,24 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         public BonfireScene(Player player) : base(player)
         {
             SceneID = (int)SceneType.BonFireScene;
+            points = new Point[(int)Pos.SIZE];
+            points[(int)Pos.Inventory] = new Point() { x = X, y = Y };
+            points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
+            points[(int)Pos.Cooking] = new Point() { x = X, y = Y + 1 };
+            points[(int)Pos.CookingCount] = new Point() { x = X, y = Y + 3 };
+            cookingCount = 0;
+            maxCookingCount = 5;
+            
+        }
+        public override void Enter()
+        {
+            Console.Clear();
+            curPoint = points[(int)Pos.Inventory];
         }
         public override void Render()
         {
             base.Render();
+            PrintBonfire();
         }
         public override void Update()
         {
@@ -36,7 +50,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             SetCursor(points[(int)Pos.Exit]);
             Console.WriteLine("▷ 나가기");
             SetCursor(points[(int)Pos.Cooking]);
-            Console.WriteLine("▷ 낚시줄 당기기");
+            Console.WriteLine("▷ 요리하기");
             Console.ForegroundColor = ConsoleColor.Green;
             SetCursor(curPoint);
             Console.WriteLine("▶");
@@ -55,7 +69,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
                     Console.Write("■");
                 }
                 Console.ResetColor();
-                for (int i = 0; i < maxcookingCount - cookingCount; i++)
+                for (int i = 0; i < maxCookingCount - cookingCount; i++)
                 {
                     Console.Write("□");
                 }
@@ -66,5 +80,42 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         {
 
         }
+        #region 커서 이동
+        protected override void MoveUpCursor()
+        {
+            if (curPoint.x == points[(int)Pos.Inventory].x &&
+                curPoint.y > points[(int)Pos.Inventory].y)
+            {
+                curPoint.y -= 1;
+            }
+        }
+        protected override void MoveDownCursor()
+        {
+            if (curPoint.x == points[(int)Pos.Cooking].x &&
+                curPoint.y < points[(int)Pos.Cooking].y)
+            {
+                curPoint.y += 1;
+            }
+        }
+        Point temp;
+        protected override void MoveLeftCursor()
+        {
+            if (curPoint.x == points[(int)Pos.Exit].x &&
+               curPoint.y == points[(int)Pos.Exit].y)
+            {
+                curPoint = temp;
+            }
+        }
+        protected override void MoveRightCursor()
+        {
+            if (curPoint.x != points[(int)Pos.Exit].x ||
+                curPoint.y != points[(int)Pos.Exit].y)
+            {
+                temp = curPoint;
+                curPoint = points[(int)Pos.Exit];
+
+            }
+        }
+        #endregion
     }
 }

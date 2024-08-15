@@ -117,7 +117,7 @@ namespace TextEternalReturn.Scenes.Scenes
             }
             SetCursor(points[(int)Pos.Bonfire]);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("♨");
+            Console.WriteLine("@");
             Console.ResetColor();
             SetCursor(points[(int)Pos.Player]);
             Console.ForegroundColor = ConsoleColor.Green;

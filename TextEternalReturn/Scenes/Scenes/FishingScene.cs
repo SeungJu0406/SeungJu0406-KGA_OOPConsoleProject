@@ -1,6 +1,7 @@
 ﻿using TextEternalReturn.Items.Foods;
 using TextEternalReturn.Items.Foods.Foods;
 using TextEternalReturn.Players;
+using TextEternalReturn.Scenes.Scenes.PlaceScenes;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
@@ -13,6 +14,7 @@ namespace TextEternalReturn.Scenes.Scenes
         FoodFactory foodFactory = new FoodFactory();
         Food[] fishs;
         Food caughtFish;
+        PlaceScene prevScene;
         public FishingScene(Player player) : base(player)
         {
             SceneID = (int)SceneType.FishingScene;
@@ -31,6 +33,11 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Enter()
         {
             Console.Clear();
+            if(game.prevScene is PlaceScene)
+            {
+                PlaceScene tempScene = game.prevScene as PlaceScene;
+                prevScene = tempScene;
+            }
         }
 
         public override void Exit()
@@ -92,7 +99,7 @@ namespace TextEternalReturn.Scenes.Scenes
             else if (curPoint.x == points[(int)Pos.Exit].x &&
                     curPoint.y == points[(int)Pos.Exit].y)
             {
-                game.ChangeScene((SceneType)game.prevScene.SceneID);
+                game.ChangeScene((SceneType)prevScene.SceneID);
             }
             else if (curPoint.x == points[(int)Pos.Fishing].x &&
                     curPoint.y == points[(int)Pos.Fishing].y)

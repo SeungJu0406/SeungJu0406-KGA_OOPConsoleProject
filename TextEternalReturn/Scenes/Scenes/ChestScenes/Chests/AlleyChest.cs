@@ -7,11 +7,11 @@ using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
 {
-    internal class PoliceOfficeChest : ChestScene
+    internal class AlleyChest : ChestScene
     {
-        public PoliceOfficeChest(Player player) : base(player)
+        public AlleyChest(Player player) : base(player)
         {
-            SceneID = (int)SceneType.PoliceOfficeChest;
+            SceneID = (int)SceneType.AlleyChest;
             items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemType.Shirt));
         }
     }

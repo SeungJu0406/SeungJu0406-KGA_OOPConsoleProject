@@ -3,9 +3,9 @@
     public enum SceneType
     {
         StartScene, 
-        MapScene, HotelScene, PoliceOfficeScene, HarborScene, HospitalScene, BonFireScene,
+        MapScene, HotelScene, AlleyOfficeScene, HarborScene, HospitalScene, BonFireScene,
         InventoryScene, BattleScene, ChoiceScene, FishingScene,
-        HotelChest, PoliceOfficeChest, HarborChest, HospitalChest,
+        HotelChest, AlleyChest, HarborChest, HospitalChest,
         EndScene, SIZE
     }
     public enum PlaceType

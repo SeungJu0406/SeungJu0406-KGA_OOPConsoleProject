@@ -135,7 +135,7 @@ namespace TextEternalReturn.Scenes.Scenes
             else if (points[(int)Pos.Player].x == points[(int)Pos.X6].x)
             {
                 if (points[(int)Pos.Player].y == points[(int)Pos.Y0].y)
-                    game.ChangeScene(SceneType.PoliceOfficeScene);
+                    game.ChangeScene(SceneType.AlleyOfficeScene);
                 else if (points[(int)Pos.Player].y == points[(int)Pos.Y6].y)
                     game.ChangeScene(SceneType.HospitalScene);
             }

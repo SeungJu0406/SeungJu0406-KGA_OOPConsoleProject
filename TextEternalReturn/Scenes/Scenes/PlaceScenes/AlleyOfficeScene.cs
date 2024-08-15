@@ -2,13 +2,13 @@
 
 namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
-    internal class PoliceOfficeScene : Scene
+    internal class AlleyOfficeScene : Scene
     {
         enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
-        public PoliceOfficeScene(Player player) : base(player)
+        public AlleyOfficeScene(Player player) : base(player)
         {
-            SceneID = (int)SceneType.PoliceOfficeScene;
+            SceneID = (int)SceneType.AlleyOfficeScene;
             points[(int)Pos.Place] = new Point() { x = X, y = Y + 0 };
             points[(int)Pos.Chest] = new Point() { x = X, y = Y + 2 };
             points[(int)Pos.Rest] = new Point() { x = X, y = Y + 3 };
@@ -36,7 +36,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         private void PrintPoliceOffice()
         {
             SetCursor(points[(int)Pos.Place]);
-            Console.WriteLine(" 경 찰 서 ");
+            Console.WriteLine(" 골 목 길 ");
             SetCursor(points[(int)Pos.Chest]);
             Console.WriteLine("▷ 상자 열기");
             SetCursor(points[(int)Pos.Rest]);
@@ -52,7 +52,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         {
             if (curPoint.y == points[(int)Pos.Chest].y)
             {
-                game.ChangeScene(SceneType.PoliceOfficeChest);
+                game.ChangeScene(SceneType.AlleyChest);
             }
             else if (curPoint.y == points[(int)Pos.Rest].y)
             {

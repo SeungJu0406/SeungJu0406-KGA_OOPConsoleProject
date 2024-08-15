@@ -7,6 +7,7 @@ namespace TextEternalReturn.Scenes.Scenes
     internal class InventoryScene : Scene
     {
         enum Pos { FisrtItem, LastItem, Exit, SIZE }
+
         List<Food> inventory;
         int index = 0;
         Point[] points = new Point[(int)Pos.SIZE];

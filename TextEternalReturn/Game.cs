@@ -54,12 +54,12 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.StartScene] = new StartScene(player);
             sceneList[(int)SceneType.MapScene] = new MapScene(player);
             sceneList[(int)SceneType.HotelScene] = new HotelScene(player);
-            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeScene(player);
+            sceneList[(int)SceneType.AlleyOfficeScene] = new AlleyOfficeScene(player);
             sceneList[(int)SceneType.HarborScene] = new HarborScene(player);
             sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
             sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);
             sceneList[(int)SceneType.HotelChest] = new HotelChest(player);
-            sceneList[(int)SceneType.PoliceOfficeChest] = new PoliceOfficeChest(player);
+            sceneList[(int)SceneType.AlleyChest] = new AlleyChest(player);
             sceneList[(int)SceneType.HarborChest] = new HarborChest(player);
             sceneList[(int)SceneType.HospitalChest] = new HospitalChest(player);
             sceneList[(int)SceneType.InventoryScene] = new InventoryScene(player);

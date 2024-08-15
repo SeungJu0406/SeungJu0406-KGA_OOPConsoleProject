@@ -85,7 +85,22 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void PushKeyZ()
         {
-            
+            if(curPoint.x == points[(int)Pos.Inventory].x && 
+                curPoint.y == points[(int)Pos.Inventory].y)
+            {
+
+            } 
+            else if(curPoint.x == points[(int)Pos.Fishing].x &&
+                curPoint.y == points[(int)Pos.Fishing].y)
+            {
+
+            }
+            else if(curPoint.x == points[(int)Pos.Exit].x &&
+                curPoint.y == points[(int)Pos.Exit].y)
+            {
+                int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
+                game.ChangeScene((SceneType)prevSceneIndex);
+            }
         }
         
         #region 커서 이동

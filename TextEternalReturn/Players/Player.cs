@@ -66,6 +66,11 @@ namespace TextEternalReturn.Players
                 curExp = 0;
             }
         }
+        public void GetCompleteItem()
+        {
+            maxHp += 500;
+            power += 150;
+        }
         public void GetItem(Item item)
         {
             craftInventory.GetItem(item);

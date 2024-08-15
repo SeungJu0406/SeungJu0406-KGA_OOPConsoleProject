@@ -31,6 +31,7 @@ namespace TextEternalReturn.Players
             if (!(checking[(int)ItemType.ShortRod]))
                 return;
             completion = true;
+            player.GetCompleteItem();
         }
     }
 }

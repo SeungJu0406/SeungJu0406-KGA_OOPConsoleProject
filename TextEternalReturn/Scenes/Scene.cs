@@ -115,17 +115,21 @@ namespace TextEternalReturn.Scenes
             SetCursor(collectionPoint);
             CollectFirst();
 
-            collectionPoint.y += 2;
-            SetCursor(collectionPoint);
-            CollectSecond();
-
             collectionPoint.x += 5;
             SetCursor(collectionPoint);
             CollectThird();
 
-            collectionPoint.y -= 2;
+            collectionPoint.y += 2;
+            SetCursor(collectionPoint);
+            CollectSecond();
+
+            collectionPoint.x -= 5;
             SetCursor(collectionPoint);
             CollectFourth();
+
+            collectionPoint.y += 2;
+            SetCursor(collectionPoint);
+            CompleteItem();
         }
         public void CollectFirst()
         {
@@ -134,6 +138,7 @@ namespace TextEternalReturn.Scenes
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("붕대");
                 Console.ResetColor();
+                return;
             }
             Console.WriteLine("붕대");
         }
@@ -144,6 +149,7 @@ namespace TextEternalReturn.Scenes
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("고철");
                 Console.ResetColor();
+                return;
             }
             Console.WriteLine("고철");
         }
@@ -154,6 +160,7 @@ namespace TextEternalReturn.Scenes
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("셔츠");
                 Console.ResetColor();
+                return;
             }
             Console.WriteLine("셔츠");
         }
@@ -164,8 +171,18 @@ namespace TextEternalReturn.Scenes
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("단봉");
                 Console.ResetColor();
+                return;
             }
             Console.WriteLine("단봉");
+        }
+        public void CompleteItem()
+        {
+            if (player.craftInventory.completion)
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("팔 괘 장");
+                Console.ResetColor();
+            }
         }
         #endregion
     }

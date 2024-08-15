@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Players;
-using TextEternalReturn.Items.Foods;
+﻿using TextEternalReturn.Items.Foods;
 using TextEternalReturn.Items.Foods.Foods;
+using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
     public class FishingScene : Scene
     {
-        enum Pos { Inventory, Fishing, FishingCount, Exit, SIZE}
+        enum Pos { Inventory, Fishing, FishingCount, Exit, SIZE }
         Point[] points;
         int FishingCount;
         int MaxFishingCount;
-
+        FoodFactory foodFactory = new FoodFactory();
         Food[] fishs;
         Food caughtFish;
         public FishingScene(Player player) : base(player)
@@ -28,8 +23,10 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)Pos.FishingCount] = new Point() { x = X, y = Y + 3 };
             FishingCount = 0;
             MaxFishingCount = 5;
-            curPoint= points[(int)Pos.Inventory];
-            fishs = new Food[] { new Salmon(), new CodFish() };
+            curPoint = points[(int)Pos.Inventory];
+            fishs = new Food[2];
+            fishs[0] = foodFactory.Create(FoodType.Salmon);
+            fishs[1] = foodFactory.Create(FoodType.CodFish);
         }
         public override void Enter()
         {
@@ -58,15 +55,15 @@ namespace TextEternalReturn.Scenes.Scenes
             SetCursor(points[(int)Pos.Exit]);
             Console.WriteLine("▷ 나가기");
             SetCursor(points[(int)Pos.Fishing]);
-            Console.WriteLine("▷ 낚시줄 당기기");       
+            Console.WriteLine("▷ 낚시줄 당기기");
             Console.ForegroundColor = ConsoleColor.Green;
             SetCursor(curPoint);
             Console.WriteLine("▶");
             SetCursor(points[(int)Pos.FishingCount]);
-            if (FishingCount >= 5) 
+            if (FishingCount > 5)
             {
 
-                Console.Write($"{/*생선 이름*/caughtFish.name}");
+                Console.Write($"{caughtFish.name}");
                 Console.ResetColor();
                 Console.WriteLine("를 낚았습니다.");
             }
@@ -81,29 +78,42 @@ namespace TextEternalReturn.Scenes.Scenes
                 {
                     Console.Write("□");
                 }
+                Console.WriteLine("             ");
             }
-                                      
+
         }
         protected override void PushKeyZ()
         {
-            if(curPoint.x == points[(int)Pos.Inventory].x && 
+            if (curPoint.x == points[(int)Pos.Inventory].x &&
                 curPoint.y == points[(int)Pos.Inventory].y)
             {
-
-            } 
-            else if(curPoint.x == points[(int)Pos.Fishing].x &&
-                curPoint.y == points[(int)Pos.Fishing].y)
-            {
-
+                game.ChangeScene(SceneType.InventoryScene);
             }
-            else if(curPoint.x == points[(int)Pos.Exit].x &&
-                curPoint.y == points[(int)Pos.Exit].y)
+            else if (curPoint.x == points[(int)Pos.Exit].x &&
+                    curPoint.y == points[(int)Pos.Exit].y)
             {
-                int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
-                game.ChangeScene((SceneType)prevSceneIndex);
+                game.ChangeScene((SceneType)game.prevScene.SceneID);
+            }
+            else if (curPoint.x == points[(int)Pos.Fishing].x &&
+                    curPoint.y == points[(int)Pos.Fishing].y)
+            {
+                Fishing();
             }
         }
-        
+        private void Fishing()
+        {
+            if(FishingCount > 5)
+            {
+                FishingCount = 0;
+            }
+            FishingCount++;
+            if(FishingCount > 5)
+            {
+                caughtFish = fishs[Util.GetRandom(0, fishs.Length - 1)];
+                player.GetFood(caughtFish);
+            }          
+        }
+
         #region 커서 이동
         protected override void MoveUpCursor()
         {
@@ -124,7 +134,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Point temp;
         protected override void MoveLeftCursor()
         {
-            if(curPoint.x == points[(int)Pos.Exit].x &&
+            if (curPoint.x == points[(int)Pos.Exit].x &&
                curPoint.y == points[(int)Pos.Exit].y)
             {
                 curPoint = temp;
@@ -132,15 +142,15 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void MoveRightCursor()
         {
-            if(curPoint.x != points[(int)Pos.Exit].x ||
+            if (curPoint.x != points[(int)Pos.Exit].x ||
                 curPoint.y != points[(int)Pos.Exit].y)
             {
                 temp = curPoint;
                 curPoint = points[(int)Pos.Exit];
-                
+
             }
         }
         #endregion
-        
+
     }
 }

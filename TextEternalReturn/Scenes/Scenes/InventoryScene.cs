@@ -12,6 +12,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Point[] points = new Point[(int)Pos.SIZE];
         public InventoryScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.InventoryScene;
             this.inventory = player.foodInventory.inventory;
             points[(int)Pos.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y - 1) };

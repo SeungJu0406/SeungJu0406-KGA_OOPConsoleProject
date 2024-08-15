@@ -11,6 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
     {
         public PoliceOfficeChest(Player player) : base(player)
         {
+            SceneID = (int)SceneType.PoliceOfficeChest;
             items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemType.Shirt));
         }
     }

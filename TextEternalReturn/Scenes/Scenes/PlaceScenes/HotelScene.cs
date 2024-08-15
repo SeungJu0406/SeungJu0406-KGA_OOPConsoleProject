@@ -8,6 +8,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Point[] points = new Point[(int)Pos.SIZE];
         public HotelScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.HotelScene;
             points[(int)Pos.Place] = new Point() { x = X, y = Y + 0 };
             points[(int)Pos.Chest] = new Point() { x = X, y = Y + 2 };
             points[(int)Pos.Rest] = new Point() { x = X, y = Y + 3 };

@@ -20,6 +20,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Food caughtFish;
         public FishingScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.FishingScene;
             points = new Point[(int)Pos.SIZE];
             points[(int)Pos.Inventory] = new Point() { x = X, y = Y };
             points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };

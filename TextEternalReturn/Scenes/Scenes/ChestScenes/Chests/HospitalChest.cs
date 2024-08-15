@@ -11,6 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
     {
         public HospitalChest(Player player) : base(player) 
         {
+            SceneID = (int)SceneType.HospitalChest;
             items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemType.Bandage));
         }
     }

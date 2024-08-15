@@ -10,6 +10,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Point curPoint;
         public ChoiceScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.ChoiceScene;
             points[(int)Pos.Battle] = new Point() { x = X, y = Y };
             points[(int)Pos.Map] = new Point() { x = X, y = Y + 1 };
             points[(int)Pos.Inventory] = new Point() { x = X, y = Y + 2 };

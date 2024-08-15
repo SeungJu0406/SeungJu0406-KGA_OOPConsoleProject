@@ -11,6 +11,7 @@ namespace TextEternalReturn.Scenes
         protected Game game;
         protected Player player;
         protected ConsoleKey consoleKey;
+        protected int SceneID;
         protected Scene curScene;
         protected Point curPoint;
         protected Point statusPoint;       

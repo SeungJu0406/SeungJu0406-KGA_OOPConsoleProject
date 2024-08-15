@@ -11,7 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
     {
         public BonfireScene(Player player) : base(player)
         {
-
+            SceneID = (int)SceneType.BonFireScene;
         }
         public override void Render()
         {

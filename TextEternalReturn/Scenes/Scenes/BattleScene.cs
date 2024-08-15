@@ -22,6 +22,7 @@ namespace TextEternalReturn.Scenes.Scenes
 
         public BattleScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.BattleScene;
             mobStatusPoint = new Point() { x = statusPoint.x + 20, y = statusPoint.y };
             points[(int)Pos.Attack] = new Point() { x = X, y = Y, choice = Pos.Attack };
             points[(int)Pos.UseItem] = new Point() { x = X + 20, y = Y, choice = Pos.UseItem };

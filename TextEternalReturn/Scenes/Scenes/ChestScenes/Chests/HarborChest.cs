@@ -11,6 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
     {
         public HarborChest(Player player) : base(player) 
         {
+            SceneID = (int)SceneType.HarborChest;
             items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemType.Scrap));
         }
     }

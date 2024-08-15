@@ -7,6 +7,7 @@ namespace TextEternalReturn.Scenes.Scenes
         Point startPoint;
         public StartScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.StartScene;
             error = false;
             startPoint = new Point() { x = x, y = y };
         }

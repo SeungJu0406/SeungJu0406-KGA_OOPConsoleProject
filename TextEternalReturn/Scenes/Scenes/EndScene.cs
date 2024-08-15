@@ -11,7 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes
     {
         public EndScene(Player player) : base(player)
         {
-
+            SceneID = (int)SceneType.EndScene;
         }
         public override void Render()
         {

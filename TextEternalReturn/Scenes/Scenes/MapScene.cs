@@ -30,6 +30,7 @@ namespace TextEternalReturn.Scenes.Scenes
         int moveCount = 0;
         public MapScene(Player player) : base(player)
         {
+            SceneID = (int)SceneType.MapScene;
             points[(int)Pos.Map] = new Point() { x = X, y = Y };
             #region 맵 좌표
             mapX = X + 1;

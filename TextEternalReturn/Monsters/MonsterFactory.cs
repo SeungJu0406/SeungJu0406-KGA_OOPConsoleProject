@@ -68,7 +68,7 @@ namespace TextEternalReturn.Monsters
         }
         public Monster CreateRandom()
         {
-            int random = Util.Random(0, 3);
+            int random = Util.GetRandom(0, (int)MonsterType.Hyunwoo - 1);
             return Create((MonsterType)random);
         }
     }

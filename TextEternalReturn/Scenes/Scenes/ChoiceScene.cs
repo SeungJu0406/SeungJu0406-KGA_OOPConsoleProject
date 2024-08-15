@@ -79,9 +79,5 @@ namespace TextEternalReturn.Scenes.Scenes
             }
         }
         #endregion
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
     }
 }

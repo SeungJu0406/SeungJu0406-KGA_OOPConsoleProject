@@ -54,11 +54,6 @@ namespace TextEternalReturn.Scenes.Scenes
             else
                 error = true;
         }
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
-
     }
 
 }

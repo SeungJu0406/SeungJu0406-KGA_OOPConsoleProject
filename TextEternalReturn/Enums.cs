@@ -4,7 +4,8 @@
     {
         StartScene, 
         MapScene, HotelScene, PoliceOfficeScene, HarborScene, HospitalScene, BonFireScene,
-        ChestScene, InventoryScene, BattleScene, ChoiceScene, FishingScene,
+        InventoryScene, BattleScene, ChoiceScene, FishingScene,
+        HotelChest, PoliceOfficeChest, HarborChest, HospitalChest,
         EndScene, SIZE
     }
     public enum PlaceType

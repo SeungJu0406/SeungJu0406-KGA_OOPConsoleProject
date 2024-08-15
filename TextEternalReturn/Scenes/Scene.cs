@@ -102,10 +102,11 @@ namespace TextEternalReturn.Scenes
             Console.WriteLine($"경험치: {player.curExp,3}/{player.maxExp}");
             statusPoint.y = y;
         }
-        private void SetCursor(Point cursorPoint)
+
+        #endregion
+        protected void SetCursor(Point cursorPoint)
         {
             Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
         }
-        #endregion
     }
 }

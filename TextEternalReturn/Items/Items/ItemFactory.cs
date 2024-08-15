@@ -67,6 +67,7 @@ namespace TextEternalReturn.Items.Items
                 Item item = new ShortRod();
                 return item;
             }
+            return null;
         }
         public Item RandomCreate()
         {

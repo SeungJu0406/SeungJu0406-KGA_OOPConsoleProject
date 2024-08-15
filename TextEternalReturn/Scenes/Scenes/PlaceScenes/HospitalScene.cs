@@ -57,7 +57,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         {
             if (curPoint.y == points[(int)Pos.Chest].y)
             {
-                game.ChangeScene(SceneType.ChestScene);
+                game.ChangeScene(SceneType.HospitalChest);
             }
             else if (curPoint.y == points[(int)Pos.Rest].y)
             {
@@ -96,9 +96,5 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
             base.MoveRightCursor();
         }
         #endregion
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
     }
 }

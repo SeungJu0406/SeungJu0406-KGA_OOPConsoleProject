@@ -42,12 +42,12 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         private void PrintInventory()
         {
-            Point items = points[(int)Pos.FisrtItem];
+            Point itemPos = points[(int)Pos.FisrtItem];
             foreach (Item item in inventory)
             {
-                SetCursor(items);
+                SetCursor(itemPos);
                 Console.WriteLine($"▷ {item.name}");
-                items.y++;
+                itemPos.y++;
             }
             SetCursor(points[(int)Pos.Exit]);
             Console.WriteLine("▷ 나가기");
@@ -143,9 +143,5 @@ namespace TextEternalReturn.Scenes.Scenes
             }
         }
         #endregion
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
     }
 }

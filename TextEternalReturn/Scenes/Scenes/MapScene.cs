@@ -242,9 +242,5 @@ namespace TextEternalReturn.Scenes.Scenes
                 game.ChangeScene(SceneType.BattleScene);
             }
         }
-        private void SetCursor(Point cursorPoint)
-        {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
-        }
     }
 }

@@ -8,6 +8,8 @@ using TextEternalReturn.Scenes;
 using TextEternalReturn.Scenes.Scenes;
 using TextEternalReturn.Players;
 using TextEternalReturn.Items.Foods;
+using TextEternalReturn.Scenes.Scenes.PlaceScenes;
+using TextEternalReturn.Scenes.Scenes.ChestScenes.Chests;
 
 namespace TextEternalReturn
 {
@@ -56,7 +58,10 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.HarborScene] = new HarborScene(player);
             sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
             sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);
-            sceneList[(int)SceneType.ChestScene] = new ChestScene(player);
+            sceneList[(int)SceneType.HotelChest] = new HotelChest(player);
+            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeChest(player);
+            sceneList[(int)SceneType.HarborChest] = new HarborChest(player);
+            sceneList[(int)SceneType.HospitalChest] = new HospitalChest(player);
             sceneList[(int)SceneType.InventoryScene] = new InventoryScene(player);
             sceneList[(int)SceneType.BattleScene] = new BattleScene(player);
             sceneList[(int)SceneType.ChoiceScene] = new ChoiceScene(player);

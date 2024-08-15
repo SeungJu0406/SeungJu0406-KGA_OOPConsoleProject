@@ -2,7 +2,7 @@
 using TextEternalReturn.Monsters.Monsters;
 using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
     public class BattleScene : Scene
     {
@@ -35,7 +35,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            UpdateKey();           
+            UpdateKey();
         }
 
         public override void Enter()

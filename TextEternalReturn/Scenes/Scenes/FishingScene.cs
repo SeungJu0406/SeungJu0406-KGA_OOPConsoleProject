@@ -9,7 +9,7 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     public class FishingScene : Scene
     {
-        public FishingScene(Player player) : base(player) 
+        public FishingScene(Player player) : base(player)
         {
 
         }

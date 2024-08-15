@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
-    internal class BonfireScene : Scene { 
+    internal class BonfireScene : Scene
+    {
         public BonfireScene(Player player) : base(player)
         {
 

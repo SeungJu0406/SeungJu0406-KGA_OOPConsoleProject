@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
-using static TextEternalReturn.Scenes.Scenes.BattleScene;
+using static TextEternalReturn.Scenes.Scenes.PlaceScenes.BattleScene;
 
 namespace TextEternalReturn.Scenes.Scenes
 {

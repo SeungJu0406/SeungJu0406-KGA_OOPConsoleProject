@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
     internal class HarborScene : Scene
     {
-        enum Pos { Place ,Chest, Rest, Fishing ,MoveMap, Inventory, SIZE }
+        enum Pos { Place, Chest, Rest, Fishing, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         public HarborScene(Player player) : base(player)
         {

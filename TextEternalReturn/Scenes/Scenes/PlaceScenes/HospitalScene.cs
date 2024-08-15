@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
     internal class HospitalScene : Scene
     {
-        enum Pos { Place ,Chest, Rest, MoveMap, Inventory, SIZE }
+        enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         public HospitalScene(Player player) : base(player)
         {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
+using TextEternalReturn.Items.Foods;
+using TextEternalReturn.Items.Foods.Foods;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
@@ -13,6 +15,9 @@ namespace TextEternalReturn.Scenes.Scenes
         Point[] points;
         int FishingCount;
         int MaxFishingCount;
+
+        Food[] fishs;
+        Food caughtFish;
         public FishingScene(Player player) : base(player)
         {
             points = new Point[(int)Pos.SIZE];
@@ -23,6 +28,7 @@ namespace TextEternalReturn.Scenes.Scenes
             FishingCount = 0;
             MaxFishingCount = 5;
             curPoint= points[(int)Pos.Inventory];
+            fishs = new Food[] { new Salmon(), new CodFish() };
         }
         public override void Enter()
         {
@@ -59,7 +65,7 @@ namespace TextEternalReturn.Scenes.Scenes
             if (FishingCount >= 5) 
             {
 
-                Console.Write($"{/*생선 이름*/}");
+                Console.Write($"{/*생선 이름*/caughtFish.name}");
                 Console.ResetColor();
                 Console.WriteLine("를 낚았습니다.");
             }
@@ -79,25 +85,44 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void PushKeyZ()
         {
-
+            
         }
         
         #region 커서 이동
         protected override void MoveUpCursor()
         {
+            if (curPoint.x == points[(int)Pos.Inventory].x &&
+                curPoint.y > points[(int)Pos.Inventory].y)
+            {
+                curPoint.y -= 1;
+            }
         }
         protected override void MoveDownCursor()
         {
-        
+            if (curPoint.x == points[(int)Pos.Fishing].x &&
+                curPoint.y < points[(int)Pos.Fishing].y)
+            {
+                curPoint.y += 1;
+            }
         }
-
+        Point temp;
         protected override void MoveLeftCursor()
         {
-            
+            if(curPoint.x == points[(int)Pos.Exit].x &&
+               curPoint.y == points[(int)Pos.Exit].y)
+            {
+                curPoint = temp;
+            }
         }
         protected override void MoveRightCursor()
         {
-            
+            if(curPoint.x != points[(int)Pos.Exit].x ||
+                curPoint.y != points[(int)Pos.Exit].y)
+            {
+                temp = curPoint;
+                curPoint = points[(int)Pos.Exit];
+                
+            }
         }
         #endregion
         

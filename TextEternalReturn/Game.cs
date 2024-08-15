@@ -11,6 +11,7 @@ using TextEternalReturn.Items.Foods;
 using TextEternalReturn.Scenes.Scenes.PlaceScenes;
 using TextEternalReturn.Scenes.Scenes.ChestScenes.Chests;
 using TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes;
+using TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes;
 
 namespace TextEternalReturn
 {
@@ -55,7 +56,7 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.StartScene] = new StartScene(player);
             sceneList[(int)SceneType.MapScene] = new MapScene(player);
             sceneList[(int)SceneType.HotelScene] = new HotelScene(player);
-            sceneList[(int)SceneType.AlleyOfficeScene] = new AlleyOfficeScene(player);
+            sceneList[(int)SceneType.AlleyScene] = new AlleyOfficeScene(player);
             sceneList[(int)SceneType.HarborScene] = new HarborScene(player);
             sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
             sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);

@@ -87,7 +87,6 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
                 Console.WriteLine("             ");
             }
-
         }
         protected override void PushKeyZ()
         {

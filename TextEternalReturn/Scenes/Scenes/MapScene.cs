@@ -17,7 +17,7 @@ namespace TextEternalReturn.Scenes.Scenes
             Y5,
             Y6,
             Player, Hyunwoo, 
-            Hotel, PoliceOffice, Harbor, Hospital,
+            Hotel, Alley, Harbor, Hospital, Bonfire,
             SIZE
         }
         Point[] points = new Point[(int)Pos.SIZE];
@@ -53,9 +53,10 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)Pos.Player] = new Point() { x = points[(int)Pos.X3].x, y = points[(int)Pos.Y3].y };
             points[(int)Pos.Hyunwoo] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y6].y };
             points[(int)Pos.Hotel] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y0].y };
-            points[(int)Pos.PoliceOffice] = new Point() { x = points[(int)Pos.X6].x, y = points[(int)Pos.Y0].y };
+            points[(int)Pos.Alley] = new Point() { x = points[(int)Pos.X6].x, y = points[(int)Pos.Y0].y };
             points[(int)Pos.Harbor] = new Point() { x = points[(int)Pos.X0].x, y = points[(int)Pos.Y6].y };
             points[(int)Pos.Hospital] = new Point() { x = points[(int)Pos.X6].x, y = points[(int)Pos.Y6].y };
+            points[(int)Pos.Bonfire] = new Point() { x = points[(int)Pos.X3].x, y = points[(int)Pos.Y3].y };
             walls = new List<Point>(map.board.CountWall());
             #region 벽 좌표
             for (int y = 0; y < map.sizeY; y++)
@@ -114,6 +115,10 @@ namespace TextEternalReturn.Scenes.Scenes
                 Console.WriteLine("$");
                 Console.ResetColor();
             }
+            SetCursor(points[(int)Pos.Bonfire]);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("♨");
+            Console.ResetColor();
             SetCursor(points[(int)Pos.Player]);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("P");
@@ -125,19 +130,30 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void PushKeyZ()
         {
-            if (points[(int)Pos.Player].x == points[(int)Pos.X0].x)
+            if (points[(int)Pos.Player].x == points[(int)Pos.Hotel].x &&
+                points[(int)Pos.Player].y == points[(int)Pos.Hotel].y)
             {
-                if (points[(int)Pos.Player].y == points[(int)Pos.Y0].y)
-                    game.ChangeScene(SceneType.HotelScene);
-                else if (points[(int)Pos.Player].y == points[(int)Pos.Y6].y)
-                    game.ChangeScene(SceneType.HarborScene);
+                game.ChangeScene(SceneType.HotelScene);
             }
-            else if (points[(int)Pos.Player].x == points[(int)Pos.X6].x)
+            else if (points[(int)Pos.Player].x == points[(int)Pos.Alley].x &&
+                        points[(int)Pos.Player].y == points[(int)Pos.Alley].y)
             {
-                if (points[(int)Pos.Player].y == points[(int)Pos.Y0].y)
-                    game.ChangeScene(SceneType.AlleyOfficeScene);
-                else if (points[(int)Pos.Player].y == points[(int)Pos.Y6].y)
-                    game.ChangeScene(SceneType.HospitalScene);
+                game.ChangeScene(SceneType.AlleyScene);
+            }
+            else if (points[(int)Pos.Player].x == points[(int)Pos.Harbor].x &&
+                       points[(int)Pos.Player].y == points[(int)Pos.Harbor].y)
+            {
+                game.ChangeScene(SceneType.HarborScene);
+            }
+            else if (points[(int)Pos.Player].x == points[(int)Pos.Hospital].x &&
+                        points[(int)Pos.Player].y == points[(int)Pos.Hospital].y)
+            {
+                game.ChangeScene(SceneType.HospitalScene);
+            }
+            else if (points[(int)Pos.Player].x == points[(int)Pos.Bonfire].x &&
+                points[(int)Pos.Player].y == points[(int)Pos.Bonfire].y)
+            {
+                game.ChangeScene(SceneType.BonFireScene);
             }
             else 
                 game.ChangeScene(SceneType.ChoiceScene);

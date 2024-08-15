@@ -6,7 +6,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes
     {
         public AlleyOfficeScene(Player player) : base(player)
         {
-            SceneID = (int)SceneType.AlleyOfficeScene;
+            SceneID = (int)SceneType.AlleyScene;
         }
         public override void Render()
         {

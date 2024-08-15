@@ -96,7 +96,8 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         }
         private void Cooking()
         {
-
+            // 모닥불 인벤토리로 이동 -> 음식 선택 -> z를 눌러 게이지를채우고 다 채우면 음식 완성
+            // 엔딩화면 시작화면 마무리
         }
         #region 커서 이동
         protected override void MoveUpCursor()

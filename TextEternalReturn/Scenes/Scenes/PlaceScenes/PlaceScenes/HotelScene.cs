@@ -1,20 +1,14 @@
 ﻿using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes
 {
-    internal class HotelScene : Scene
+    internal class HotelScene : PlaceScene
     {
         enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         public HotelScene(Player player) : base(player)
         {
             SceneID = (int)SceneType.HotelScene;
-            points[(int)Pos.Place] = new Point() { x = X, y = Y + 0 };
-            points[(int)Pos.Chest] = new Point() { x = X, y = Y + 2 };
-            points[(int)Pos.Rest] = new Point() { x = X, y = Y + 3 };
-            points[(int)Pos.MoveMap] = new Point() { x = X, y = Y + 4 };
-            points[(int)Pos.Inventory] = new Point() { x = X, y = Y + 5 };
-            curPoint = points[(int)Pos.Chest];
         }
         public override void Render()
         {
@@ -25,14 +19,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             base.Update();
         }
-        public override void Enter()
-        {
-            Console.Clear();
-        }
-        public override void Exit()
-        {
-            game.prevScene = this;
-        }
+
         private void PrintHotel()
         {
             SetCursor(points[(int)Pos.Place]);
@@ -67,29 +54,5 @@ namespace TextEternalReturn.Scenes.Scenes
                 game.ChangeScene(SceneType.InventoryScene);
             }
         }
-        #region 커서 이동
-        protected override void MoveUpCursor()
-        {
-            if (curPoint.y > points[(int)Pos.Chest].y)
-            {
-                curPoint.y -= 1;
-            }
-        }
-        protected override void MoveDownCursor()
-        {
-            if (curPoint.y < points[(int)Pos.Inventory].y)
-            {
-                curPoint.y += 1;
-            }
-        }
-        protected override void MoveLeftCursor()
-        {
-
-        }
-        protected override void MoveRightCursor()
-        {
-
-        }
-        #endregion
     }
 }

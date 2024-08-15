@@ -10,6 +10,7 @@ using TextEternalReturn.Players;
 using TextEternalReturn.Items.Foods;
 using TextEternalReturn.Scenes.Scenes.PlaceScenes;
 using TextEternalReturn.Scenes.Scenes.ChestScenes.Chests;
+using TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes;
 
 namespace TextEternalReturn
 {

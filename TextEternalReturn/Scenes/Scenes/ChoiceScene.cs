@@ -26,13 +26,12 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            PrintStatus();
+            base.Render();
             PrintChoice();
-            PrintCollectItem();
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
 
         private void PrintChoice()

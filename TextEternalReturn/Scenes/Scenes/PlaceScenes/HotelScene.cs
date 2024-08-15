@@ -17,13 +17,12 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            PrintStatus();
-            PrintCollectItem();
+            base.Render();
             PrintHotel();
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
         public override void Enter()
         {

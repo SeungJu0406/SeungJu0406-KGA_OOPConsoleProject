@@ -69,13 +69,12 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            PrintStatus();
-            PrintCollectItem();
+            base.Render();
             PrintMap();
         }
         public override void Update()
-        {         
-            UpdateKey();        
+        {
+            base.Update;      
             MoveHyun();
             CheckMeetPlayer();
         }
@@ -122,29 +121,6 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("H");
             Console.ResetColor();
-        }
-        private void UpdateKey()
-        {
-            switch (consoleKey)
-            {
-                case ConsoleKey.UpArrow:
-                    MoveUpCursor();
-                    break;
-                case ConsoleKey.DownArrow:
-                    MoveDownCursor();
-                    break;
-                case ConsoleKey.LeftArrow:
-                    MoveLeftCursor();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveRightCursor();
-                    break;
-                case ConsoleKey.Z:
-                    PushKeyZ();
-                    break;
-                default:
-                    break;
-            }
         }
         protected override void PushKeyZ()
         {

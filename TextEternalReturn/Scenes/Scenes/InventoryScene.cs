@@ -23,13 +23,12 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Render()
         {
             Console.Clear();
-            PrintStatus();
-            PrintCollectItem();
+            base.Render();
             PrintInventory();
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
         public override void Enter()
         {

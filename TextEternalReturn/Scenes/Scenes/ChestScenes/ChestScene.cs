@@ -23,13 +23,12 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes
         public override void Render()
         {
             Console.Clear();
-            PrintStatus();
-            PrintCollectItem();
+            base.Render();
             PrintChest();
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
         public override void Enter()
         {

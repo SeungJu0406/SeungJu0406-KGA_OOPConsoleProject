@@ -29,13 +29,12 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Render()
         {
-            PrintStatus();
-            PrintMobStatus();
+            base.Render();
             PrintBattleChoice();
         }
         public override void Update()
         {
-            UpdateKey();           
+            base.Update();
         }
 
         public override void Enter()

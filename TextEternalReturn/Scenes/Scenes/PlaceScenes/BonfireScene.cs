@@ -15,12 +15,11 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         }
         public override void Render()
         {
-            PrintStatus();
-            PrintCollectItem();
+            base.Render();
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
         public override void Enter()
         {

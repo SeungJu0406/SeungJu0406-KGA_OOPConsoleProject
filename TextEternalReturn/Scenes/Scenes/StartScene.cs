@@ -18,7 +18,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            UpdateKey();
+            base.Update();
         }
         public override void Enter()
         {

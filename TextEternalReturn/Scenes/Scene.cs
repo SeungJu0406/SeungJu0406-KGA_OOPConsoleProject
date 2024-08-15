@@ -26,7 +26,11 @@ namespace TextEternalReturn.Scenes
             this.player = player;
             statusPoint = new Point() { x = x, y = y };
         }
-        public abstract void Render();
+        public virtual void Render()
+        {
+            PrintStatus();
+            PrintCollectItem();
+        }
         public virtual void Input()
         {
             switch (Console.ReadKey(true).Key)
@@ -51,7 +55,10 @@ namespace TextEternalReturn.Scenes
                     break;
             }
         }
-        public abstract void Update();
+        public virtual void Update()
+        {
+            UpdateKey();
+        }
 
         public abstract void Enter();
 

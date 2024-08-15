@@ -25,12 +25,12 @@ namespace TextEternalReturn.Scenes.Scenes
 
         public override void Render()
         {
-            throw new NotImplementedException();
+            base.Render();
         }
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            base.Update();
         }
         #region 커서 이동
         protected override void MoveUpCursor()

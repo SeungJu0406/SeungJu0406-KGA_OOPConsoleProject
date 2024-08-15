@@ -65,7 +65,15 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes
         }
         protected override void PushKeyZ()
         {
-            throw new NotImplementedException();
+            if(curPoint.x == points[(int)Pos.Exit].x)
+            {
+                SceneType prevScene = (SceneType) Array.IndexOf(game.sceneList, game.prevScene);
+                game.ChangeScene(prevScene);
+            }
+            else if (curPoint.x == points[(int)Pos.FirstItem].x)
+            {
+
+            }
         }
         #region 커서 이동
         protected override void MoveUpCursor()

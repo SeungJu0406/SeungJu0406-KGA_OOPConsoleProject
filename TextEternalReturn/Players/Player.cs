@@ -10,7 +10,7 @@ namespace TextEternalReturn.Players
 {
     public class Player : IAttack, IHit, IDie
     {
-        public Inventory inventory;
+        public FoodInventory inventory;
         public int level {  get; set; }
         public int maxHp { get; set; }
         public int curHp { get; set; }
@@ -21,7 +21,7 @@ namespace TextEternalReturn.Players
         public Action OnLoseHp;
         public Player()
         {
-            inventory = new Inventory(this);
+            inventory = new FoodInventory(this);
             level = 1;
             maxHp = 600;
             curHp = 600;
@@ -64,9 +64,9 @@ namespace TextEternalReturn.Players
                 curExp = 0;
             }
         }
-        public void GetItem(Item item)
+        public void GetItem(Food food)
         {
-            inventory.GetItem(item);
+            inventory.GetItem(food);
         }
         public void UseItem(int itemKey)
         {

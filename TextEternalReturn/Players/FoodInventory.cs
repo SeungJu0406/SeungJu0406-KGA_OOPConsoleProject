@@ -3,7 +3,7 @@ using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn.Players
 {
-    public class Inventory
+    public class FoodInventory
     {
         // Food를 담을수있는 인벤토리 
         public List<Food> inventory { get; private set; }
@@ -11,7 +11,7 @@ namespace TextEternalReturn.Players
         Player player;
         public Action OnGetItem;
         public Action OnRemoveItem;
-        public Inventory(Player player)
+        public FoodInventory(Player player)
         {
             this.player = player;
             inventory = new List<Food>(10);

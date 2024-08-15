@@ -8,10 +8,10 @@ namespace TextEternalReturn.Scenes
         {
             public int x, y;
         }
+        public int SceneID;
         protected Game game;
         protected Player player;
-        protected ConsoleKey consoleKey;
-        protected int SceneID;
+        protected ConsoleKey consoleKey;     
         protected Scene curScene;
         protected Point curPoint;
         protected Point statusPoint;       

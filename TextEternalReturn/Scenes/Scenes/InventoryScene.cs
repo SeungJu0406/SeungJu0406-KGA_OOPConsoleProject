@@ -84,8 +84,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             if (curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
             {
-                int prevSceneIndex = Array.IndexOf(game.sceneList, game.prevScene);
-                game.ChangeScene((SceneType)prevSceneIndex);
+                game.ChangeScene((SceneType)game.prevScene.SceneID);
             }
             else
             {

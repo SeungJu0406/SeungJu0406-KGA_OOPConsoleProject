@@ -85,6 +85,10 @@ namespace TextEternalReturn.Scenes
         protected abstract void MoveLeftCursor();
         protected abstract void MoveRightCursor();
         protected abstract void PushKeyZ();
+        protected void SetCursor(Point cursorPoint)
+        {
+            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
+        }
 
         #region 스테이터스 화면
         protected void PrintStatus()
@@ -104,9 +108,65 @@ namespace TextEternalReturn.Scenes
         }
 
         #endregion
-        protected void SetCursor(Point cursorPoint)
+        #region 제작템 확인
+        public void PrintCollectItem()
         {
-            Console.SetCursorPosition(cursorPoint.x, cursorPoint.y);
+            Point collectionPoint = new Point() { x = X - 15, y = Y };
+            SetCursor(collectionPoint);
+            CollectFirst();
+
+            collectionPoint.y += 2;
+            SetCursor(collectionPoint);
+            CollectSecond();
+
+            collectionPoint.x += 5;
+            SetCursor(collectionPoint);
+            CollectThird();
+
+            collectionPoint.y -= 2;
+            SetCursor(collectionPoint);
+            CollectFourth();
         }
+        public void CollectFirst()
+        {
+            if (player.craftInventory.checking[(int)ItemType.Bandage])
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("붕대");
+                Console.ResetColor();
+            }
+            Console.WriteLine("붕대");
+        }
+        public void CollectSecond()
+        {
+            if (player.craftInventory.checking[(int)ItemType.Scrap])
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("고철");
+                Console.ResetColor();
+            }
+            Console.WriteLine("고철");
+        }
+        public void CollectThird()
+        {
+            if (player.craftInventory.checking[(int)ItemType.Shirt])
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("셔츠");
+                Console.ResetColor();
+            }
+            Console.WriteLine("셔츠");
+        }
+        public void CollectFourth()
+        {
+            if (player.craftInventory.checking[(int)ItemType.ShortRod])
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("단봉");
+                Console.ResetColor();
+            }
+            Console.WriteLine("단봉");
+        }
+        #endregion
     }
 }

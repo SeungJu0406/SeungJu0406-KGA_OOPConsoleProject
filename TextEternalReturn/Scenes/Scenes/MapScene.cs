@@ -70,6 +70,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Render()
         {
             PrintStatus();
+            PrintCollectItem();
             PrintMap();
         }
         public override void Update()

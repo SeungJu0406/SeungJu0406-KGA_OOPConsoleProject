@@ -28,6 +28,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             PrintStatus();
             PrintChoice();
+            PrintCollectItem();
         }
         public override void Update()
         {

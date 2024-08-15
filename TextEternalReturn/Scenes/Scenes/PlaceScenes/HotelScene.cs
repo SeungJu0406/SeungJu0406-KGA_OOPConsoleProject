@@ -18,6 +18,7 @@ namespace TextEternalReturn.Scenes.Scenes
         public override void Render()
         {
             PrintStatus();
+            PrintCollectItem();
             PrintHotel();
         }
         public override void Update()

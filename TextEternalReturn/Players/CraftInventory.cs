@@ -16,8 +16,6 @@ namespace TextEternalReturn.Players
         }
         public void GetItem(Item item)
         {
-            if (inventory.Count >= inventory.Capacity)
-                return;
             CheckItem(item);
             inventory.Add(item);
         }

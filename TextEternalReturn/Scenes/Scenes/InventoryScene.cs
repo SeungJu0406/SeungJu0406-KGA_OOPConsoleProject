@@ -24,6 +24,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             Console.Clear();
             PrintStatus();
+            PrintCollectItem();
             PrintInventory();
         }
         public override void Update()

@@ -24,6 +24,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         public override void Render()
         {
             PrintStatus();
+            PrintCollectItem();
             PrintHospital();
         }
         public override void Update()

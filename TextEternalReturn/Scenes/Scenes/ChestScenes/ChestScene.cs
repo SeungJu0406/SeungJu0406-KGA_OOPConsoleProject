@@ -24,6 +24,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes
         {
             Console.Clear();
             PrintStatus();
+            PrintCollectItem();
             PrintChest();
         }
         public override void Update()
@@ -72,7 +73,13 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes
             }
             else if (curPoint.x == points[(int)Pos.FirstItem].x)
             {
-
+                int itemIndex = curPoint.x - points[(int)Pos.FirstItem].x;
+                player.foodInventory.GetItem(items[itemIndex]);
+                items.RemoveAt(itemIndex);
+                MoveUpCursor();
+                points[(int)Pos.LastItem].y--;
+                if (items.Count == 0)
+                    MoveRightCursor();
             }
         }
         #region 커서 이동

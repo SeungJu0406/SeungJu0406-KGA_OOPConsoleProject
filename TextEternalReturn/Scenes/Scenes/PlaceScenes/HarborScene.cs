@@ -25,6 +25,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         public override void Render()
         {
             PrintStatus();
+            PrintCollectItem();
             PrintHarbor();
         }
         public override void Update()

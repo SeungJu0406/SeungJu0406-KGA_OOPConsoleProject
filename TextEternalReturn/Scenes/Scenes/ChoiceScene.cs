@@ -78,6 +78,8 @@ namespace TextEternalReturn.Scenes.Scenes
                 curPoint.y += 1;
             }
         }
+        protected override void MoveLeftCursor() { }
+        protected override void MoveRightCursor() { }
         #endregion
     }
 }

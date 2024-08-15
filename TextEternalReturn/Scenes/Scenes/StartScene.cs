@@ -18,7 +18,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            UpdateKey(consoleKey);
+            UpdateKey();
         }
         public override void Enter()
         {
@@ -47,13 +47,20 @@ namespace TextEternalReturn.Scenes.Scenes
             SetCursor(cursor);
             Console.WriteLine("제발 Z를 눌러 지금 바로 시작");
         }
-        private void UpdateKey(ConsoleKey consolekey)
+        protected override void PushKeyZ()
         {
-            if (consoleKey == ConsoleKey.Z)
-                game.ChangeScene(SceneType.ChoiceScene);
-            else
-                error = true;
+            game.ChangeScene(SceneType.ChoiceScene);
         }
+        #region 커서 이동
+        protected override void MoveUpCursor() { }
+
+        protected override void MoveDownCursor() { }
+
+        protected override void MoveRightCursor() { }
+
+        protected override void MoveLeftCursor() { }
+
+        #endregion
     }
 
 }

@@ -35,24 +35,24 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         }
         protected override void PushKeyZ()
         {
-            base.PushKeyZ();
+            
         }
         #region 커서 이동
         protected override void MoveUpCursor()
         {
-            base.MoveUpCursor();
+            
         }
         protected override void MoveDownCursor()
         {
-            base.MoveDownCursor();
+            
         }
         protected override void MoveLeftCursor()
         {
-            base.MoveLeftCursor();
+            
         }
         protected override void MoveRightCursor()
         {
-            base.MoveRightCursor();
+            
         }
         #endregion
     }

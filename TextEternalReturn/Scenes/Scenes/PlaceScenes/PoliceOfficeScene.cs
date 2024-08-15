@@ -81,14 +81,8 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
                 curPoint.y += 1;
             }
         }
-        protected override void MoveLeftCursor()
-        {
-            base.MoveLeftCursor();
-        }
-        protected override void MoveRightCursor()
-        {
-            base.MoveRightCursor();
-        }
+        protected override void MoveLeftCursor() { }
+        protected override void MoveRightCursor() { }
         #endregion
     }
 }

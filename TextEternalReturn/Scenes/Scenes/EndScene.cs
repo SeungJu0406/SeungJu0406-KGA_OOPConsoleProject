@@ -40,5 +40,30 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             game.prevScene = this;
         }
+
+        protected override void MoveUpCursor()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void MoveDownCursor()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void MoveLeftCursor()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void MoveRightCursor()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void PushKeyZ()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

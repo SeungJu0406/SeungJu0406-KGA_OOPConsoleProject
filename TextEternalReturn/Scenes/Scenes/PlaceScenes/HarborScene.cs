@@ -96,11 +96,11 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         }
         protected override void MoveLeftCursor()
         {
-            base.MoveLeftCursor();
+           
         }
         protected override void MoveRightCursor()
         {
-            base.MoveRightCursor();
+            
         }
         #endregion
     }

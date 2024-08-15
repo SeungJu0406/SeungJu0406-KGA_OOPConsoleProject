@@ -80,11 +80,11 @@ namespace TextEternalReturn.Scenes
                     break;
             }
         }
-        protected virtual void MoveUpCursor() { }
-        protected virtual void MoveDownCursor() { }
-        protected virtual void MoveLeftCursor() { }
-        protected virtual void MoveRightCursor() { }
-        protected virtual void PushKeyZ() { }
+        protected abstract void MoveUpCursor();
+        protected abstract void MoveDownCursor();
+        protected abstract void MoveLeftCursor();
+        protected abstract void MoveRightCursor();
+        protected abstract void PushKeyZ();
 
         #region 스테이터스 화면
         protected void PrintStatus()

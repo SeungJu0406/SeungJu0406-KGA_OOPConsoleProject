@@ -79,7 +79,7 @@ namespace TextEternalReturn.Scenes.Scenes
                     break;
             }
         }
-        private void PushKeyZ()
+        protected override void PushKeyZ()
         {
             if (curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
             {
@@ -111,7 +111,8 @@ namespace TextEternalReturn.Scenes.Scenes
         #region 커서 움직임
         protected override void MoveUpCursor()
         {
-            if (curPoint.y > points[(int)Pos.FisrtItem].y)
+            if (curPoint.x == points[(int)Pos.LastItem].x &&
+                curPoint.y > points[(int)Pos.FisrtItem].y)
             {
                 curPoint.y -= 1;
             }
@@ -119,7 +120,8 @@ namespace TextEternalReturn.Scenes.Scenes
         protected override void MoveDownCursor()
         {
             // 이거 커서가 오른쪽에서 아이템 리스트 배열 개수만큼 내려가는 버그 발견 조건을 추가해야함
-            if (curPoint.y < points[(int)Pos.LastItem].y)
+            if (curPoint.x == points[(int)Pos.LastItem].x &&
+                curPoint.y < points[(int)Pos.LastItem].y)
             {
                 curPoint.y += 1;
             }

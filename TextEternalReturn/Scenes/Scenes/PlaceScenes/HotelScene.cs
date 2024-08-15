@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Players;
+﻿using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes
 {
     internal class HotelScene : Scene
     {
-        enum Pos { Place,Chest, Rest, MoveMap, Inventory, SIZE }
+        enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         public HotelScene(Player player) : base(player)
         {
@@ -58,15 +53,15 @@ namespace TextEternalReturn.Scenes.Scenes
             {
                 game.ChangeScene(SceneType.HotelChest);
             }
-            else if(curPoint.y == points[(int)Pos.Rest].y)
+            else if (curPoint.y == points[(int)Pos.Rest].y)
             {
                 player.Rest();
             }
-            else if(curPoint.y == points[(int)Pos.MoveMap].y)
+            else if (curPoint.y == points[(int)Pos.MoveMap].y)
             {
                 game.ChangeScene(SceneType.MapScene);
             }
-            else if(curPoint.y == points[(int)Pos.Inventory].y)
+            else if (curPoint.y == points[(int)Pos.Inventory].y)
             {
                 game.ChangeScene(SceneType.InventoryScene);
             }
@@ -88,11 +83,11 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void MoveLeftCursor()
         {
-            base.MoveLeftCursor();
+
         }
         protected override void MoveRightCursor()
         {
-            base.MoveRightCursor();
+
         }
         #endregion
     }

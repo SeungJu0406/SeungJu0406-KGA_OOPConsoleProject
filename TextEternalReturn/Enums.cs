@@ -19,4 +19,9 @@
     {
         SalmonSteak, FishCuttlet, Steak, Salmon, CodFish, Meat
     }
+    public enum ItemName
+    {
+        Axe, Chain, Cloth, Oil, Paper, Rubber, Sisser, // 필요하지 않은 것
+        Bandage, Scrap, Shirt, ShortRod, SIZE // 필요한 것
+    }
 }

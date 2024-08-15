@@ -120,7 +120,6 @@ namespace TextEternalReturn.Scenes.Scenes
                 player.GetFood(caughtFish);
             }          
         }
-
         #region 커서 이동
         protected override void MoveUpCursor()
         {

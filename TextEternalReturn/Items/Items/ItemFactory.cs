@@ -93,7 +93,7 @@ namespace TextEternalReturn.Items.Items
         }
         public Item RandomCreate()
         {
-            ItemType random = (ItemType) Util.GetRandom(0, (int)ItemType.Bandage - 1);
+            ItemType random = (ItemType) Util.GetRandom((int)ItemType.Axe, (int)ItemType.SIZE - 1);
             return Create(random);
         }
     }

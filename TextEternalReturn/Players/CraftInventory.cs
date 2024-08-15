@@ -1,27 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextEternalReturn.Items;
+﻿using TextEternalReturn.Items;
 
 namespace TextEternalReturn.Players
 {
     public class CraftInventory
     {
-        List<Item> inventory;
+        public bool[] checking;
+        public bool completion;
+        public List<Item> inventory;
         Player player;
         public CraftInventory(Player player)
         {
             this.player = player;
-            inventory = new List<Item>(4);
+            checking = new bool[(int)ItemType.SIZE];
+            inventory = new List<Item>((int)ItemType.SIZE);
         }
         public void GetItem(Item item)
         {
-            if(inventory.Count < inventory.Capacity)
-            {
-                inventory.Add(item);
-            }
+            if (inventory.Count >= inventory.Capacity)
+                return;
+            CheckItem(item);
+            inventory.Add(item);
+        }
+        public void CheckItem(Item item)
+        {
+            checking[item.id] = true;
+            if (!(checking[(int)ItemType.Bandage]))
+                return;
+            if (!(checking[(int)ItemType.Scrap]))
+                return;
+            if (!(checking[(int)ItemType.Shirt]))
+                return;
+            if (!(checking[(int)ItemType.ShortRod]))
+                return;
+            completion = true;
         }
     }
 }

@@ -22,7 +22,8 @@
     }
     public enum ItemType
     {
+        Bandage, Scrap, Shirt, ShortRod, // 필요한 것
         Axe, Chain, Cloth, Oil, Paper, Rubber, Sisser, // 필요하지 않은 것
-        Bandage, Scrap, Shirt, ShortRod, SIZE // 필요한 것
+        SIZE 
     }
 }

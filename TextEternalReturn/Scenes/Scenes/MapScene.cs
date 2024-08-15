@@ -74,7 +74,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         public override void Update()
         {
-            base.Update;      
+            base.Update();      
             MoveHyun();
             CheckMeetPlayer();
         }

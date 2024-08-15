@@ -116,7 +116,7 @@ namespace TextEternalReturn.Scenes
 
         #endregion
         #region 제작템 확인
-        public void PrintCollectItem()
+        protected void PrintCollectItem()
         {
             Point collectionPoint = new Point() { x = X - 15, y = Y };
             SetCursor(collectionPoint);

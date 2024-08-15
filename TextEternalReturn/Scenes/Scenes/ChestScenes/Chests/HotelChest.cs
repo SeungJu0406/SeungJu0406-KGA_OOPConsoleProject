@@ -11,7 +11,7 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
     {
         public HotelChest(Player player) : base(player)
         {
-            items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemName.Bandage));            
+            items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemName.ShortRod));            
         }
     }
 }

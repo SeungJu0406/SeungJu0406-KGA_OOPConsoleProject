@@ -1,10 +1,10 @@
 ﻿using TextEternalReturn.Players;
 
-namespace TextEternalReturn.Scenes.Scenes
+namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
 {
     internal class PoliceOfficeScene : Scene
     {
-        enum Pos { Place,Chest, Rest, MoveMap, Inventory, SIZE }
+        enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
         Point[] points = new Point[(int)Pos.SIZE];
         public PoliceOfficeScene(Player player) : base(player)
         {

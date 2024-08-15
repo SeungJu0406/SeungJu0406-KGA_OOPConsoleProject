@@ -9,6 +9,9 @@ namespace TextEternalReturn.Scenes.Scenes.ChestScenes.Chests
 {
     internal class HospitalChest : ChestScene
     {
-        public HospitalChest(Player player) : base(player) { }
+        public HospitalChest(Player player) : base(player) 
+        {
+            items.Insert(Util.GetRandom(0, 6), itemFactory.Create(ItemName.Bandage));
+        }
     }
 }

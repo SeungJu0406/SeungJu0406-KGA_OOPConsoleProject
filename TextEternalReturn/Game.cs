@@ -59,7 +59,7 @@ namespace TextEternalReturn
             sceneList[(int)SceneType.HospitalScene] = new HospitalScene(player);
             sceneList[(int)SceneType.BonFireScene] = new BonfireScene(player);
             sceneList[(int)SceneType.HotelChest] = new HotelChest(player);
-            sceneList[(int)SceneType.PoliceOfficeScene] = new PoliceOfficeChest(player);
+            sceneList[(int)SceneType.PoliceOfficeChest] = new PoliceOfficeChest(player);
             sceneList[(int)SceneType.HarborChest] = new HarborChest(player);
             sceneList[(int)SceneType.HospitalChest] = new HospitalChest(player);
             sceneList[(int)SceneType.InventoryScene] = new InventoryScene(player);

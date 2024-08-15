@@ -145,7 +145,7 @@ namespace TextEternalReturn.Scenes.Scenes
                     break;
             }
         }
-        private void PushKeyZ()
+        protected override void PushKeyZ()
         {
             if (points[(int)Pos.Player].x == points[(int)Pos.X0].x)
             {
@@ -165,7 +165,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 game.ChangeScene(SceneType.ChoiceScene);
         }
         #region 커서 이동
-        private void MoveUpCursor()
+        protected override void MoveUpCursor()
         {
             if (points[(int)Pos.Player].y > points[(int)Pos.Y0].y) // 맵 바깥으로 안나가는가
             {
@@ -177,7 +177,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
             }
         }
-        private void MoveDownCursor()
+        protected override void MoveDownCursor()
         {
             if (points[(int)Pos.Player].y < points[(int)Pos.Y6].y)
             {
@@ -189,7 +189,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
             }
         }
-        private void MoveLeftCursor()
+        protected override void MoveLeftCursor()
         {
             if (points[(int)Pos.Player].x > points[(int)Pos.X0].x)
             {
@@ -201,7 +201,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 }
             }
         }
-        private void MoveRightCursor()
+        protected override void MoveRightCursor()
         {
             if (points[(int)Pos.Player].x < points[(int)Pos.X6].x)
             {

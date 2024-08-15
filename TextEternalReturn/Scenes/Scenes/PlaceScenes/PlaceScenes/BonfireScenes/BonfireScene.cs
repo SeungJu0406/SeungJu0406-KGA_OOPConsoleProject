@@ -78,6 +78,24 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         }
         protected override void PushKeyZ()
         {
+            if (curPoint.x == points[(int)Pos.Inventory].x &&
+                curPoint.y == points[(int)Pos.Inventory].y)
+            {
+                game.ChangeScene(SceneType.InventoryScene);
+            }
+            else if (curPoint.x == points[(int)Pos.Exit].x &&
+                    curPoint.y == points[(int)Pos.Exit].y)
+            {
+                game.ChangeScene(SceneType.MapScene);
+            }
+            else if (curPoint.x == points[(int)Pos.Cooking].x &&
+                    curPoint.y == points[(int)Pos.Cooking].y)
+            {
+                Cooking();
+            }
+        }
+        private void Cooking()
+        {
 
         }
         #region 커서 이동

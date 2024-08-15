@@ -4,8 +4,6 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes
 {
     internal class HotelScene : PlaceScene
     {
-        enum Pos { Place, Chest, Rest, MoveMap, Inventory, SIZE }
-        Point[] points = new Point[(int)Pos.SIZE];
         public HotelScene(Player player) : base(player)
         {
             SceneID = (int)SceneType.HotelScene;

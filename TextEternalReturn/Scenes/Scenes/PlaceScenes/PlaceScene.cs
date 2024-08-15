@@ -24,6 +24,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes
         public override void Enter()
         {
             Console.Clear();
+            curPoint = points[(int)Pos.Chest];
         }
         public override void Exit()
         {

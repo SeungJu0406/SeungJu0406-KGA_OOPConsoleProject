@@ -30,8 +30,11 @@ namespace TextEternalReturn.Players
                 return;
             if (!(checking[(int)ItemType.ShortRod]))
                 return;
-            completion = true;
-            player.GetCompleteItem();
+            if (completion == false)
+            {
+                completion = true;
+                player.GetCompleteItem();
+            }
         }
     }
 }

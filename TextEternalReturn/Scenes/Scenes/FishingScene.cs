@@ -115,9 +115,22 @@ namespace TextEternalReturn.Scenes.Scenes
             FishingCount++;
             if(FishingCount > 5)
             {
-                caughtFish = fishs[Util.GetRandom(0, fishs.Length - 1)];
+                caughtFish = CalcProbability();
                 player.GetFood(caughtFish);
             }          
+        }
+        private Food CalcProbability()
+        {
+            int total = 100;
+            for(int i = 0; i < fishs.Length; i++)
+            {
+                int random = Util.GetRandom(0, total);
+                if(random <= fishs[i].Probability)
+                    return fishs[i];
+                else
+                    total -= fishs[i].Probability;
+            }
+            return null;
         }
         #region 커서 이동
         protected override void MoveUpCursor()

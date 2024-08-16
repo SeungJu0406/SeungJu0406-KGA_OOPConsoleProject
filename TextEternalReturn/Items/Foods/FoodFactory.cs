@@ -19,7 +19,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new SalmonSteak();
                 food.name = "연어 스테이크";
                 food.recovery = 840;
-                food.priority = (int)FoodType.SalmonSteak;
+                food.id = (int)FoodType.SalmonSteak;
+                food.Probability = 0;
                 return food;
             }
             else if (foodType == FoodType.FishCuttlet)
@@ -27,7 +28,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new FishCutlet();
                 food.name = "생선까스";
                 food.recovery = 600;
-                food.priority = (int)FoodType.FishCuttlet;
+                food.id = (int)FoodType.FishCuttlet;
+                food.Probability = 0;
                 return food;
             }
             else if (foodType == FoodType.Steak)
@@ -35,7 +37,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new FishCutlet();
                 food.name = "스테이크";
                 food.recovery = 550;
-                food.priority = (int)FoodType.Steak;
+                food.id = (int)FoodType.Steak;
+                food.Probability = 0;
                 return food;
             }
             else if (foodType == FoodType.Salmon)
@@ -43,7 +46,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new Salmon();
                 food.name = "연어";
                 food.recovery = 300;
-                food.priority = (int)FoodType.Salmon;
+                food.id = (int)FoodType.Salmon;
+                food.Probability = 20;
                 return food;
             }
             else if (foodType == FoodType.CodFish)
@@ -51,7 +55,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new CodFish();
                 food.name = "대구";
                 food.recovery = 300;
-                food.priority = (int)FoodType.CodFish;
+                food.id = (int)FoodType.CodFish;
+                food.Probability = 80;
                 return food;
             }
             else if (foodType == FoodType.Meat)
@@ -59,7 +64,8 @@ namespace TextEternalReturn.Items.Foods
                 Food food = new Meat();
                 food.name = "고기";
                 food.recovery = 300;
-                food.priority = (int)FoodType.Meat;
+                food.id = (int)FoodType.Meat;
+                food.Probability = 0;
                 return food;
             }
             return null;

@@ -32,6 +32,7 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             base.Render();
             PrintBattleChoice();
+            PrintMobStatus();
         }
         public override void Update()
         {

@@ -7,7 +7,8 @@ using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn.Items.Foods.Foods
 {
-    internal class Salmon : Food
+    public class Salmon : Food
     {
+
     }
 }

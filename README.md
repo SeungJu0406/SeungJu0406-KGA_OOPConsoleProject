@@ -11,7 +11,7 @@
 
 ### 기본 선택지
 ![image](https://raw.githubusercontent.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/main/Image/TestImage/%EC%9D%BC%EB%B0%98%20%EC%84%A0%ED%83%9D%EC%A7%80.png)
-- 동물 잡기를 통해 고기와 레벨업 가능함
+- 동물 잡기를 통해 고기 획득과 레벨업 가능함
 - 이동 하기를 통해 맵 이동이 가능함
 - 아이템 확인을 통해 인벤토리를 열 수 있음
 

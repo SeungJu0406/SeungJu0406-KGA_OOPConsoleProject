@@ -9,20 +9,17 @@ namespace TextEternalReturn.Scenes.Scenes
 {
     internal class EndScene : Scene
     {
+        enum Pos { EndText, SIZE}
+        Point[] points; 
         public EndScene(Player player) : base(player)
         {
             SceneID = (int)SceneType.EndScene;
+            points = new Point[(int)Pos.SIZE];
+            points[(int)Pos.EndText] = new Point() { x = X , y = Y };
         }
         public override void Render()
         {
-            if (game.isWin)
-            {
-                Console.WriteLine("이겼어요!");
-            }
-            else
-            {
-                Console.WriteLine("졌어요 ㅠㅠ");
-            }
+            PrintEnd();
         }
         public override void Input()
         {
@@ -40,7 +37,22 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             game.prevScene = this;
         }
-
+        private void PrintEnd()
+        {
+            SetCursor(points[(int)Pos.EndText]);
+            if (game.isWin)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("이겼어요!");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("졌어요 ㅠㅠ");
+                Console.ResetColor();
+            }
+        }
         protected override void MoveUpCursor()
         {
             throw new NotImplementedException();

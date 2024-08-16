@@ -22,8 +22,7 @@ namespace TextEternalReturn.Scenes.Scenes
             points[(int)Pos.Inventory] = new Point() { x = X, y = Y };
             points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
             points[(int)Pos.Fishing] = new Point() { x = X, y = Y + 1 };
-            points[(int)Pos.FishingCount] = new Point() { x = X, y = Y + 3 };
-            FishingCount = 0;
+            points[(int)Pos.FishingCount] = new Point() { x = X, y = Y + 3 };            
             MaxFishingCount = 5;
             curPoint = points[(int)Pos.Inventory];
             fishs = new Food[2];
@@ -38,6 +37,7 @@ namespace TextEternalReturn.Scenes.Scenes
                 PlaceScene tempScene = game.prevScene as PlaceScene;
                 prevScene = tempScene;
             }
+            FishingCount = 0;
         }
 
         public override void Exit()

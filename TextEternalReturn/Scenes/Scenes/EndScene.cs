@@ -21,10 +21,6 @@ namespace TextEternalReturn.Scenes.Scenes
         {
             PrintEnd();
         }
-        public override void Input()
-        {
-
-        }
         public override void Update()
         {
             game.GameOver();
@@ -43,13 +39,13 @@ namespace TextEternalReturn.Scenes.Scenes
             if (game.isWin)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("이겼어요!");
+                Console.WriteLine("최후의 1인이 되었습니다. 승리하였습니다");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor= ConsoleColor.Red;
-                Console.WriteLine("졌어요 ㅠㅠ");
+                Console.WriteLine("패배 하였습니다.");
                 Console.ResetColor();
             }
         }

@@ -47,7 +47,9 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes
             SetCursor(points[(int)Pos.Inventory]);
             Console.WriteLine("▷ 아이템 확인");
             SetCursor(curPoint);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("▶");
+            Console.ResetColor();
         }
         protected override void PushKeyZ()
         {

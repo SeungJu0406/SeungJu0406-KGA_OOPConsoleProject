@@ -16,6 +16,7 @@ namespace TextEternalReturn.Scenes
         protected Point curPoint;
         protected Point statusPoint;
         private Point collectionPoint;
+        private Point informationKey;
         protected int X, Y; // 스텟창 밑 기준점
         protected int x, y; // 게임 기준점
         protected Scene(Player player)
@@ -27,11 +28,13 @@ namespace TextEternalReturn.Scenes
             this.game = Game.getInstance();
             this.player = player;
             statusPoint = new Point() { x = x, y = y };
-            collectionPoint = new Point() { x = X - 15, y = Y };
+            informationKey = new Point() { x = X - 15, y = y };
+            collectionPoint = new Point() { x = X - 15, y = Y };          
         }
         public virtual void Render()
         {
             PrintStatus();
+            PrintInformationKey();
             PrintCollectItem();
         }
         public virtual void Input()
@@ -196,6 +199,19 @@ namespace TextEternalReturn.Scenes
                 Console.WriteLine("팔괘장 획득");
                 Console.ResetColor();
             }
+        }
+        #endregion
+        #region 키 안내
+        private void PrintInformationKey()
+        {
+            SetCursor(informationKey);
+            Console.WriteLine("↑ ↓ → ← 이동");
+            informationKey.y++;
+
+            SetCursor(informationKey);
+            Console.WriteLine("Z: 선택");
+
+            informationKey.y = y;
         }
         #endregion
     }

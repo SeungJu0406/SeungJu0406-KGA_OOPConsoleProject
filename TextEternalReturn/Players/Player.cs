@@ -61,6 +61,7 @@ namespace TextEternalReturn.Players
             {
                 level++;
                 maxHp += 50;
+                curHp = maxHp;
                 power += 10;
                 maxExp += 20;
                 curExp = 0;
@@ -69,6 +70,7 @@ namespace TextEternalReturn.Players
         public void GetCompleteItem()
         {
             maxHp += 500;
+            curHp += 500;
             power += 150;
         }
         public void GetItem(Item item)

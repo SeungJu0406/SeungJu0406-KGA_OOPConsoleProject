@@ -83,6 +83,10 @@ namespace TextEternalReturn.Players
         {
             foodInventory.UseItem(itemKey);
         }
+        public void ThrowItem(int itemKey)
+        {
+            foodInventory.ThrowItem(itemKey);
+        }
         #region 체력 40% 이하 감지
         /// <summary>
         /// 체력 40% 이하 감지

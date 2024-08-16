@@ -58,29 +58,6 @@ namespace TextEternalReturn.Scenes.Scenes
             Console.WriteLine("▶");
             Console.ResetColor();
         }
-        private void UpdateKey()
-        {
-            switch (consoleKey)
-            {
-                case ConsoleKey.UpArrow:
-                    MoveUpCursor();
-                    break;
-                case ConsoleKey.DownArrow:
-                    MoveDownCursor();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveRightCursor();
-                    break;
-                case ConsoleKey.LeftArrow:
-                    MoveLeftCursor();
-                    break;
-                case ConsoleKey.Z:
-                    PushKeyZ();
-                    break;
-                default:
-                    break;
-            }
-        }
         protected override void PushKeyZ()
         {
             if (curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)

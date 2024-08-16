@@ -3,7 +3,7 @@
     public enum SceneType
     {
         StartScene, 
-        MapScene, HotelScene, AlleyScene, HarborScene, HospitalScene, BonFireScene,
+        MapScene, HotelScene, AlleyScene, HarborScene, HospitalScene, BonFireScene, BonFireInventory,
         InventoryScene, BattleScene, ChoiceScene, FishingScene,
         HotelChest, AlleyChest, HarborChest, HospitalChest,
         EndScene, SIZE
@@ -18,7 +18,7 @@
     }
     public enum FoodType
     {
-        SalmonSteak, FishCuttlet, Steak, Salmon, CodFish, Meat
+        Salmon, CodFish, Meat, SalmonSteak, FishCuttlet, Steak, 
     }
     public enum ItemType
     {

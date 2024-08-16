@@ -11,7 +11,6 @@ namespace TextEternalReturn.Items.Foods
     public abstract class Food : Item
     {
         public int recovery { get; set; }
-        public int id { get; set; }
         public int Probability { get; set; }
         public Food()
         {

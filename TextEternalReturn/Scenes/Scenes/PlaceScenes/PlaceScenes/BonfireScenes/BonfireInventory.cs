@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TextEternalReturn.Items;
 using TextEternalReturn.Items.Foods;
-using TextEternalReturn.Items;
 using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
@@ -13,18 +8,18 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
     {
         enum Pos { FisrtItem, LastItem, Exit, SIZE }
 
+        public Action<Food> OnSelect;
         List<Food> inventory;
         int index = 0;
         Point[] points = new Point[(int)Pos.SIZE];
-        public BonfireInventory (Player player) : base(player)
+        
+        public BonfireInventory(Player player) : base(player)
         {
             SceneID = (int)SceneType.InventoryScene;
             this.inventory = player.foodInventory.inventory;
             points[(int)Pos.FisrtItem] = new Point() { x = X, y = Y };
             points[(int)Pos.LastItem] = new Point() { x = X, y = inventory.Count + (Y - 1) };
             points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
-            player.foodInventory.OnGetItem += CheckGetItem;
-            player.foodInventory.OnRemoveItem += CheckRemoveItem;
 
         }
         public override void Render()
@@ -63,29 +58,6 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             Console.WriteLine("▶");
             Console.ResetColor();
         }
-        private void UpdateKey()
-        {
-            switch (consoleKey)
-            {
-                case ConsoleKey.UpArrow:
-                    MoveUpCursor();
-                    break;
-                case ConsoleKey.DownArrow:
-                    MoveDownCursor();
-                    break;
-                case ConsoleKey.RightArrow:
-                    MoveRightCursor();
-                    break;
-                case ConsoleKey.LeftArrow:
-                    MoveLeftCursor();
-                    break;
-                case ConsoleKey.Z:
-                    PushKeyZ();
-                    break;
-                default:
-                    break;
-            }
-        }
         protected override void PushKeyZ()
         {
             if (curPoint.x == points[(int)Pos.Exit].x && curPoint.y == points[(int)Pos.Exit].y)
@@ -96,9 +68,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             {
                 if (inventory.Count > 0)
                 {
-                    int key = curPoint.y - points[(int)Pos.FisrtItem].y;
-                    player.UseItem(key);
-                    MoveUpCursor();
+                    SelectFood();
                 }
                 if (inventory.Count == 0)
                 {
@@ -106,13 +76,17 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
                 }
             }
         }
-        private void CheckGetItem()
+        private void SelectFood()
         {
-            points[(int)Pos.LastItem].y++;
-        }
-        private void CheckRemoveItem()
-        {
-            points[(int)Pos.LastItem].y--;
+            int key = curPoint.y - points[(int)Pos.FisrtItem].y;
+            if (inventory[key].id < (int)FoodType.SalmonSteak)
+            {
+                Food ingredient = inventory[key];
+                player.foodInventory.ThrowItem(key);
+                OnSelect?.Invoke(ingredient);
+                game.ChangeScene((SceneType)game.prevScene.SceneID);
+
+            }
         }
         #region 커서 움직임
         protected override void MoveUpCursor()

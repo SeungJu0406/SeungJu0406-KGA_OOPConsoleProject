@@ -1,38 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
 using TextEternalReturn.Items.Foods;
+using TextEternalReturn.Items.Foods.Foods;
 using TextEternalReturn.Players;
 
 namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
 {
     internal class BonfireScene : PlaceScene
     {
-        enum Pos { Inventory, Cooking, CookingCount, Exit, SIZE }
+        enum Pos { Inventory, Cooking, SelectFood, CookingCount, Exit, SIZE }
         int cookingCount;
         int maxCookingCount;
         Point[] points;
         FoodFactory foodFactory = new FoodFactory();
         Food[] dishs;
         Food dish;
+        Food ingredient;
+        BonfireInventory bonfireInventory;
         public BonfireScene(Player player) : base(player)
         {
+            
             SceneID = (int)SceneType.BonFireScene;
             points = new Point[(int)Pos.SIZE];
             points[(int)Pos.Inventory] = new Point() { x = X, y = Y };
             points[(int)Pos.Exit] = new Point() { x = X + 20, y = Y };
             points[(int)Pos.Cooking] = new Point() { x = X, y = Y + 1 };
+            points[(int)Pos.SelectFood] = new Point() { x = X, y = Y + 2 };
             points[(int)Pos.CookingCount] = new Point() { x = X, y = Y + 3 };
-            cookingCount = 0;
             maxCookingCount = 5;
             
         }
         public override void Enter()
         {
             Console.Clear();
+            bonfireInventory = game.sceneList[(int)SceneType.BonFireInventory] as BonfireInventory;
+            bonfireInventory.OnSelect += ReturnFood;
             curPoint = points[(int)Pos.Inventory];
+            cookingCount = 0;
         }
         public override void Render()
         {
@@ -42,6 +45,12 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         public override void Update()
         {
             base.Update();
+        }
+        public override void Exit()
+        {
+            base.Exit();
+            dish = null;
+            ingredient = null;
         }
         private void PrintBonfire()
         {
@@ -54,6 +63,16 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             Console.ForegroundColor = ConsoleColor.Green;
             SetCursor(curPoint);
             Console.WriteLine("▶");
+            Console.ResetColor();
+            SetCursor(points[(int)Pos.SelectFood]);
+            if (ingredient != null)
+            {
+                Console.Write("선택한 재료: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{ingredient.name}");
+            }
+            else
+                Console.WriteLine("                         ");
             SetCursor(points[(int)Pos.CookingCount]);
             if (cookingCount > 5)
             {
@@ -62,7 +81,7 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
                 Console.ResetColor();
                 Console.WriteLine("를 만들었습니다.");
             }
-            else
+            else if (ingredient != null)
             {
                 for (int i = 0; i < cookingCount; i++)
                 {
@@ -75,6 +94,8 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
                 }
                 Console.WriteLine("             ");
             }
+            else
+                Console.WriteLine("                             ");
         }
         protected override void PushKeyZ()
         {
@@ -97,7 +118,26 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
         private void Cooking()
         {
             // 모닥불 인벤토리로 이동 -> 음식 선택 -> z를 눌러 게이지를채우고 다 채우면 음식 완성
-            // 엔딩화면 시작화면 마무리
+            if (ingredient == null)
+            {
+                game.ChangeScene(SceneType.BonFireInventory);
+            }
+            cookingCount++;
+            if (cookingCount >= maxCookingCount)
+            {
+                if (ingredient is Salmon)
+                    dish = foodFactory.Create(FoodType.SalmonSteak);
+                else if (ingredient is CodFish)
+                    dish = foodFactory.Create(FoodType.FishCuttlet);
+                else if (ingredient is Meat)
+                    dish = foodFactory.Create(FoodType.Steak);
+                player.GetFood(dish);
+                ingredient = null;
+            }
+        }
+        private void ReturnFood(Food food)
+        {
+            ingredient = food;
         }
         #region 커서 이동
         protected override void MoveUpCursor()

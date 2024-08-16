@@ -35,9 +35,9 @@ namespace TextEternalReturn.Players
             OnRemoveItem?.Invoke();
         }
         // 아이템 버리기
-        public void ThrowItem(Food food)
+        public void ThrowItem(int key)
         {
-            inventory.Remove(food);
+            inventory.RemoveAt(key);
             OnRemoveItem?.Invoke();
         }
         // 아이템 자동 사용하기

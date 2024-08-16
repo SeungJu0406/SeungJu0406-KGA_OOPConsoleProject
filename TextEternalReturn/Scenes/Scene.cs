@@ -11,21 +11,23 @@ namespace TextEternalReturn.Scenes
         public int SceneID;
         protected Game game;
         protected Player player;
-        protected ConsoleKey consoleKey;     
+        protected ConsoleKey consoleKey;
         protected Scene curScene;
         protected Point curPoint;
-        protected Point statusPoint;       
+        protected Point statusPoint;
+        private Point collectionPoint;
         protected int X, Y; // 스텟창 밑 기준점
         protected int x, y; // 게임 기준점
         protected Scene(Player player)
         {
-            x = 25; 
+            x = 25;
             y = 5;
 
             X = x; Y = y + 5;
             this.game = Game.getInstance();
             this.player = player;
             statusPoint = new Point() { x = x, y = y };
+            collectionPoint = new Point() { x = X - 15, y = Y };
         }
         public virtual void Render()
         {
@@ -102,10 +104,10 @@ namespace TextEternalReturn.Scenes
         protected void PrintStatus()
         {
             SetCursor(statusPoint);
-            Console.WriteLine($"레벨: {player.level,6}");        
+            Console.WriteLine($"레벨: {player.level,6}");
             statusPoint.y++;
             SetCursor(statusPoint);
-            Console.WriteLine($"체력: {player.curHp,5}/{player.maxHp}");          
+            Console.WriteLine($"체력: {player.curHp,5}/{player.maxHp}");
             statusPoint.y++;
             SetCursor(statusPoint);
             Console.WriteLine($"공격력: {player.power,5}");
@@ -119,7 +121,7 @@ namespace TextEternalReturn.Scenes
         #region 제작템 확인
         protected void PrintCollectItem()
         {
-            Point collectionPoint = new Point() { x = X - 15, y = Y };
+
             SetCursor(collectionPoint);
             CollectFirst();
 
@@ -138,6 +140,9 @@ namespace TextEternalReturn.Scenes
             collectionPoint.y += 2;
             SetCursor(collectionPoint);
             CompleteItem();
+
+            collectionPoint.x = X - 15;
+            collectionPoint.y = Y;
         }
         public void CollectFirst()
         {

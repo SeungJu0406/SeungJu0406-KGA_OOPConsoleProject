@@ -21,7 +21,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 50;
                 monster.power = 10;
                 monster.exp = 5;
-                monster.reward = foodFactory.Create(FoodType.SalmonSteak);
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.WildBoar)
@@ -43,7 +43,7 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 150;
                 monster.power = 20;
                 monster.exp = 10;
-                monster.reward = foodFactory.Create(FoodType.FishCuttlet);
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.Bear)
@@ -54,14 +54,14 @@ namespace TextEternalReturn.Monsters
                 monster.curHp = 500;
                 monster.power = 75;
                 monster.exp = 50;
-                monster.reward = foodFactory.Create(FoodType.Steak);
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             else if (monsterType == MonsterType.Hyunwoo)
             {
                 Monster monster = hyunwoo.GetHyunwoo();
                 monster.exp = 0;
-                monster.reward = foodFactory.Create(FoodType.Steak);
+                monster.reward = foodFactory.Create(FoodType.Meat);
                 return monster;
             }
             return null;

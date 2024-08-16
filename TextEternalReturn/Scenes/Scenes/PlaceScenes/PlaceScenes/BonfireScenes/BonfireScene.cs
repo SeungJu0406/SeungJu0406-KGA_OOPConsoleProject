@@ -65,8 +65,9 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             Console.WriteLine("▶");
             Console.ResetColor();
             SetCursor(points[(int)Pos.SelectFood]);
+            
             if (ingredient != null)
-            {
+            {          
                 Console.Write("선택한 재료: ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{ingredient.name}");
@@ -74,9 +75,9 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             else
                 Console.WriteLine("                         ");
             SetCursor(points[(int)Pos.CookingCount]);
-            if (cookingCount > 5)
+            if (cookingCount > maxCookingCount)
             {
-
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write($"{dish.name}");
                 Console.ResetColor();
                 Console.WriteLine("를 만들었습니다.");
@@ -120,10 +121,11 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             // 모닥불 인벤토리로 이동 -> 음식 선택 -> z를 눌러 게이지를채우고 다 채우면 음식 완성
             if (ingredient == null)
             {
+                cookingCount = 0;
                 game.ChangeScene(SceneType.BonFireInventory);
             }
             cookingCount++;
-            if (cookingCount >= maxCookingCount)
+            if (cookingCount > maxCookingCount)
             {
                 if (ingredient is Salmon)
                     dish = foodFactory.Create(FoodType.SalmonSteak);

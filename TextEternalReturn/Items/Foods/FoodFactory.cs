@@ -34,7 +34,7 @@ namespace TextEternalReturn.Items.Foods
             }
             else if (foodType == FoodType.Steak)
             {
-                Food food = new FishCutlet();
+                Food food = new Steak();
                 food.name = "스테이크";
                 food.recovery = 550;
                 food.id = (int)FoodType.Steak;

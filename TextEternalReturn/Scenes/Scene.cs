@@ -188,7 +188,7 @@ namespace TextEternalReturn.Scenes
             if (player.craftInventory.completion)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("팔 괘 장");
+                Console.WriteLine("팔괘장 획득");
                 Console.ResetColor();
             }
         }

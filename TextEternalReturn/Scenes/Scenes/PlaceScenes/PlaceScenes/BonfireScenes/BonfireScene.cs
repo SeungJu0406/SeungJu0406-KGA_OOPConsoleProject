@@ -27,14 +27,13 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes.BonfireScenes
             points[(int)Pos.SelectFood] = new Point() { x = X, y = Y + 2 };
             points[(int)Pos.CookingCount] = new Point() { x = X, y = Y + 3 };
             maxCookingCount = 5;
-            
+            bonfireInventory = game.sceneList[(int)SceneType.BonFireInventory] as BonfireInventory;
+            bonfireInventory.OnSelect += ReturnFood;
         }
         public override void Enter()
         {
             Console.Clear();
-            bonfireInventory = game.sceneList[(int)SceneType.BonFireInventory] as BonfireInventory;
-            bonfireInventory.OnSelect += ReturnFood;
-            curPoint = points[(int)Pos.Inventory];
+            curPoint = points[(int)Pos.Cooking];
             cookingCount = 0;
         }
         public override void Render()

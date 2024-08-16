@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextEternalReturn.Players;
+using TextEternalReturn.Items.Foods;
 
 namespace TextEternalReturn
 {

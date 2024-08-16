@@ -7,6 +7,7 @@
 ----
 -  ↑ ↓ ← → 를 통해 움직이고 Z키를 통해 선택 가능
 - 게임 승리 조건: **현우** 처치
+- 플레이어 사망시 패배
 
 ### 기본 선택지
 ![image](https://raw.githubusercontent.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/main/Image/TestImage/%EC%9D%BC%EB%B0%98%20%EC%84%A0%ED%83%9D%EC%A7%80.png)

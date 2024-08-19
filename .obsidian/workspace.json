@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "텍스트 이터널리턴.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "텍스트 이터널리턴.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "텍스트 이터널리턴.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "텍스트 이터널리턴.md"
               }
             }
           }
@@ -148,7 +148,7 @@
   },
   "active": "58a4dfc0bc51502d",
   "lastOpenFiles": [
-    "텍스트 이터널리턴.md",
-    "README.md"
+    "README.md",
+    "텍스트 이터널리턴.md"
   ]
 }

@@ -40,4 +40,6 @@
 - 모든 아이템을 획득하면 팔괘장을 획득하며 플레이어의 체력과 공격력이 대폭 증가한다
 
 
-![image](https://github.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/blob/main/%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true)
+### 현우 다이어그램
+
+![image](https://github.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/blob/main/%ED%98%84%EC%9A%B0%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true)

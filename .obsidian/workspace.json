@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "2f1d2b32926e1fcc",
@@ -146,7 +147,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "58a4dfc0bc51502d",
+  "active": "c4805d63e28720f8",
   "lastOpenFiles": [
     "현우 다이어그램.drawio.png",
     "텍스트 이터널리턴.md",

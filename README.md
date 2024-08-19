@@ -38,3 +38,6 @@
 - 해당 아이템 획득 시 왼쪽의 필요 아이템의 색이 녹색으로 변한다
 ![image](https://github.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/blob/main/Image/TestImage/%EC%A1%B0%ED%95%A9%20%ED%85%9C%20%ED%9A%8D%EB%93%9D.png?raw=true)
 - 모든 아이템을 획득하면 팔괘장을 획득하며 플레이어의 체력과 공격력이 대폭 증가한다
+
+
+![image](https://github.com/SeungJu0406/SeungJu0406-KGA_OOPConsoleProject/blob/main/%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio.png?raw=true)

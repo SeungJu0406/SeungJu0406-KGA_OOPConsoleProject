@@ -50,7 +50,7 @@ namespace TextEternalReturn.Scenes.Scenes
         }
         protected override void PushKeyZ()
         {
-            game.ChangeScene(SceneType.ChoiceScene);
+            Game.game.ChangeScene(SceneType.ChoiceScene);
         }
         #region 커서 이동
         protected override void MoveUpCursor() { }

@@ -74,5 +74,29 @@ namespace TextEternalReturn.Scenes.Scenes.PlaceScenes.PlaceScenes
                 game.ChangeScene(SceneType.InventoryScene);
             }
         }
+        #region 커서 이동
+        protected override void MoveUpCursor()
+        {
+            if (curPoint.y > points[(int)Pos.Chest].y)
+            {
+                curPoint.y -= 1;
+            }
+        }
+        protected override void MoveDownCursor()
+        {
+            if (curPoint.y < points[(int)Pos.Inventory].y)
+            {
+                curPoint.y += 1;
+            }
+        }
+        protected override void MoveLeftCursor()
+        {
+
+        }
+        protected override void MoveRightCursor()
+        {
+
+        }
+        #endregion
     }
 }
